@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html>
+  <style>
+      :root {
+  --base-gray: rgba(0, 0, 0, 1);
+  --base-white: rgba(255, 255, 255, 1);
+  --base-gray-2: rgba(204, 204, 204, 1);
+  --base-paragraph-font-family: "Arial-Regular", Helvetica;
+  --base-paragraph-font-weight: 400;
+  --base-paragraph-font-size: 14px;
+  --base-paragraph-letter-spacing: 0px;
+  --base-paragraph-line-height: 20px;
+  --base-paragraph-font-style: normal;
+}
+
+      .macbook-pro {
+  position: relative;
+  width: 1512px;
+  height: 982px;
+  background-color: #df9a0e;
+}
+
+.macbook-pro .img {
+  position: absolute;
+  width: 407px;
+  height: 359px;
+  top: 132px;
+  left: 135px;
+  object-fit: cover;
+}
+
+.macbook-pro .image {
+  position: absolute;
+  width: 667px;
+  height: 388px;
+  top: 542px;
+  left: 5px;
+  object-fit: cover;
+}
+
+.macbook-pro .text-wrapper {
+  position: absolute;
+  top: 26px;
+  left: 40px;
+  font-family: "Agency FB-Bold", Helvetica;
+  font-weight: 700;
+  color: #f7fb12;
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.macbook-pro .div {
+  position: absolute;
+  top: 26px;
+  left: 380px;
+  font-family: "Agency FB-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.macbook-pro .text-wrapper-2 {
+  position: absolute;
+  top: 26px;
+  left: 587px;
+  font-family: "Agency FB-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.macbook-pro .vector {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  top: 22px;
+  left: 1432px;
+}
+
+.macbook-pro .text-wrapper-3 {
+  position: absolute;
+  top: 26px;
+  left: 196px;
+  font-family: "Agency FB-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.macbook-pro .overlap {
+  position: absolute;
+  width: 549px;
+  height: 898px;
+  top: 65px;
+  left: 883px;
+  border-radius: 20px;
+}
+
+.macbook-pro .frame {
+  position: absolute;
+  width: 549px;
+  height: 898px;
+  top: 0;
+  left: 0;
+  background-color: #000000;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 4px solid;
+  border-color: #f6c208;
+  opacity: 0.9;
+}
+
+.macbook-pro .rectangle {
+  position: absolute;
+  width: 164px;
+  height: 52px;
+  top: 815px;
+  left: 189px;
+  background-color: #979696;
+  border-radius: 15px;
+  border: 1px solid;
+  border-color: #fdd406;
+}
+
+.macbook-pro .overlap-group {
+  position: absolute;
+  width: 397px;
+  height: 50px;
+  top: 51px;
+  left: 120px;
+}
+
+.macbook-pro .text-wrapper-4 {
+  position: absolute;
+  width: 137px;
+  top: 0;
+  left: 0;
+  font-family: "Agency FB-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 36px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.macbook-pro .text-field {
+  position: absolute;
+  width: 296px;
+  height: 38px;
+  top: 12px;
+  left: 101px;
+  background-color: #a9a5a5;
+  border-radius: 15px;
+  border: 1px solid;
+  border-color: #fdd406;
+}
+
+.macbook-pro .text-wrapper-5 {
+  position: absolute;
+  width: 137px;
+  top: 116px;
+  left: 63px;
+  font-family: "Agency FB-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 36px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.macbook-pro .DATE {
+  position: absolute;
+  width: 137px;
+  top: 181px;
+  left: 78px;
+  font-family: "Agency FB-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 36px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.macbook-pro .PICK-UP {
+  position: absolute;
+  top: 302px;
+  left: 60px;
+  font-family: "Agency FB-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 36px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.macbook-pro .DROP-OFF {
+  position: absolute;
+  top: 367px;
+  left: 39px;
+  font-family: "Agency FB-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 36px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.macbook-pro .CHOOSE-RIDE {
+  position: absolute;
+  width: 200px;
+  top: 439px;
+  left: 0;
+  font-family: "Agency FB-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 36px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.macbook-pro .text-wrapper-6 {
+  position: absolute;
+  width: 247px;
+  top: 706px;
+  left: 17px;
+  font-family: "Agency FB-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.macbook-pro .select-field {
+  position: absolute;
+  width: 292px;
+  height: 39px;
+  top: 448px;
+  left: 220px;
+  background-color: #a8a5a5;
+  border-radius: 15px;
+  border: 1px solid;
+  border-color: #fdd406;
+}
+
+.macbook-pro .text {
+  position: absolute;
+  width: 251px;
+  top: 8px;
+  left: 16px;
+  font-family: "Agency FB-Regular", Helvetica;
+  font-weight: 400;
+  color: var(--base-gray);
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 20px;
+}
+
+.macbook-pro .arrow {
+  position: absolute;
+  width: 9px;
+  height: 6px;
+  top: 17px;
+  left: 272px;
+}
+
+.macbook-pro .text-field-2 {
+  width: 296px;
+  top: 122px;
+  left: 219px;
+  position: absolute;
+  height: 38px;
+  background-color: #a9a5a5;
+  border-radius: 15px;
+  border: 1px solid;
+  border-color: #fdd406;
+}
+
+.macbook-pro .text-field-3 {
+  width: 296px;
+  top: 191px;
+  left: 215px;
+  position: absolute;
+  height: 38px;
+  background-color: #a9a5a5;
+  border-radius: 15px;
+  border: 1px solid;
+  border-color: #fdd406;
+}
+
+.macbook-pro .text-field-4 {
+  width: 296px;
+  top: 254px;
+  left: 215px;
+  position: absolute;
+  height: 38px;
+  background-color: #a9a5a5;
+  border-radius: 15px;
+  border: 1px solid;
+  border-color: #fdd406;
+}
+
+.macbook-pro .text-field-5 {
+  width: 296px;
+  top: 311px;
+  left: 216px;
+  position: absolute;
+  height: 38px;
+  background-color: #a9a5a5;
+  border-radius: 15px;
+  border: 1px solid;
+  border-color: #fdd406;
+}
+
+.macbook-pro .text-field-6 {
+  width: 296px;
+  top: 378px;
+  left: 216px;
+  position: absolute;
+  height: 38px;
+  background-color: #a9a5a5;
+  border-radius: 15px;
+  border: 1px solid;
+  border-color: #fdd406;
+}
+
+.macbook-pro .overlap-group-2 {
+  position: absolute;
+  width: 498px;
+  height: 41px;
+  top: 513px;
+  left: 14px;
+}
+
+.macbook-pro .text-field-7 {
+  width: 292px;
+  top: 3px;
+  left: 206px;
+  position: absolute;
+  height: 38px;
+  background-color: #a9a5a5;
+  border-radius: 15px;
+  border: 1px solid;
+  border-color: #fdd406;
+}
+
+.macbook-pro .text-wrapper-7 {
+  position: absolute;
+  width: 247px;
+  top: 0;
+  left: 0;
+  font-family: "Agency FB-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.macbook-pro .ESTIMATED-TIME {
+  position: absolute;
+  width: 247px;
+  top: 572px;
+  left: 52px;
+  font-family: "Agency FB-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.macbook-pro .overlap-2 {
+  position: absolute;
+  width: 326px;
+  height: 38px;
+  top: 628px;
+  left: 65px;
+}
+
+.macbook-pro .ESTIMATED-TIME-2 {
+  position: absolute;
+  width: 115px;
+  top: 0;
+  left: 211px;
+  font-family: "Agency FB-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.macbook-pro .TIME {
+  position: absolute;
+  width: 137px;
+  top: 248px;
+  left: 82px;
+  font-family: "Agency FB-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 36px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.macbook-pro .text-wrapper-8 {
+  position: absolute;
+  width: 247px;
+  top: 817px;
+  left: 203px;
+  font-family: "Agency FB-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 36px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.macbook-pro .re-CAPTCHA {
+  position: absolute;
+  width: 297px;
+  height: 75px;
+  top: 695px;
+  left: 214px;
+  background-color: #a9a5a5;
+  border-radius: 15px;
+  border: 10px solid;
+  border-color: #fdd406;
+}
+
+.macbook-pro .overlap-3 {
+  position: relative;
+  height: 75px;
+  background-color: #a9a5a5;
+  border-radius: 10px;
+  border: 2px solid;
+  border-color: #fdd406;
+}
+
+.macbook-pro .checkbox {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  top: 23px;
+  left: 15px;
+  background-color: var(--base-white);
+  border: 1px solid;
+  border-color: #fdd406;
+}
+
+.macbook-pro .text-wrapper-9 {
+  position: absolute;
+  top: 16px;
+  left: 57px;
+  font-family: "Agency FB-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.macbook-pro .re-CAPTCHA-2 {
+  position: absolute;
+  width: 80px;
+  height: 57px;
+  top: 9px;
+  left: 204px;
+}
+
+.macbook-pro .text-wrapper-10 {
+  position: absolute;
+  top: 37px;
+  left: 0;
+  font-family: "Arial-Regular", Helvetica;
+  font-weight: 400;
+  color: #4d4d4d;
+  font-size: 14px;
+  letter-spacing: -0.28px;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.macbook-pro .logo {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: 0;
+  left: 25px;
+}
+
+.macbook-pro .text-field-8 {
+  width: 298px;
+  top: 574px;
+  left: 214px;
+  position: absolute;
+  height: 38px;
+  background-color: #a9a5a5;
+  border-radius: 15px;
+  border: 1px solid;
+  border-color: #fdd406;
+}
+
+.macbook-pro .text-field-9 {
+  width: 108px;
+  top: 632px;
+  left: 403px;
+  position: absolute;
+  height: 38px;
+  background-color: #a9a5a5;
+  border-radius: 15px;
+  border: 1px solid;
+  border-color: #fdd406;
+}
+
+.macbook-pro .checkbox-2 {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  top: 639px;
+  left: 218px;
+  background-color: var(--base-white);
+  border: 1px solid;
+  border-color: #fdd406;
+}
+
+.macbook-pro .text-wrapper-11 {
+  position: absolute;
+  top: 26px;
+  left: 793px;
+  font-family: "Agency FB-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+  </style>
+  <body>
+    <div class="macbook-pro">
+      <img class="img" src="img/6517a3620f7526000dd97690-2.png" />
+      <img class="image" src="img/image-31.png" />
+      <div class="text-wrapper">Home</div>
+      <div class="div">Booking</div>
+      <div class="text-wrapper-2">Contact</div>
+      <img class="vector" src="img/vector.svg" />
+      <div class="text-wrapper-3">About</div>
+      <div class="overlap">
+        <div class="frame">
+          <div class="rectangle"></div>
+          <div class="overlap-group">
+            <div class="text-wrapper-4">NAME:</div>
+            <div class="text-field"></div>
+          </div>
+          <div class="text-wrapper-5">PHONE NO:</div>
+          <div class="DATE">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DATE:</div>
+          <div class="PICK-UP">&nbsp;&nbsp;&nbsp;&nbsp;PICK UP:</div>
+          <div class="DROP-OFF">&nbsp;&nbsp;&nbsp;&nbsp;DROP OFF:</div>
+          <div class="CHOOSE-RIDE">&nbsp;&nbsp;&nbsp;&nbsp;CHOOSE RIDE:</div>
+          <div class="text-wrapper-6">VERIFY BOOKING:</div>
+          <div class="select-field">
+            <div class="text">Select one...</div>
+            <img class="arrow" src="img/arrow.svg" />
+          </div>
+          <div class="text-field-2"></div>
+          <div class="text-field-3"></div>
+          <div class="text-field-4"></div>
+          <div class="text-field-5"></div>
+          <div class="text-field-6"></div>
+          <div class="overlap-group-2">
+            <div class="text-field-7"></div>
+            <div class="text-wrapper-7">ESTIMATED PRICE:</div>
+          </div>
+          <div class="ESTIMATED-TIME">TRAVEL TIME:</div>
+          <div class="overlap-2">
+            <div class="text-wrapper-7">TWO WAYS:</div>
+            <div class="ESTIMATED-TIME-2">DISTANCE:</div>
+          </div>
+        </div>
+        <div class="TIME">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TIME:</div>
+        <div class="text-wrapper-8">BOOK NOW</div>
+        <div class="re-CAPTCHA">
+          <div class="overlap-3">
+            <div class="checkbox"></div>
+            <div class="text-wrapper-9">I’m not a robot</div>
+            <div class="re-CAPTCHA-2">
+              <div class="text-wrapper-10">reCAPTCHA</div>
+              <img class="logo" src="img/logo.png" />
+            </div>
+          </div>
+        </div>
+        <div class="text-field-8"></div>
+        <div class="text-field-9"></div>
+        <div class="checkbox-2"></div>
+      </div>
+      <div class="text-wrapper-11">Join Us</div>
+    </div>
+  </body>
+</html>
