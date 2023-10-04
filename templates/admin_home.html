@@ -1,199 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head><title>admin_home</title></head>
-    <style>
-        .macbook-pro {
-  position: relative;
-  width: 1512px;
-  height: 982px;
+<html>
+<head>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Agency FB-Bold", Helvetica;
+  font-weight: 700;
+}
+
+.macbook-pro {
+  display: flex;
+  width:100%;
+  height:100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Ensure the content takes at least the full viewport height */
   background-color: #df9a0e;
-  overflow: hidden;
 }
 
-.macbook-pro .overlap {
-  position: absolute;
-  width: 1366px;
-  height: 761px;
-  top: 188px;
-  left: -572px;
-}
-
-.macbook-pro .pngwing {
-  width: 750px;
-  height: 444px;
-  top: 198px;
-  left: 616px;
-  position: absolute;
-  object-fit: cover;
-}
-
-.macbook-pro .img {
-  width: 487px;
-  height: 475px;
-  top: 167px;
-  left: 572px;
-  position: absolute;
-  object-fit: cover;
-}
-
-.macbook-pro .group {
-  position: absolute;
-  width: 1300px;
-  height: 761px;
-  top: 0;
-  left: 0;
-}
-
-.macbook-pro .image {
-  position: absolute;
-  width: 728px;
-  height: 761px;
-  top: 0;
-  left: 572px;
-  object-fit: cover;
-}
-
-.macbook-pro .text-wrapper {
-  position: absolute;
-  top: 18px;
-  left: 56px;
-  font-family: "Agency FB-Bold", Helvetica;
-  font-weight: 700;
-  color: #f7fb12;
-  font-size: 32px;
-  letter-spacing: 0;
-  line-height: normal;
-  white-space: nowrap;
-}
-
-.macbook-pro .div {
-  position: absolute;
-  top: 18px;
-  left: 252px;
-  font-family: "Agency FB-Bold", Helvetica;
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 32px;
-  letter-spacing: 0;
-  line-height: normal;
-  white-space: nowrap;
-}
-
-.macbook-pro .text-wrapper-2 {
-  position: absolute;
-  top: 18px;
-  left: 527px;
-  font-family: "Agency FB-Bold", Helvetica;
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 32px;
-  letter-spacing: 0;
-  line-height: normal;
-  white-space: nowrap;
-}
-
-.macbook-pro .overlap-group {
-  position: absolute;
-  width: 408px;
-  height: 437px;
-  top: 188px;
-  left: 1057px;
-}
-
-.macbook-pro .text-wrapper-3 {
-  position: absolute;
-  width: 224px;
-  top: 272px;
-  left: 136px;
-  font-family: "Agency FB-Bold", Helvetica;
-  font-weight: 700;
+.bookingdetails-button {
+  margin-left:-16.0em;
+  margin-right:10em;
+  margin-top: 10em;
+  margin-bottom: 13em;
+  padding: 1em 2em;
+  background-color: #ffffff;
+  border-radius: 15px;
+  border: 1px solid #f7fb12;
+  font-alingment: left;
+  font-size: 2em;
   color: #000000;
-  font-size: 36px;
-  letter-spacing: 0;
-  line-height: normal;
 }
 
-.macbook-pro .img-2 {
-  position: absolute;
-  width: 408px;
-  height: 437px;
-  top: 0;
-  left: 0;
-  object-fit: cover;
-}
-
-.macbook-pro .overlap-group-2 {
-  position: absolute;
-  width: 367px;
-  height: 83px;
-  top: 692px;
-  left: 1068px;
-}
-
-.macbook-pro .rectangle {
-  position: absolute;
-  width: 367px;
-  height: 83px;
-  top: 0;
-  left: 0;
-}
-
-.macbook-pro .BOOKING-DETAILS {
-  position: absolute;
-  width: 227px;
-  top: 26px;
-  left: 106px;
-  font-family: "Agency FB-Bold", Helvetica;
-  font-weight: 700;
+.admin-navbar {
+  margin-top:2em;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 80%;
+  margin-top: 3em;
   color: #ffffff;
-  font-size: 24px;
-  letter-spacing: 0;
-  line-height: normal;
 }
-
-.macbook-pro .vector {
-  position: absolute;
-  width: 24px;
-  height: 24px;
-  top: 17px;
-  left: 1472px;
-}
-
-.macbook-pro .new-join-details {
-  position: absolute;
-  top: 21px;
-  left: 853px;
-  font-family: "Agency FB-Bold", Helvetica;
-  font-weight: 700;
+.car-img {
+  display: flex;
+  justify-content: space-around;
+  width:100%;
+  max-width: 80%;
+  margin-top: 2em;
   color: #ffffff;
-  font-size: 32px;
-  letter-spacing: 0;
-  line-height: normal;
-  white-space: nowrap;
+  float: left;
 }
 
-    </style>
-  <body>
-    <div class="macbook-pro">
-      <div class="overlap">
-        <img class="pngwing" src="img/pngwing-4.png" />
-        <img class="img" src="img/pngwing-3.png" />
-        <div class="group"><img class="image" src="img/image-27.png" /></div>
-      </div>
-      <div class="text-wrapper">Home</div>
-      <div class="div">Booking Details</div>
-      <div class="text-wrapper-2">Contact Devlopers</div>
-      <div class="overlap-group">
-        <div class="text-wrapper-3">LOG OUT</div>
-        <img class="img-2" src="img/6517a3620f7526000dd97690-2.png" />
-      </div>
-      <div class="overlap-group-2">
-        <img class="rectangle" src="img/rectangle-15.svg" />
-        <div class="BOOKING-DETAILS">BOOKING&nbsp;&nbsp; DETAILS</div>
-      </div>
-      <img class="vector" src="img/vector.svg" />
-      <div class="new-join-details">New Join&nbsp;&nbsp;Details</div>
-    </div>
-  </body>
 
+.img {
+  margin-left:10em;
+  margin-right: 69em;
+  margin-bottom: 5em;
+  margin-top: 10%;
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+}
+</style>
+</head>
+<body>
+<div class="macbook-pro">
+  <div class="admin-navbar">
+    <div class="text-wrapper-3">Home</div>
+    <div class="text-wrapper-2">Booking Details</div>
+    <div class="div">Contact Developers</div>
+    <div class="new-join-details">New Join&nbsp;&nbsp;Details</div>
+  </div>
+<div class="car-img">
+  <div class="img">
+  <img class="img1" src="/D:/Screenshot_2023-10-04_215702-removebg-preview.png" alt="Image"
+/>
+   </div>
+  <div class="bookingdetails-button">BookingDetails</div>
+</div>
+</div>
+</body>
 </html>
