@@ -2,7 +2,9 @@
 
 <!DOCTYPE html>
 <html>
-    <head> <meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
+    <head> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    </head>
   <style>
 body {
   width: 100%;
@@ -85,6 +87,7 @@ body {
 
 .admin-navbar {
   margin-top: 2em;
+    margin-left: 20%;
   display: flex;
   justify-content: space-around;
   width: 100%;
@@ -93,7 +96,9 @@ body {
   flex-wrap: wrap;
   align-items: flex-start;
 }
-
+.person_icon{
+    margin-left: 10%;
+}
 .CARGIF {
   display: flex;
   justify-content: space-around;
@@ -191,7 +196,7 @@ body {
            <div > <a class="text-wrapper-2" href="">Booking details</a></div>
            <div><a class="text-wrapper-3" href="">New Join list</a></div>
            <div><a class="text-wrapper-4" href="">Contact developers</a></div>
-         <a href="logout"><img class="vector"  src="img/vector.svg" /></a>
+           <a class="person_icon" href="logout"><i class='far fa-user' style='font-size:20px;color:white'></i></a>
        </div>
         <div class="frame1">
         <div class="text">
@@ -203,7 +208,7 @@ body {
         </div>
         </div>
         <div class="frame2">
-            <button class="text-wrapper"><a href="book" class="booknow" >Get Booking Now</a></button>
+            <button class="text-wrapper"><a href="book" class="booknow" >Booking Details</a></button>
             </div>
          </div>
 
