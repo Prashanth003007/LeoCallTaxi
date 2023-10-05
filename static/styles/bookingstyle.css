@@ -1,0 +1,58 @@
+:root{
+    --base-gray: rgba(0, 0, 0, 1);
+  --base-white: rgba(255, 255, 255, 1);
+  --base-gray-2: rgba(204, 204, 204, 1);
+  --base-paragraph-font-family: "Arial-Regular", Helvetica;
+  --base-paragraph-font-weight: 400;
+  --base-paragraph-font-size: 14px;
+  --base-paragraph-letter-spacing: 0px;
+  --base-paragraph-line-height: 20px;
+  --base-paragraph-font-style: normal;
+}
+.main{
+    display : flex;
+    flex-direction: row;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.logoimagebooking{
+    margin: 5%;
+position: relative;
+  width: 40%;
+  height: 50%;
+  top: 60%;
+  left: 10%;
+  object-fit: scale-down;
+}
+.bookingcar{
+    margin-top : 10%;
+    position: relative;
+  width: 60%;
+  height: 60%;
+  top: 20%;
+  left: 10%;
+  object-fit: scale-down;
+}
+.form{
+    margin: 12%;
+    position: relative;
+    width: 50%;
+    height: 100%;
+}
+.formclass{
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    align-self:flex-start;
+}
+.images{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+}
