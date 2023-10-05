@@ -8,3 +8,11 @@ def userHome(request):
 
 def book(request):
     return render(request, "booking.html")
+
+
+def booked(request):
+    return render(request,"booked.html")
+
+
+def about(request):
+    return render(request, "joinus.html")
