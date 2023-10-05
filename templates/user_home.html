@@ -1,117 +1,214 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
+    <head> <meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
   <style>
 body {
+  width: 100%;
+  height: 100%;
   margin: 0;
   padding: 0;
-  font-family: "Agency FB-Bold", Helvetica;
+  background-color: #df9a0e;
+  font-family: Helvetica, Arial, sans-serif;
   font-weight: 700;
 }
 
-.macbook-pro {
+.frame1 {
   display: flex;
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  margin-top: 10%;
+}
+
+.frame2 {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.main-frame {
+  display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh; /* Ensure the content takes at least the full viewport height */
+  width: 100%;
+  min-height: 100vh;
   background-color: #df9a0e;
 }
-.div{
- color:#F7FC13;
+
+.div {
+  color: #F7FC13;
+}
+.text-wrapper-2{
+    text-decoration: none;
+    color: white;
+}
+.text-wrapper-2:hover{
+    color:#F7FC13;
+}
+.text-wrapper-3{
+    text-decoration: none;
+    color: white;
+}
+.text-wrapper-3:hover{
+    color:#F7FC13;
+}
+.text-wrapper-4{
+    text-decoration: none;
+    color: white;
+}
+.text-wrapper-4:hover{
+    color:#F7FC13;
+}
+.text-wrapper-5{
+    text-decoration: none;
+    color: white;
+}
+.text-wrapper-5:hover{
+    color:#F7FC13;
 }
 
-.bookingdetails-button {
-    width : 100%;
-    height : 100%;
-}
-.text-wrapper{
-    margin-left:5.0em;
-  margin-right:-25em;
-  margin-top: -14.5em;
-  margin-bottom: 13em;
-    padding: 1em 2em;
-  background-color: #ffffff;
+.text-wrapper {
+  padding: 1em 2em;
+  width: fit-content;
+  height: fit-content;
+  background-color: black;
   border-radius: 15px;
   border: 1px solid #f7fb12;
-  font-alingment: left;
   font-size: 2em;
   color: #000000;
-
+  margin-top: -4%;
+  margin-left: 13%;
+  margin-right:-10%;
 }
 
 .admin-navbar {
-  margin-top:2em;
+  margin-top: 2em;
   display: flex;
   justify-content: space-around;
   width: 100%;
   max-width: 80%;
-  margin-top: 3em;
   color: #ffffff;
+  flex-wrap: wrap;
+  align-items: flex-start;
 }
+
 .CARGIF {
   display: flex;
   justify-content: space-around;
-  width:100%;
-  margin-right: 40em;
+  width: 60%;
+  height:40%;
   max-width: 80%;
-  margin-top: -50em;
+  margin-top: -10%;
   color: #ffffff;
   float: left;
 }
-.p{
-  font-size: 3.0em;
-}
-.from-short-rides-to{
-  margin-top:-1em;
-  font-size: 2.0em;
+
+.booknow{
+    text-decoration: none;
+    color: white;
 }
 
-.text{
-   margin-top  :10em;
-   margin-left : -38em;
+.p {
+  font-size: 300%;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.from-short-rides-to {
+  margin-top: -5%;
+  font-size: 180%;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+.text {
+  width: 100%;
+  height: 100%;
 }
 
 .logo {
-  margin-left:140em;
-  margin-right: 80em;
-  margin-bottom: 30em;
-  margin-top: -19em;
-  max-width: 100%;
-  max-height: 100%;
+  width: 35%;
+  height:35%;
+  margin-left: 20%;
+  margin-right: 5%;
+}
+
+.img {
+  margin-bottom : 30%;
+  width: 100%;
   height: auto;
 }
-.text-wrapper-2:hover{
-    color: #dfdc13;
+
+/* Media Queries for Responsiveness */
+
+/* Adjust styles for smaller screens (e.g., tablets) */
+/*
+@media (max-width: 768px) {
+  .frame2 {
+    margin-top: 2em;
+  }
 }
+
+*/
+@media (max-width: 480px) {
+
+
+  .frame1{
+    margin-top: -40em;
+  }
+  .admin-navbar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 80%;
+  color: #ffffff;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+  .frame2 {
+    margin-top: 0;
+  }
+  .bookingdetails-button {
+    font-size: 1.5em;
+  }
+  .p {
+    font-size: 2.5em;
+  }
+  .from-short-rides-to {
+    font-size: 1.5em;
+  }
+  .logo {
+    margin-top: 4%;
+  }
+}
+
 
 </style>
   <body>
-    <div class="macbook-pro">
+    <div class="main-frame">
        <div class="admin-navbar">
          <div class="div">Home</div>
-         <div class="text-wrapper-2">Booking</div>
-         <div class="text-wrapper-4">About</div>
-         <div class="text-wrapper-3">Contact</div>
-         <div class="text-wrapper-5">Join Us</div>
+           <div > <a class="text-wrapper-2" href="/templates/booking.html">Booking</a></div>
+           <div><a class="text-wrapper-3" href="">About</a></div>
+           <div><a class="text-wrapper-4" href="/templates/contact.html">Contact</a></div>
+           <div><a class="text-wrapper-5" href="/templates/joinus.html">Join Us</a></div>
          <img class="vector" src="img/vector.svg" />
        </div>
+        <div class="frame1">
         <div class="text">
       	   <p class="p">Connecting You to Your Destination</p>
            <p class="from-short-rides-to">From short rides to long journey we got it all.</p>
         </div>
         <div class = "logo">
-            <img class="img" src="C:\Users\eyeha\Downloads\LEO BATCH LOGO.png" />
+            <img class="img" src="{% static '/images/logo.png' %}" />
         </div>
+        </div>
+        <div class="frame2">
+            <img class="CARGIF" src="{% static '/gif/car.gif' %}" />
 
-       <div class="bookingdetails-button">
-           <a href="book">
-            <button class="text-wrapper">Get Booking Now</button>
-           </a>
-       </div>
-        <img class="CARGIF" src="/C:/Users/eyeha/Downloads/giffycanvas.gif" />
-      </div>
+            <button class="text-wrapper"><a href="book" class="booknow" >Get Booking Now</a></button>
+            </div>
+         </div>
+    </div>
 
 
     </div>
