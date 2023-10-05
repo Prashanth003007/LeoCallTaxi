@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
   <style>
@@ -554,7 +555,7 @@
   </style>
   <body>
     <div class="macbook-pro">
-      <img class="img" src="img/6517a3620f7526000dd97690-2.png" />
+      <img class="img" src="{% static "images/logo.png" %}" />
       <img class="image" src="img/image-31.png" />
       <div class="text-wrapper">Home</div>
       <div class="div">Booking</div>
@@ -566,7 +567,7 @@
           <div class="rectangle"></div>
           <div class="overlap-group">
             <div class="text-wrapper-4">NAME:</div>
-            <div class="text-field"></div>
+            <div class="text-field">1</div>
           </div>
           <div class="text-wrapper-5">PHONE NO:</div>
           <div class="DATE">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DATE:</div>
@@ -578,11 +579,11 @@
             <div class="text">Select one...</div>
             <img class="arrow" src="img/arrow.svg" />
           </div>
-          <div class="text-field-2" contenteditable="true" ></div>
-          <div class="text-field-3" contenteditable="true"></div>
-          <div class="text-field-4" contenteditable="true"></div>
-          <div class="text-field-5" contenteditable="true"></div>
-          <div class="text-field-6" contenteditable="true"></div>
+          <div class="text-field-2" ><input type="text" ></div>
+          <div class="text-field-3">3</div>
+          <div class="text-field-4" >4</div>
+          <div class="text-field-5" >5</div>
+          <div class="text-field-6" >6</div>
           <div class="overlap-group-2">
             <div class="text-field-7"></div>
             <div class="text-wrapper-7">ESTIMATED PRICE:</div>
@@ -605,8 +606,8 @@
             </div>
           </div>
         </div>
-        <div class="text-field-8"></div>
-        <div class="text-field-9"></div>
+        <div class="text-field-8">8</div>
+        <div class="text-field-9">9</div>
         <div class="checkbox-2"></div>
       </div>
       <div class="text-wrapper-11">Join Us</div>
