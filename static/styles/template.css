@@ -27,3 +27,20 @@ margin: auto;
     height: 40%;
     width: 100%;
 }
+
+.admin-navbar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 80%;
+    color: #ffffff;
+    flex-wrap: wrap;
+    align-items: flex-end;
+  }
+.text-wrapper-nav{
+    text-decoration: none;
+    color: white;
+  }
+.text-wrapper-nav:hover{
+    color:#F7FC13;
+}

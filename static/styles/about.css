@@ -1,0 +1,29 @@
+
+.main{
+    display : flex;
+    flex-direction: row;
+    position: relative;
+    height:auto;
+    width:auto;
+}
+.para-logo-container{
+    display: flex;
+    flex-direction: row;
+}
+.para-container{
+    margin-top: 1.8rem;
+    margin-left: 5rem;
+    position: relative;
+    height: 70%;
+    width: 50%;
+}
+.about-logo{
+    position: relative;
+    height: 80%;
+    width: 80%;
+    object-fit: scale-down;
+}
+.about-logo-container{
+    margin-top: 9rem;
+    margin-left: 8rem;
+}
