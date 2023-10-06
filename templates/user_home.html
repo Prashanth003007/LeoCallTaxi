@@ -28,6 +28,7 @@ body {
   display: flex;
   width: 100%;
   height: 100%;
+  margin-top: 5%;
 }
 
 .main-frame {
@@ -152,10 +153,32 @@ body {
 
 */
 @media (max-width: 480px) {
+    body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #df9a0e;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 700;
+}
+    .p { 
+  font-size: 300%;
+  margin-top: 10%;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 
+.from-short-rides-to {
+  font-size: 180%;
+  align-content: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
 
   .frame1{
-    margin-top: -40em;
+    margin-left: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   .admin-navbar {
   display: flex;
@@ -164,23 +187,78 @@ body {
   max-width: 80%;
   color: #ffffff;
   flex-wrap: wrap;
-  align-items: flex-end;
+  margin-left: 15%;
 }
+
   .frame2 {
-    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    margin-top:-10%;
+    margin-left: -8%;
+    align-content: center;
   }
-  .bookingdetails-button {
-    font-size: 1.5em;
-  }
-  .p {
-    font-size: 2.5em;
-  }
-  .from-short-rides-to {
-    font-size: 1.5em;
+  .booknow {
+    font-size: 90%;
   }
   .logo {
-    margin-top: 4%;
+    width:100%;
+    height:100%;
+    margin-left:15%;
+    margin-bottom:15%;
   }
+  .CARGIF{
+    display: none;
+    width: 70%;
+    height: 70%;
+    margin-top: -170%;
+    margin-bottom: 5%;
+
+  }
+  .div {
+  color: #F7FC13;
+  margin-left: -5%;
+}
+.text-wrapper-2{
+    text-decoration: none;
+    color: white;
+    margin-left: 4%;
+}
+.text-wrapper-2:hover{
+    color:#F7FC13;
+}
+.text-wrapper-3{
+    text-decoration: none;
+    color: white;
+    margin-left: 10%;
+}
+.text-wrapper-3:hover{
+    color:#F7FC13;
+}
+.text-wrapper-4{
+    text-decoration: none;
+    color: white;
+    margin-left: 5%;
+}
+.text-wrapper-4:hover{
+    color:#F7FC13;
+}
+.text-wrapper-5{
+    text-decoration: none;
+    color: white;
+    margin-left: 4%;
+}
+.person_icon{
+    margin-left:1%;
+
+}
+.text-wrapper-5:hover{
+    color:#F7FC13;
+}
+.text-wrapper{
+  margin-left: 30%;
+  margin-right: -10%;
+}
+
 }
 
 
@@ -192,8 +270,8 @@ body {
            <div > <a class="text-wrapper-2" href="/templates/booking.html">Booking</a></div>
            <div><a class="text-wrapper-3" href="about">About</a></div>
            <div><a class="text-wrapper-4" href="/templates/contact.html">Contact</a></div>
-           <div><a class="text-wrapper-5" href="/templates/joinus.html">Join Us</a></div>
-           <!--<a class="person_icon" href="/adminlogin.html"><i class='far fa-user' style='font-size:20px;color:white'></i></a>-->
+           <div><a class="text-wrapper-5" href="/templates/joinus.html">Join</a></div>
+           <a class="person_icon" href="/adminlogin.html"><i class='far fa-user' style='font-size:20px;color:white'></i></a>
        </div>
         <div class="frame1">
         <div class="text">
@@ -201,11 +279,11 @@ body {
            <p class="from-short-rides-to">From short rides to long journey we got it all.</p>
         </div>
         <div class = "logo">
-            <img class="img" src="{% static '/images/logo.png' %}" />
+            <img class="img" src="{% static 'images/logo.png' %}" />
         </div>
         </div>
         <div class="frame2">
-            <img class="CARGIF" src="{% static '/gif/car.gif' %}" />
+            <img class="CARGIF" src="{% static 'gif/car.gif' %}" />
 
             <button class="text-wrapper"><a href="book" class="booknow" >Get Booking Now</a></button>
             </div>
