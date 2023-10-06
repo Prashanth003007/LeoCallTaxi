@@ -1,4 +1,4 @@
-{% load static %}
+
 <!DOCTYPE html>
 <html>
     <head> <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -6,13 +6,17 @@
     </head>
   <style>
 body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  background-color: #df9a0e;
-  font-family: Helvetica, Arial, sans-serif;
-  font-weight: 700;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: ('C:\Users\eyeha\Downloads\—Pngtree—abstract black and yellow grunge_1342528.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Agency FB';
+    font-weight: 700;
 }
 
 .frame1 {
@@ -21,7 +25,8 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  margin-top: 10%;
+  color: #ffffff;
+  margin-top: 6%;
 }
 
 .frame2 {
@@ -36,7 +41,6 @@ body {
   flex-direction: column;
   width: 100%;
   min-height: 100vh;
-  background-color: #df9a0e;
 }
 
 .div {
@@ -75,13 +79,13 @@ body {
   padding: 1em 2em;
   width: fit-content;
   height: fit-content;
-  background-color: #ffffff;
-  border-radius: 15px;
-  border: 1px solid #f7fb12;
-  font-size: 2em;
+  font-weight: bold;
+  background-color: #df9a0e;
+  border-radius: 55px;
+  font-size: 200%;
   color: #000000;
-  margin-top: -4%;
-  margin-left: 13%;
+  margin-top: -5%;
+  margin-left: 15%;
   margin-right:-10%;
 }
 
@@ -102,25 +106,26 @@ body {
   width: 60%;
   height:40%;
   max-width: 80%;
-  margin-top: -10%;
+  margin-top: -15%;
   color: #ffffff;
   float: left;
 }
 
 .booknow{
+    font-family: 'Agency FB','Bold';
     text-decoration: none;
-    color: #d7dc13;
+    color: #000000;
 }
 
 .p {
-  font-size: 300%;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-left: 10%;
+  font-size: 400%;
 }
 
 .from-short-rides-to {
   margin-top: -5%;
-  font-size: 180%;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+  margin-left: 10%;
+  font-size: 300%;
 }
 
 .text {
@@ -152,17 +157,19 @@ body {
 }
 
 */
-@media (max-width: 480px) {
+@media (max-width: 945px) {
     body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  background-color: #df9a0e;
-  font-family: Helvetica, Arial, sans-serif;
-  font-weight: 700;
+    overflow: scroll;
+    margin: 0;
+    padding: 0;
+    background-image: ('C:\Users\eyeha\Downloads\—Pngtree—abstract black and yellow grunge_1342528.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Agency FB';
+    font-weight: 700;
 }
-    .p { 
+    .p {
   font-size: 300%;
   margin-top: 10%;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -175,7 +182,7 @@ body {
 }
 
   .frame1{
-    margin-left: 10%;
+    margin-left: -2%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -186,26 +193,28 @@ body {
   width: 100%;
   max-width: 80%;
   color: #ffffff;
+  font-size: large;
   flex-wrap: wrap;
   margin-left: 15%;
 }
 
   .frame2 {
+
     display: flex;
     flex-direction: column;
     margin-top:-10%;
-    margin-left: -8%;
+    margin-left: -20%;
     align-content: center;
   }
   .booknow {
-    font-size: 90%;
+    font-size: 100%;
   }
   .logo {
-    text-indent: -9px;
-    width:100%;
-    height:100%;
-    margin-left:15%;
-    margin-bottom:15%;
+    align-items: center;
+    align-content: center;
+    margin-left: -6%;
+    width:50%;
+    height:50%;
   }
   .CARGIF{
     display: none;
@@ -256,6 +265,8 @@ body {
     color:#F7FC13;
 }
 .text-wrapper{
+  width: fit-content;
+  height: fit;
   margin-left: 30%;
   margin-right: -10%;
 }
@@ -264,7 +275,7 @@ body {
 
 
 </style>
-  <body>
+  <body background="C:\Users\eyeha\Downloads\—Pngtree—abstract black and yellow grunge_1342528.jpg">
     <div class="main-frame">
        <div class="admin-navbar">
          <div class="div">Home</div>
@@ -279,13 +290,13 @@ body {
            <p class="from-short-rides-to">From short rides to long journey we got it all.</p>
         </div>
         <h1 class = "logo">
-            <img class="img" src="{% static 'images/logo.png' %}" />
+            <img class="img" src="C:\Users\eyeha\Downloads\LEO BATCH LOGO.png" />
         </h1>
         </div>
         <div class="frame2">
-            <img class="CARGIF" src="{% static 'gif/car.gif' %}" />
+            <img class="CARGIF" src="C:\Users\eyeha\Downloads\giffycanvas.gif" />
 
-            <button class="text-wrapper"><a href="book" class="booknow" >Get Booking Now</a></button>
+            <button class="text-wrapper"><a href="book" class="booknow" >Get Book Now</a></button>
             </div>
          </div>
     </div>
