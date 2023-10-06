@@ -5,7 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-    font-family: "Agency FB-Bold", Helvetica;
+    font-family: "Agency FB";
 }
 
 html {
@@ -25,7 +25,7 @@ body {
     width: 80%;
     max-width: 768px;
     margin-left: 10%;
-    padding-top: 7%;
+    padding-top: 10%;
 }
 
 .img1 {
@@ -78,10 +78,10 @@ body {
 .box-text2 {
     position: absolute;
     left: 50%;
-    top: 70%; /* Adjust the top position to place it below the check symbol */ /* Center horizontally */
+    top: 65%; /* Adjust the top position to place it below the check symbol */ /* Center horizontally */
     transform: translateX(-50%); /* Center horizontally */
     color: #df9a0e; /* Same color as the check symbol */
-    font-size: 0.8rem;/* Adjust the font size as needed */
+    font-size: 1.8rem;/* Adjust the font size as needed */
     font-weight: bold;
     text-align: center;
 }
@@ -91,7 +91,6 @@ body {
     width: 100%;
     z-index: 999;
     padding: 30px 30px;
-    font-family: 'Ubuntu', sans-serif;
     transition: all 0.3s ease;
 }
 
@@ -115,7 +114,7 @@ body {
 .navbar .menu li a {
     display: block;
     color: #fff;
-    font-size: 18px;
+    font-size: 200%;
     font-weight: 500;
     margin-left: 25px;
     transition: color 0.3s ease;
@@ -140,7 +139,7 @@ body {
 /* transparent box styling */
 .transparent-box {
     position: fixed;
-    top: 15%;
+    top: 20%;
     right: 15%;
     width: 30%; /* Adjust the width as needed */
     height: 70%;
@@ -200,6 +199,7 @@ body {
     }
 
     .pic {
+        display: none;
         width: 80%;
         margin: 0 40%;
     }
@@ -219,10 +219,9 @@ body {
     /* transparent box styling */
 .transparent-box {
     position: absolute;
-    top: 67%;
-    right: 25%;
-    width: 50%; /* Adjust the width as needed */
-    height: 30%;
+    top:25%;
+    width: 70%; /* Adjust the width as needed */
+    height: 60%;
     background-color: rgba(0, 0, 0, 0.9); /* Background with 90% transparency */
     z-index: 998; /* Ensure it's behind the content */
     border-radius: 20px;
@@ -241,7 +240,7 @@ body {
     top: 40%; /* Adjust the top position to place it below the check symbol */ /* Center horizontally */
     transform: translateX(-50%); /* Center horizontally */
     color: #4BED13; /* Same color as the check symbol */
-    font-size: 1.8rem;/* Adjust the font size as needed */
+    font-size: 3rem;/* Adjust the font size as needed */
     font-weight: bold;
     text-align: center;
 }
@@ -249,10 +248,10 @@ body {
 .box-text2 {
     position: absolute;
     left: 50%;
-    top: 60%; /* Adjust the top position to place it below the check symbol */ /* Center horizontally */
+    top: 65%; /* Adjust the top position to place it below the check symbol */ /* Center horizontally */
     transform: translateX(-50%); /* Center horizontally */
     color: #df9a0e; /* Same color as the check symbol */
-    font-size: 60%;/* Adjust the font size as needed */
+    font-size: 1rem;/* Adjust the font size as needed */
     font-weight: bold;
     text-align: center;
 }
