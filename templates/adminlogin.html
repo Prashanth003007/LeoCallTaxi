@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +13,7 @@
     height: 100%;
     margin: 0;
     padding: 0;
-    background-image: ('C:\Users\eyeha\Downloads\—Pngtree—abstract black and yellow grunge_1342528.jpg');
+    background-image: "{% static 'images/desktop_backgroud.jpg' %}";
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -80,7 +81,7 @@
 }
 
 .formclass input[type="submit"] {
-margin-top: 20%;c
+margin-top: 20%;
 font-weight: bold;
 border: none;
 padding: 20px 25px;
@@ -132,12 +133,12 @@ font-size: 150%;
 
 }
 </style>
-<body background="D:\LeoCallTaxi\static\images\desktop_backgroud.jpg">
+<body background="{% static 'images/desktop_backgroud.jpg' %}">
 <div class="mainframe">
   <div class="frame1">
     <div class="images">
-      <img class="img1" src="C:\Users\eyeha\Downloads\LEO BATCH LOGO.png" />
-      <img class="img2" src="D:\LeoCallTaxi\static\images\BookingCar.png" />
+      <img class="img1" src="{% static 'images/logo.png' %}" />
+      <img class="img2" src="{% static 'images/BookingCar.png' %}" />
     </div>
   </div>
   <div class="fcontain">
@@ -147,7 +148,7 @@ font-size: 150%;
 
         <label for="phone">Password: </label>
         <input type="text" id="phone" name="phone"><br><br>
-        <center><input type="submit" value="JOIN NOW"></center>
+        <a href="admin_home.html"><input type="submit" value="LOGIN" ></a>
     </form>
     </div>
 </div>

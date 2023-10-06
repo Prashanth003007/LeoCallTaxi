@@ -7,12 +7,16 @@
     </head>
   <style>
 body {
+  overflow: hidden;
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #df9a0e;
-  font-family: Helvetica, Arial, sans-serif;
+  background-image: '{% static 'images/desktop_backgroud.jpg' %}';
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: 'Agency FB';
   font-weight: 700;
 }
 
@@ -35,8 +39,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 100vh;
-  background-color: #df9a0e;
+  min-height: 100vh;;
 }
 
 .div {
@@ -105,7 +108,7 @@ body {
   width: 60%;
   height:40%;
   max-width: 80%;
-  margin-top: -6%;
+  margin-top: -10%;
   color: #ffffff;
   float: left;
 }
@@ -139,7 +142,7 @@ body {
 }
 
 .img {
-  margin-bottom : 30%;
+  margin-bottom : 10%;
   width: 100%;
   height: auto;
 }
@@ -189,7 +192,7 @@ body {
 
 
 </style>
-  <body>
+  <body background="{% static 'images/desktop_backgroud.jpg' %}">
     <div class="main-frame">
        <div class="admin-navbar">
          <div class="div">Home</div>
@@ -208,7 +211,7 @@ body {
         </div>
         </div>
         <div class="frame2">
-            <button class="text-wrapper"><a href="book" class="booknow" >Booking Details</a></button>
+            <button class="text-wrapper"><a href="joinus" class="booknow" >Booking Details</a></button>
             </div>
          </div>
 
