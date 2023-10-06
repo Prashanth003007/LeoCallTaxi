@@ -1,172 +1,52 @@
 <!DOCTYPE html>
-<html>
-  <head>
-  </head>
-  <style>
-      .macbook-pro {
-  position: relative;
-  width: 1512px;
-  height: 982px;
-  background-color: #df9a0e;
-  overflow: hidden;
-}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles/booked.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="max-width">
+            <ul class="menu">
+                <li><a href="#home" class="menu-btn">Home</a></li>
+                <li><a href="#about" class="menu-btn">About</a></li>
+                <li><a href="#booking" class="menu-btn">Booking</a></li>
+                <li><a href="#contact" class="menu-btn">Contact</a></li>
+                <li><a href="#join Us" class="menu-btn">Join Us</a></li>
+            </ul>
 
-.macbook-pro .img {
-  width: 407px;
-  height: 359px;
-  top: 104px;
-  left: 173px;
-  position: absolute;
-  object-fit: cover;
-}
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
 
-.macbook-pro .text-wrapper {
-  position: absolute;
-  top: -68px;
-  left: 45px;
-  font-family: "Agency FB-Bold", Helvetica;
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 32px;
-  letter-spacing: 0;
-  line-height: normal;
-  white-space: nowrap;
-}
+            <div class="icon"><img src="images/Vector.png" class="icimg"></div>
+        </div>
+    </nav>
 
-.macbook-pro .div {
-  position: absolute;
-  top: -68px;
-  left: 263px;
-  font-family: "Agency FB-Bold", Helvetica;
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 32px;
-  letter-spacing: 0;
-  line-height: normal;
-  white-space: nowrap;
-}
-
-.macbook-pro .text-wrapper-2 {
-  position: absolute;
-  top: -68px;
-  left: 460px;
-  font-family: "Agency FB-Bold", Helvetica;
-  font-weight: 700;
-  color: #f7fb12;
-  font-size: 32px;
-  letter-spacing: 0;
-  line-height: normal;
-  white-space: nowrap;
-}
-
-.macbook-pro .text-wrapper-3 {
-  position: absolute;
-  top: -68px;
-  left: 680px;
-  font-family: "Agency FB-Bold", Helvetica;
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 32px;
-  letter-spacing: 0;
-  line-height: normal;
-  white-space: nowrap;
-}
-
-.macbook-pro .mdi-user {
-  position: absolute;
-  width: 36px;
-  height: 36px;
-  top: 1144px;
-  left: -8279px;
-}
-
-.macbook-pro .overlap {
-  position: absolute;
-  width: 667px;
-  height: 388px;
-  top: 570px;
-  left: 28px;
-  background-image: url(./img/image-31.png);
-  background-size: cover;
-  background-position: 50% 50%;
-}
-
-.macbook-pro .img-2 {
-  width: 98px;
-  height: 107px;
-  top: 137px;
-  left: 417px;
-  position: absolute;
-  object-fit: cover;
-}
-
-.macbook-pro .overlap-group {
-  position: absolute;
-  width: 536px;
-  height: 656px;
-  top: 138px;
-  left: 948px;
-}
-
-.macbook-pro .rectangle {
-  position: absolute;
-  width: 469px;
-  height: 656px;
-  top: 0;
-  left: 0;
-}
-
-.macbook-pro .text-wrapper-4 {
-  position: absolute;
-  width: 415px;
-  top: 260px;
-  left: 121px;
-  font-family: "Agency FB-Bold", Helvetica;
-  font-weight: 700;
-  color: #4bec12;
-  font-size: 96px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.macbook-pro .YOUR-BOOKING-DETAILS {
-  position: absolute;
-  width: 364px;
-  top: 430px;
-  left: 53px;
-  font-family: "Agency FB-Bold", Helvetica;
-  font-weight: 700;
-  color: #df9a0e;
-  font-size: 36px;
-  text-align: center;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.macbook-pro .vector {
-  position: absolute;
-  width: 158px;
-  height: 132px;
-  top: 86px;
-  left: 171px;
-}
-
-  </style>
-  <body>
-    <div class="macbook-pro">
-      <img class="img" src="img/6517a3620f7526000dd97690-2.png" />
-      <div class="text-wrapper">Home</div>
-      <div class="div">About</div>
-      <div class="text-wrapper-2">Booking</div>
-      <div class="text-wrapper-3">Contact</div>
-      <img class="mdi-user" src="img/mdi-user.svg" />
-      <div class="overlap"><img class="img-2" src="img/6517a3620f7526000dd97690-3.png" /></div>
-      <div class="overlap-group">
-        <img class="rectangle" src="img/rectangle-17.svg" />
-        <div class="text-wrapper-4">BOOKED</div>
-        <p class="YOUR-BOOKING-DETAILS">YOUR BOOKING DETAILS ARE SENT TO YOU ON MAIL &amp; PHONE NUMBER</p>
-        <img class="vector" src="img/vector.svg" />
-      </div>
+    <div class="container">
+        <div class="content">
+            <div class="pic">
+                <div><img src="images/logo.png" class="img1"></div>
+                <div><img src="images/car.png" class="img2"></div>
+            </div>
+        </div>
+        <div class="transparent-box">
+            <img src="images/check.svg" class="check-symbol">
+            <div>
+                <p class="box-text">BOOKED</p>
+                <p class="box-text2">YOUR BOOKING DETAILS ARE<br>SENT TO YOU ON MAIL &amp;<br>PHONE NUMBER</p>
+            </div>
+        </div>
     </div>
-  </body>
+
+    <script src="../static/js/script.js"></script>
+</body>
 </html>
