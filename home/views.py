@@ -12,8 +12,12 @@ def book(request):
 
 def booked(request):
     print(request.POST["name"])
-    return render(request,"booked.html")
+    return render(request, "booked.html")
 
 
 def about(request):
     return render(request, "about.html")
+
+
+def joinus(request):
+    return render(request, "joinus.html")

@@ -31,15 +31,23 @@ margin: auto;
 .admin-navbar {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    width: 60%;
     max-width: 80%;
     color: #ffffff;
     flex-wrap: wrap;
     align-items: flex-end;
+    margin-top: 1.2rem;
+    margin-left: 1.8rem;
+    font-family: Agency FB;
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
   }
 .text-wrapper-nav{
     text-decoration: none;
     color: white;
+
   }
 .text-wrapper-nav:hover{
     color:#F7FC13;

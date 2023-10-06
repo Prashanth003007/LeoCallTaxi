@@ -1,76 +1,51 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
-  <head></head>
-  <styles>
-      <!DOCTYPE html>
-<html>
-  <head>
-    <link rel="stylesheet" href="globals.css" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="macbook-pro">
-      <div class="overlap">
-        <img class="vector" src="img/vector.svg" />
-        <img class="ios" src="img/ios-15.png" />
-        <img class="pngwing" src="img/pngwing-5.png" />
-        <img class="gmail" src="img/gmail.png" />
-        <img class="facebook" src="img/facebook.svg" />
-        <img class="instagram" src="img/instagram.svg" />
-      </div>
-      <img class="img" src="img/6517a3620f7526000dd97690-3.png" />
-      <div class="overlap-group">
-        <div class="text-wrapper">Home</div>
-        <div class="text-wrapper">Home</div>
-      </div>
-      <div class="div">
-        <div class="text-wrapper">About</div>
-        <div class="text-wrapper">About</div>
-      </div>
-      <div class="overlap-2">
-        <div class="text-wrapper">Booking</div>
-        <div class="text-wrapper">Booking</div>
-      </div>
-      <div class="overlap-3">
-        <div class="text-wrapper-2">Contact</div>
-        <div class="text-wrapper-2">Contact</div>
-      </div>
-      <img class="vector-2" src="img/image.svg" />
-      <div class="text-wrapper-3">Join Us</div>
-    </div>
-  </body>
-</html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/base.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/template.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/contact.css'%}">
+    <title>Leo Taxi</title>
+</head>
+<body>
+    <div class="main">
+    <div>
+        <div class="admin-navbar">
+            <div class="text-wrapper-nav">Home</div>
+              <div > <a class="text-wrapper-nav" href="book">Booking</a></div>
+              <div><a class="text-wrapper-nav" href="about">About</a></div>
+              <div><a class="div" href="/templates/contact.html">Contact</a></div>
+              <div><a class="text-wrapper-nav" href="/templates/joinus.html">Join Us</a></div>
 
-  </styles>
-  <body>
-    <div class="macbook-pro">
-      <div class="overlap">
-        <img class="vector" src="img/vector.svg" />
-        <img class="ios" src="img/ios-15.png" />
-        <img class="pngwing" src="img/pngwing-5.png" />
-        <img class="gmail" src="img/gmail.png" />
-        <img class="facebook" src="img/facebook.svg" />
-        <img class="instagram" src="img/instagram.svg" />
+          </div>
+    <div class = "contact-logo-container">
+      <div class = "contact-container">
+        <div class = "contact-links">
+            <div class="link-icons-row">
+            <div class="icons"><img src="{% static 'images/gmail.svg' %}"></div>
+            <div class="icons"><img src="{% static 'images/_Instagram.svg' %}"></div>
+            </div>
+        </div>
+        <div class = "contact-links">
+            <div class="link-icons-row">
+            <div class="icons"><img src="{% static 'images/twitter.svg' %}"></div>
+            <div class="icons"><img src="{% static 'images/_Facebook.svg'%}"></div>
+            </div>
+        </div>
+        <div class = "contact-links">
+            <div class="link-icons-row">
+            <div class="icons"><img src="{% static 'images/iOS 15.png'%}"></div>
+            <div class="icons"><img src="{% static 'images/phone.png'%}"></div>
+            </div>
+        </div>
       </div>
-      <img class="img" src="img/6517a3620f7526000dd97690-3.png" />
-      <div class="overlap-group">
-        <div class="text-wrapper">Home</div>
-        <div class="text-wrapper">Home</div>
+      <div class="about-logo-container">
+        <img src="{% static 'images/logo.png' %}" class="about-logo">
       </div>
-      <div class="div">
-        <div class="text-wrapper">About</div>
-        <div class="text-wrapper">About</div>
-      </div>
-      <div class="overlap-2">
-        <div class="text-wrapper">Booking</div>
-        <div class="text-wrapper">Booking</div>
-      </div>
-      <div class="overlap-3">
-        <div class="text-wrapper-2">Contact</div>
-        <div class="text-wrapper-2">Contact</div>
-      </div>
-      <img class="vector-2" src="img/image.svg" />
-      <div class="text-wrapper-3">Join Us</div>
     </div>
-  </body>
+    </div>
+    </div>
+</body>
 </html>
