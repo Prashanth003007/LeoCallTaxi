@@ -120,7 +120,8 @@ body {
     font-weight: bold;
     display: block; /* Display labels as blocks */
     text-align: left; /* Align labels to the right */
-    margin-bottom: 10px;
+    margin-bottom: 5%;
+    font-size: 1.8rem;
 }
 
 
@@ -135,6 +136,7 @@ body {
 }
 
 .formclass input[type="submit"] {
+
     background-color: #df9a0e; /* Change the submit button background color */
     color: white;
     font-weight: bold;
@@ -142,7 +144,7 @@ body {
     padding: 20px 25px;
     border-radius: 20px;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 1.8rem;
 
 }
 
@@ -218,53 +220,10 @@ body {
         height: auto;
     }
 
-    /* transparent box styling */
-.transparent-box {
-    position: absolute;
-    top:25%;
-    width: 70%; /* Adjust the width as needed */
-    height: 60%;
-    background-color: rgba(0, 0, 0, 0.9); /* Background with 90% transparency */
-    z-index: 998; /* Ensure it's behind the content */
-    border-radius: 20px;
-    border: 2px solid #4BED13;
-}
-
 .content{
     /* right: 30%; */
     width: 60%; /* Adjust the width as needed */
     height: 40%;
-}
-
-.box-text {
-    position: absolute;
-    left: 50%;
-    top: 40%; /* Adjust the top position to place it below the check symbol */ /* Center horizontally */
-    transform: translateX(-50%); /* Center horizontally */
-    color: #4BED13; /* Same color as the check symbol */
-    font-size: 3rem;/* Adjust the font size as needed */
-    font-weight: bold;
-    text-align: center;
-}
-
-.box-text2 {
-    position: absolute;
-    left: 50%;
-    top: 65%; /* Adjust the top position to place it below the check symbol */ /* Center horizontally */
-    transform: translateX(-50%); /* Center horizontally */
-    color: #df9a0e; /* Same color as the check symbol */
-    font-size: 1rem;/* Adjust the font size as needed */
-    font-weight: bold;
-    text-align: center;
-}
-
-.check-symbol {
-    margin-top: 5%;
-    margin-left: 50%;
-    transform: translateX(-50%); /* Center horizontally */
-    height: 30%;
-    width: 30%;
-
 }
 
 .navbar {
