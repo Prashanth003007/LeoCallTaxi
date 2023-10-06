@@ -1,140 +1,151 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
   </head>
   <style>
-      .LAP-CONTACT {
-  position: relative;
-  width: 1512px;
-  height: 982px;
-  background-color: #df9a03;
+    .navbar {
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    padding: 30px 80px;
+    transition: all 0.3s ease;
+
 }
 
-.LAP-CONTACT .text-wrapper {
-  position: absolute;
-  top: 37px;
-  left: 212px;
-  font-family: "Agency FB-Bold", Helvetica;
+.navbar.sticky {
+    padding: 15px 0;
+    background: #dfdc13;
+}
+
+.navbar .max-width {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar .menu li {
+    list-style: none;
+    display: inline-block;
+    margin-right: 60px;
+
+}
+
+.navbar .menu li a {
+    display: block;
+    color: #fff;
+    font-size: 200%;
+    font-weight: 500;
+    margin-left: 25px;
+    transition: color 0.3s ease;
+}
+
+.navbar .menu li a:hover {
+    color: #dfdc13;
+}
+
+.navbar.sticky .menu li a:hover {
+    color: #fff;
+}
+
+/* menu btn styling */
+.menu-btn {
+    color: #fff;
+    font-size: 23px;
+    cursor: pointer;
+    display: none;
+}
+body {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-image: ('C:\Users\eyeha\Downloads\—Pngtree—abstract black and yellow grunge_1342528.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: 'Agency FB';
   font-weight: 700;
-  color: #ffffff;
-  font-size: 32px;
-  letter-spacing: 0;
-  line-height: normal;
-  white-space: nowrap;
 }
+.main-frame{
+    width:100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.overlap-group {
+      margin-left: -1%;
+      margin-right: 55%;
+      margin-top: 8%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
 
-.LAP-CONTACT .div {
-  position: absolute;
-  top: 37px;
-  left: 378px;
-  font-family: "Agency FB-Bold", Helvetica;
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 32px;
-  letter-spacing: 0;
-  line-height: normal;
-  white-space: nowrap;
-}
+    .text-wrapper-3 input[type="text"] {
+        width: 280%; /* Make input width 100% to adapt to different screen sizes */
+        padding: 165%;
+        font-weight: bold;
+        border-radius: 10px;
+        background-color: #bbb9b9;
+        text-align: center;
+    }
 
-.LAP-CONTACT .text-wrapper-2 {
-  position: absolute;
-  top: 37px;
-  left: 641px;
-  font-family: "Agency FB-Bold", Helvetica;
-  font-weight: 700;
-  color: #f7fb12;
-  font-size: 32px;
-  letter-spacing: 0;
-  line-height: normal;
-  white-space: nowrap;
-}
+    /* Style the submit button */
+    .text-wrapper-3 input[type="submit"] {
+        width: 100%; /* Make button width 100% to adapt to different screen sizes */
+        font-weight: bold;
+        margin-left:250%;
+        padding: 10%;
+        font-family: 'Agency FB';
+        font-size: 150%;
+        border-radius: 10px;
+        background-color: #df9a0e;
+        color: #fff;
+        cursor: pointer;
+    }
 
-.LAP-CONTACT .vector {
-  position: absolute;
-  width: 24px;
-  height: 24px;
-  top: 47px;
-  left: 1386px;
-}
-
-.LAP-CONTACT .overlap-group {
-  position: absolute;
-  width: 1170px;
-  height: 476px;
-  top: 185px;
-  left: 138px;
-  background-color: #000000;
-  border-radius: 15px;
-}
-
-.LAP-CONTACT .text-wrapper-3 {
-  position: absolute;
-  width: 426px;
-  top: 22px;
-  left: 31px;
-  font-family: "Agency FB-Bold", Helvetica;
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 40px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.LAP-CONTACT .overlap {
-  position: absolute;
-  width: 288px;
-  height: 83px;
-  top: 708px;
-  left: 595px;
-}
-
-.LAP-CONTACT .rectangle {
-  position: absolute;
-  width: 288px;
-  height: 83px;
-  top: 0;
-  left: 0;
-}
-
-.LAP-CONTACT .text-wrapper-4 {
-  position: absolute;
-  width: 145px;
-  top: 16px;
-  left: 76px;
-  font-family: "Agency FB-Bold", Helvetica;
-  font-weight: 700;
-  color: #000000;
-  font-size: 40px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.LAP-CONTACT .new-join-details {
-  position: absolute;
-  top: 43px;
-  left: 951px;
-  font-family: "Agency FB-Bold", Helvetica;
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 32px;
-  letter-spacing: 0;
-  line-height: normal;
-  white-space: nowrap;
-}
+    @media (max-width: 900px) {
+      .overlap-group{
+        margin-top: 100%;
+        height: 50%;
+        width: 50%;
+      }
+    }
 
   </style>
-  <body>
-    <div class="LAP-CONTACT">
-      <div class="text-wrapper">Home</div>
-      <div class="div">Booking Details</div>
-      <div class="text-wrapper-2">Contact Developers</div>
-      <img class="vector" src="img/vector.svg" />
-      <div class="overlap-group"><div class="text-wrapper-3">WRITE YOUR QUERRY.....</div></div>
-      <div class="overlap">
-        <img class="rectangle" src="img/rectangle-21.svg" />
-        <div class="text-wrapper-4">SEND MAIL</div>
-      </div>
-      <div class="new-join-details">New Join&nbsp;&nbsp;Details</div>
+  <body background="D:\LeoCallTaxi\static\images\desktop_backgroud.jpg">
+    <div class="main-frame">
+      <nav class="navbar">
+        <div class="max-width">
+            <ul class="menu">
+                <li><a href="#home" class="menu-btn">Home</a></li>
+                <li><a href="#bookingdetails" class="menu-btn">Booking Details</a></li>
+                <li><a href="#contactdetails" class="menu-btn">Contact devlopers</a></li>
+                <li><a href="#logout" class="menu-btn">LOGOUT</a></li>
+            </ul>
+
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+        <div class="overlap-group">
+          <form class="text-wrapper-3">
+            <input type="text" id="entry" value="WRITE YOUR QUERRY....."><br><br>
+            <input type="submit" value="SEND">
+          </form>
+        </div>
+
     </div>
   </body>
 </html>
