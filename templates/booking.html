@@ -46,6 +46,7 @@
 </div>
 <div class="form">
     <form method="post" action="booked" class="formclass">
+        {% csrf_token %}
     <div class="inp-contain">
         <label class="formtext">NAME: </label>
         <input class="inp-txt" type="text" name="name" placeholder="enter your name" value="">

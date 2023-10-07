@@ -25,3 +25,11 @@ class BookingDetails(models.Model):
     )
     twoway = models.BooleanField(default=False)
     bookingdate = models.DateField(auto_now_add=True)
+
+
+class JoinDetail(models.Model):
+    name = models.CharField(max_length=70)
+    phone = models.CharField(max_length=10)
+    email = models.EmailField()
+    modelname = models.CharField(max_length=50)
+    reqdate = models.DateField(auto_now_add=True)

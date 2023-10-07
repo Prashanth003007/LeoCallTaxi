@@ -1,5 +1,4 @@
 {% load static %}
-{% load templates %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -102,10 +101,9 @@ body {
   </div>
 <div class="button-img">
   <div class="img1">
-  <img class="img" src="{% static '/images/logo.png' %}" alt="Image"
-/>
+  <img class="img" src="{% static '/images/logo.png' %}" alt="Image"/>
    </div>
-    <button class="log-out-button"><a href="{% templates '/admin_home.html' %}" class="log"> LOG OUT</a></button>
+    <button class="log-out-button"><a href="login" class="log"> LOG OUT</a></button>
 </div>
 </div>
 </body>

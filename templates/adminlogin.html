@@ -16,13 +16,14 @@
     </div>
   </div>
   <div class="fcontain">
-    <form class="formclass">
+    <form class="formclass" method="post" action="login">
+        {% csrf_token %}
         <label for="name">Username: </label>
-        <input type="text" id="name" name="name"><br><br>
+        <input type="text" id="name" name="username"><br><br>
 
         <label for="phone">Password: </label>
-        <input type="text" id="phone" name="phone"><br><br>
-        <a href="admin_home.html"><input type="submit" value="LOGIN" ></a>
+        <input type="text" id="phone" name="password"><br><br>
+        <input type="submit" value="LOGIN">
     </form>
     </div>
 </div>
