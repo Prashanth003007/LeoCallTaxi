@@ -13,13 +13,13 @@
     display : flex;
     flex-direction: row;
     position: relative;
-    height: 100%;
-    width: 100%;
+    height:auto;
+    width:auto;
 }
 
 .logoimagebooking{
-    margin: 5%;
-position: relative;
+    margin:5%;
+    position: relative;
   width: 40%;
   height: 50%;
   top: 60%;
@@ -51,8 +51,10 @@ position: relative;
     align-self:flex-start;
 }
 .images{
+    position: relative;
     display: flex;
     flex-direction: column;
     height: 100%;
-    width: 50%;
+    width: 60%;
+    margin: 2.2rem 2.2rem 2.2rem 3rem;
 }

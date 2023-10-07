@@ -1,16 +1,48 @@
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/booked.css'%}">
     <link rel="stylesheet" type="text/css" href="{% static 'styles/bookingstyle.css'%}">
     <link rel="stylesheet" type="text/css" href="{% static 'styles/base.css'%}">
     <link rel="stylesheet" type="text/css" href="{% static 'styles/template.css'%}">
+
     <title>Document</title>
 </head>
-<body>
+<style>
+    body {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+  font-family: 'Agency FB';
+  font-weight: 700;
+}
+</style>
+<body  background = '{% static 'images/desktop_backgroud.jpg' %}'>
 <div class="main">
+    <div>
+    <nav class="navbar">
+        <div class="max-width">
+            <ul class="menu">
+                <li><a href="#home" class="menu-btn">Home</a></li>
+                <li><a href="#about" class="menu-btn">About</a></li>
+                <li><a href="#booking" class="menu-btn">Booking</a></li>
+                <li><a href="#contact" class="menu-btn">Contact</a></li>
+                <li><a href="#join Us" class="menu-btn">Join Us</a></li>
+            </ul>
+
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+        </div>
 <div class="images">
     <div>
         <img src="{% static 'images/logo.png' %}" alt="logo" class="logoimagebooking">
@@ -20,52 +52,58 @@
     <img src="{% static 'images/BookingCar.png' %}" alt="car" class="bookingcar">
     </div>
 </div>
-<div class="form" >
+<div class="form">
     <form method="post" action="booked" class="formclass">
-        {% csrf_token %}
-        <div class="inp-contain">
-            <label class="formtext">NAME: </label>
-            <input class="inp-txt" type="text" name="name" placeholder="enter your name" value="">
-        </div>
-        <div class="inp-contain">
-            <label class="formtext">PHONE NO: </label>
-            <input class="inp-txt" type="text" name="" placeholder="" value="">
-        </div>
-        <div class="inp-contain">
-            <label class="formtext">DATE: </label>
-            <input class="inp-txt" type="date" name="" placeholder="" value="">
-        </div>    
-        <div class="inp-contain">
-            <label class="formtext">TIME: </label>
-            <input class="inp-txt" type="time" name="" placeholder="" value="">
-        </div>
-        <div class="inp-contain">
-            <label class="formtext">PICKUP: </label>
-            <input class="inp-txt" type="text" name="" placeholder="" value="">
-        </div>
-        <div class="inp-contain">
-            <label class="formtext">DROP OFF: </label>
-            <input class="inp-txt" type="text" name="" placeholder="" value="">
-            
-        </div>
-        <div class="inp-contain">
-            <label class="formtext">CHOOSE RIDE:</label>
-            <input class="inp-txt" type="text" name="" placeholder="" value="">
-        </div>
-        <div class="inp-contain">
-            <label class="formtext">ESTIMATE PRICE :</label>
-            <label class="inp-txt">ESTIMATE PRICE </label>
-        </div>
-        <div class="inp-contain">
-            <label class="formtext">TRAVEL TIME:</label>
-            <label class="inp-txt">TRAVEL TIME </label>
-        </div>
-        <div class="inp-contain">
-            <label class="formtext">VERIFY BOOKING : </label>
-            <input class="inp-txt" type="text" name="" placeholder="" value="">
-        </div>
-        <input type="submit" class="inp-txt">
-    </form>
+    {% csrf_token %}
+    <div class="inp-contain">
+        <label class="formtext">NAME: </label>
+        <input class="inp-txt" type="text" name="name" placeholder="enter your name" value="">
+    </div>
+    <div class="inp-contain">
+        <label class="formtext">PHONE NO: </label>
+        <input class="inp-txt" type="text" name="phoneno" placeholder="" value="">
+    </div>
+    <div class="inp-contain">
+        <label class="formtext">DATE: </label>
+        <input class="inp-txt" type="date" name="date" placeholder="" value="">
+    </div>
+    <div class="inp-contain">
+        <label class="formtext">TIME: </label>
+        <input class="inp-txt" type="time" name="time" placeholder="" value="">
+    </div>
+    <div class="inp-contain">
+        <label class="formtext">PICKUP: </label>
+        <input class="inp-txt" type="text" name="pickup" placeholder="" value="">
+    </div>
+    <div class="inp-contain">
+        <label class="formtext">DROP OFF: </label>
+        <input class="inp-txt" type="text" name="dropoff" placeholder="" value="">
+    </div>
+    <div class="inp-contain">
+        <label class="formtext">CHOOSE RIDE:</label>
+        <input class="inp-txt" type="text" name="chooseride" placeholder="" value="">
+    </div>
+    <div class="inp-contain">
+        <label class="formtext">ESTIMATE PRICE :</label>
+        <label class="inp-txt">ESTIMATE PRICE </label>
+    </div>
+    <div class="inp-contain">
+        <label class="formtext">TRAVEL TIME:</label>
+        <label class="inp-txt">TRAVEL TIME </label>
+    </div>
+    <div class="inp-contain">
+        <label class="formtext1">TWO WAYS : </label>
+        <input type="checkbox" name = "twoways" style="width: 10%">
+        <label class="formtext1" style="margin-left: 5%">DISTANCE :</label>
+        <label class="inp-txt1">TRAVEL TIME </label>
+    </div>
+    <div class="inp-contain">
+        <label class="formtext">VERIFY BOOKING : </label>
+        <input class="inp-txt" type="text" name="verifybooking" placeholder="" value="">
+    </div>
+    <input type="submit" class="inp-txt">
+</form>
+
 </div>
 </div>
 </body>

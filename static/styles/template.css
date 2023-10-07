@@ -1,3 +1,13 @@
+
+.inp-contain{
+    margin: 1.5%;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    align-content: center;
+    height: 40%;
+    width: 100%;
+}
 .inp-txt{
     text-align: center;
     border-radius: 25px;
@@ -18,16 +28,26 @@ font-weight: 700;
 line-height: normal;
 margin: auto;
 }
-.inp-contain{
-    margin: 1.5%;
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    align-content: center;
-    height: 40%;
-    width: 100%;
+.inp-txt1{
+    text-align: center;
+    border-radius: 25px;
+    background: #A9A5A5;
+    border: 1px solid #FDD406; ;
+    width: 30%;
+    height: 80%;
+    padding: auto;
+    margin: auto auto auto 5%;
+    align-self: flex-end;
 }
-
+.formtext1{
+    color: #FFF;
+font-family: Agency FB;
+font-size: 100%;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+    margin: auto auto auto 10%;
+}
 .admin-navbar {
     display: flex;
     justify-content: space-between;

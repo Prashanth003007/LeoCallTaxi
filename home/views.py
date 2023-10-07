@@ -11,7 +11,25 @@ def book(request):
 
 
 def booked(request):
-    print(request.POST["name"])
+    # Print the values of all the form fields
+    name = request.POST.get("name")
+    phoneno = request.POST.get("phoneno")
+    date = request.POST.get("date")
+    time = request.POST.get("time")
+    pickup = request.POST.get("pickup")
+    dropoff = request.POST.get("dropoff")
+    chooseride = request.POST.get("chooseride")
+    twoways = request.POST.get("twoways")
+
+    print("Name:", name)
+    print("Phone Number:", phoneno)
+    print("Date:", date)
+    print("Time:", time)
+    print("Pickup:", pickup)
+    print("Drop Off:", dropoff)
+    print("Choose Ride:", chooseride)
+    print("twoways :" , twoways)
+
     return render(request, "booked.html")
 
 
