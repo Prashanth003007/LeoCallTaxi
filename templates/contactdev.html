@@ -1,140 +1,40 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" type="text/css" href="{% static 'styles/contactdev.css'%}">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
   </head>
-  <style>
-      .LAP-CONTACT {
-  position: relative;
-  width: 1512px;
-  height: 982px;
-  background-color: #df9a03;
-}
 
-.LAP-CONTACT .text-wrapper {
-  position: absolute;
-  top: 37px;
-  left: 212px;
-  font-family: "Agency FB-Bold", Helvetica;
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 32px;
-  letter-spacing: 0;
-  line-height: normal;
-  white-space: nowrap;
-}
+  <body background="D:\LeoCallTaxi\static\images\desktop_backgroud.jpg">
+    <div class="main-frame">
+      <nav class="navbar">
+        <div class="max-width">
+            <ul class="menu">
+                <li><a href="#home" class="menu-btn">Home</a></li>
+                <li><a href="#bookingdetails" class="menu-btn">Booking Details</a></li>
+                <li><a href="#contactdetails" class="menu-btn">Contact devlopers</a></li>
+                <li><a href="#logout" class="menu-btn">LOGOUT</a></li>
+            </ul>
 
-.LAP-CONTACT .div {
-  position: absolute;
-  top: 37px;
-  left: 378px;
-  font-family: "Agency FB-Bold", Helvetica;
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 32px;
-  letter-spacing: 0;
-  line-height: normal;
-  white-space: nowrap;
-}
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+        <div class="overlap-group">
+          <form class="text-wrapper-3">
+            <input type="text" id="entry" value="WRITE YOUR QUERRY....."><br><br>
+            <input type="submit" value="SEND">
+          </form>
+        </div>
 
-.LAP-CONTACT .text-wrapper-2 {
-  position: absolute;
-  top: 37px;
-  left: 641px;
-  font-family: "Agency FB-Bold", Helvetica;
-  font-weight: 700;
-  color: #f7fb12;
-  font-size: 32px;
-  letter-spacing: 0;
-  line-height: normal;
-  white-space: nowrap;
-}
-
-.LAP-CONTACT .vector {
-  position: absolute;
-  width: 24px;
-  height: 24px;
-  top: 47px;
-  left: 1386px;
-}
-
-.LAP-CONTACT .overlap-group {
-  position: absolute;
-  width: 1170px;
-  height: 476px;
-  top: 185px;
-  left: 138px;
-  background-color: #000000;
-  border-radius: 15px;
-}
-
-.LAP-CONTACT .text-wrapper-3 {
-  position: absolute;
-  width: 426px;
-  top: 22px;
-  left: 31px;
-  font-family: "Agency FB-Bold", Helvetica;
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 40px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.LAP-CONTACT .overlap {
-  position: absolute;
-  width: 288px;
-  height: 83px;
-  top: 708px;
-  left: 595px;
-}
-
-.LAP-CONTACT .rectangle {
-  position: absolute;
-  width: 288px;
-  height: 83px;
-  top: 0;
-  left: 0;
-}
-
-.LAP-CONTACT .text-wrapper-4 {
-  position: absolute;
-  width: 145px;
-  top: 16px;
-  left: 76px;
-  font-family: "Agency FB-Bold", Helvetica;
-  font-weight: 700;
-  color: #000000;
-  font-size: 40px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.LAP-CONTACT .new-join-details {
-  position: absolute;
-  top: 43px;
-  left: 951px;
-  font-family: "Agency FB-Bold", Helvetica;
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 32px;
-  letter-spacing: 0;
-  line-height: normal;
-  white-space: nowrap;
-}
-
-  </style>
-  <body>
-    <div class="LAP-CONTACT">
-      <div class="text-wrapper">Home</div>
-      <div class="div">Booking Details</div>
-      <div class="text-wrapper-2">Contact Developers</div>
-      <img class="vector" src="img/vector.svg" />
-      <div class="overlap-group"><div class="text-wrapper-3">WRITE YOUR QUERRY.....</div></div>
-      <div class="overlap">
-        <img class="rectangle" src="img/rectangle-21.svg" />
-        <div class="text-wrapper-4">SEND MAIL</div>
-      </div>
-      <div class="new-join-details">New Join&nbsp;&nbsp;Details</div>
     </div>
   </body>
 </html>

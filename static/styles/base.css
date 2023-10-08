@@ -9,11 +9,21 @@
 --base-paragraph-line-height: 20px;
 --base-paragraph-font-style: normal;
 }
-body{
-  position:fixed;
+/*body{*/
+/*  position:fixed;*/
+/*  width: 100%;*/
+/*  height: 100%;*/
+/*  !*background-color: #df9a0e;*!*/
+/*}*/
+body {
+  overflow: hidden;
   width: 100%;
   height: 100%;
-  background-color: #df9a0e;
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+  font-family: 'Agency FB';
+  font-weight: 700;
 }
 .div {
   color: #F7FC13;
