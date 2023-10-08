@@ -1,4 +1,27 @@
 from django.shortcuts import render, redirect
+import smtplib, ssl
+from email.message import EmailMessage
+import random
+
+#send mail
+def send_mail(reciver_email):
+    txt = str(random.randint(1000, 9999))
+    port = 465
+    password = 'ffdy tmgh xput wujz'
+
+    subject = "Leo-Call-Taxi OTP"
+    body = f"Thank you for choosing Leo Call Taxi your otp for leo call taxi booking is{txt}"
+    em = EmailMessage()
+    em['From'] = 'eyeharshraj@gmail.com'
+    em['To'] = reciver_email
+    em['Subject'] = subject
+    em.set_content(body)
+
+    context = ssl.create_default_context()
+
+    with smtplib.SMTP_SSL('smtp.gmail.com', port, context=context) as smtp:
+        smtp.login('eyeharshraj@gmail.com', 'ffdy tmgh xput wujz')
+        smtp.sendmail('eyeharshraj@gmail.com', reciver_email, em.as_string())
 
 
 # Create your views here.
