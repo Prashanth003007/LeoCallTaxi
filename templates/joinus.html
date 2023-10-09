@@ -17,10 +17,10 @@
     <nav class="navbar">
         <div class="max-width">
             <ul class="menu">
-                <li><a href="#home" class="menu-btn">Home</a></li>
-                <li><a href="#about" class="menu-btn">About</a></li>
-                <li><a href="#booking" class="menu-btn">Booking</a></li>
-                <li><a href="#contact" class="menu-btn">Contact</a></li>
+                <li><a href="home" class="menu-btn">Home</a></li>
+                <li><a href="about" class="menu-btn">About</a></li>
+                <li><a href="book" class="menu-btn">Booking</a></li>
+                <li><a href="contact" class="menu-btn">Contact</a></li>
                 <li><a href="" class="menu-btn">Join Us</a></li>
             </ul>
 
@@ -38,7 +38,7 @@
             </div>
         </div>
         <div class="fcontain">
-            <form method="post" class="formclass" action="home">
+            <form method="post" class="formclass" action="join">
                 {% csrf_token %}
                 <label for="name">NAME: </label>
                 <input type="text" id="name" name="name"><br><br>
@@ -46,8 +46,8 @@
                 <label for="phone">PHONE NO: </label>
                 <input type="text" id="phone" name="phone"><br><br>
 
-                <label for="state">STATE: </label>
-                <input type="text" id="state" name="state"><br><br>
+                <label for="state">MODEL: </label>
+                <input type="text" id="state" name="model"><br><br>
 
                 <label for="email">EMAIL: </label>
                 <input type="text" id="email" name="email"><br><br>

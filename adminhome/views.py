@@ -47,4 +47,4 @@ def logout(request):
         auth.logout(request)
         return adminLogin(request)
     else:
-        return redirect("/")
+        return redirect("adminlogin")
