@@ -51,6 +51,7 @@
 }
 body {
   overflow: hidden;
+  background-image: url("/static/images/desktop_backgroud.jpg");
   width: 100%;
   height: 100%;
   margin: 0;
@@ -102,6 +103,9 @@ body {
     }
 
     @media (max-width: 900px) {
+      body{
+          background-image: url("/static/images/mobile_view.jpg");
+      }
       .overlap-group{
         margin-top: 100%;
         height: 50%;

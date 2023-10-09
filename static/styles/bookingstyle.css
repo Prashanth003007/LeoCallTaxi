@@ -71,6 +71,7 @@
     height: 100%;
     margin: 0;
     padding: 0;
+      background-image: url("/static/images/desktop_backgroud.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -234,6 +235,7 @@ margin: auto;
 
 @media (max-width:900px) {
     body{
+        background-image: url("/static/images/mobile_view.jpg");
         position: relative;
         overflow: scroll;
     }
