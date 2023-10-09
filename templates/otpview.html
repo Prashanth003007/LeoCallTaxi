@@ -11,12 +11,15 @@
     <center>
         <div class = "MainFrame">
             <div class ="Frame1">
-                <form class="Otp_form">
+                <form class="Otp_form" method="post" action="verify">
+                    {% csrf_token %}
                     <div class ='otp_input'>
-                        <label class="email">Email:</label><br><br>
+                        <label class="email">Email:{{  request.session.email }}</label><br><br>
                         <label class = 'otpTxt'>OTP:</label>
                         <input class = 'otpInp' type = "text" name="OTP" placeholder="Enter your OTP" value="">
-                        <p class= "Txt">Invalid OTP</p>
+                        {% if notvalid %}
+                        <p class= "Txt">Invalid Otp</p>
+                        {% endif %}
                         <input type="submit" name="verify" class="verify">
                     </div>
                 </form>
