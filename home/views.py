@@ -1,3 +1,5 @@
+from django.contrib import messages
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 import smtplib, ssl
 from email.message import EmailMessage
@@ -62,7 +64,9 @@ def booked(request):
         booking.otp = send_mail(booking.email)
         booking.save()
         print(booking.id)
-        return render(request, "booked.html", {"email": booking.email, "id": booking.id})
+        request.session["id"] = booking.id
+        request.session["email"] =  booking.email
+        return render(request, "otpview.html")
     else:
         return redirect("/")
 
@@ -78,4 +82,19 @@ def joinus(request):
 
 def join(request):
     name = request.POST.get("name")
-    return render(request, "user_home.html")
+    return render(request, "user_home.html" , {"notvalid":False})
+
+
+def verify(request):
+    if request.method == "POST":
+        obj = models.BookingDetails.objects.filter(id=request.session["id"]).first()
+        print(obj.id)
+        if request.POST.get("OTP") == obj.otp:
+            obj.verified = True
+            obj.save()
+            return render(request,"booked.html")
+        else:
+            messages.info(request, message='invalid otp')
+            return render(request,"otpview.html",{"notvalid":True})
+    else:
+        redirect("book")
