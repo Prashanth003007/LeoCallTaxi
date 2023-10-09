@@ -23,6 +23,7 @@ body{
 @media (max-width: 940px) {
   body{
     width: 100%;
+    background-image: url("/static/images/desktop_backgroud.jpg");
     height: 100%;
     background-repeat: no-repeat;
     background-size:cover;
