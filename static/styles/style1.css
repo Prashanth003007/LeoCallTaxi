@@ -13,7 +13,7 @@ html {
 }
 
 body {
-
+    background-image: url("/static/images/desktop_backgroud.jpg");
     position: absolute;
     width: 100%;
     height: 100%;
@@ -119,7 +119,7 @@ body {
     height: 90%;
     padding: 25px;
     border-radius: 20px;
-    background-color: rgba(0, 0, 0, 0.9); /* Black background with 90% transparency */
+    background-color: rgba(255, 174, 0, 0.388); /* Black background with 90% transparency */
 }
 
 .formclass label {
@@ -175,6 +175,9 @@ body {
 }
 
 @media (max-width: 945px) {
+    body{
+        background-image: url("/static/images/mobile_view.jpg");
+    }
     .menu-btn {
         display: block;
         z-index: 999;

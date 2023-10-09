@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/otpview.css'%}">
+</head>
+
+<body>
+    <center>
+        <div class = "MainFrame">
+            <div class ="Frame1">
+                <form class="Otp_form" method="post" action="verify">
+                    {% csrf_token %}
+                    <div class ='otp_input'>
+                        <label class="email">Email:{{  request.session.email }}</label><br><br>
+                        <label class = 'otpTxt'>OTP:</label>
+                        <input class = 'otpInp' type = "text" name="OTP" placeholder="Enter your OTP" value="">
+                        {% if notvalid %}
+                        <p class= "Txt">Invalid Otp</p>
+                        {% endif %}
+                        <input type="submit" name="verify" class="verify">
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </center>
+</body>
+
+</html>
