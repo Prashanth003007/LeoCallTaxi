@@ -1,0 +1,71 @@
+body{
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-attachment: fixed;
+}
+.MainFrame{
+  display: flex;
+  width: 10%;
+  padding: 5%;
+  border-radius: 2%;
+  margin-top: 20%;
+  margin-left: 45%;
+  margin-right: 35%;
+  color:white;
+  background-color: rgba(255, 174, 0, 0.388);
+}
+.email{
+  margin-left: -76%;
+}
+@media (max-width: 940px) {
+  body{
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-attachment: fixed;
+  }
+  .MainFrame{
+    display: flex;
+    position: relative;
+    align-self: center;
+    align-content: center;
+    width: 30%;
+    padding: 6%;
+    border-radius: 2%;
+    margin-top: 55%;
+    margin-left: 30%;
+    margin-right: 100%;
+    color:white;
+    background-color: rgba(255, 174, 0, 0.388);
+  }
+
+
+}
+
+@media (max-width: 700px) {
+  body{
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-attachment: fixed;
+  }
+  .MainFrame{
+    display: flex;
+    position: relative;
+    align-self: center;
+    align-content: center;
+    width: 50%;
+    padding: 6%;
+    border-radius: 2%;
+    margin-top: 75%;
+    margin-left: 20%;
+    margin-right: 100%;
+    color:white;
+    background-color: rgba(255, 174, 0, 0.388);
+  }
+
+}
