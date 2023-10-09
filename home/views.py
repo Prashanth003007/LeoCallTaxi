@@ -13,7 +13,6 @@ def send_mail(reciver_email):
     txt = str(randint(100000, 999999))
     port = 465
     password = 'ffdy tmgh xput wujz'
-
     subject = "Leo-Call-Taxi OTP"
     body = f"Thank you for choosing Leo Call Taxi your otp for leo call taxi booking is{txt}"
     em = EmailMessage()
@@ -25,7 +24,7 @@ def send_mail(reciver_email):
     context = ssl.create_default_context()
 
     with smtplib.SMTP_SSL('smtp.gmail.com', port, context=context) as smtp:
-        smtp.login('eyeharshraj@gmail.com', 'ffdy tmgh xput wujz')
+        smtp.login('eyeharshraj@gmail.com', password)
         smtp.sendmail('eyeharshraj@gmail.com', reciver_email, em.as_string())
     return txt
 
