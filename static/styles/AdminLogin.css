@@ -48,7 +48,7 @@ body {
     height: 100%;
     padding: 30%;
     border-radius: 20px;
-    background-color: rgba(255, 145, 1, 0.678); /* Black background with 90% transparency */
+    background-color:rgba(255, 174, 0, 0.388); /* Black background with 90% transparency */
 }
 
 .formclass label {
