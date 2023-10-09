@@ -55,5 +55,5 @@ def logout(request):
 
 
 def bookingdetails(request):
-    obj = homemodel.BookingDetails.objects.filter(bookingdate__gte=date.today())
+    obj = homemodel.BookingDetails.objects.filter(pickupdate__gte=date.today())
     return render(request, "bookdetails.html", {"bookingdetails": obj})
