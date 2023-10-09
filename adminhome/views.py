@@ -3,8 +3,11 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User, auth
 from django.shortcuts import render, redirect
+from django.utils.datetime_safe import date
 from django.views.decorators.cache import cache_control
-from django.views.decorators.csrf import csrf_protect, csrf_exempt,requires_csrf_token
+from django.views.decorators.csrf import csrf_protect, csrf_exempt, requires_csrf_token
+from home import models as homemodel
+
 
 def adminLogin(request):
     return render(request, "adminlogin.html")
@@ -15,6 +18,7 @@ def contactdev(request):
         return render(request, "contactdev.html")
     else:
         return login(request)
+
 
 def login(request):
     if auth.get_user(request).is_authenticated:
@@ -48,3 +52,8 @@ def logout(request):
         return adminLogin(request)
     else:
         return redirect("adminlogin")
+
+
+def bookingdetails(request):
+    obj = homemodel.BookingDetails.objects.filter(bookingdate__gte=date.today())
+    return render(request, "bookdetails.html", {"bookingdetails": obj})
