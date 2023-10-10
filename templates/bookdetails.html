@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'styles/booked.css' %}">
+    <title>Centered Transparent Table</title>
+    <link rel="stylesheet" href="{% static 'styles/bookdetails.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -12,7 +13,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-
+    <style>
+        body{
+            background-image: url("/static/images/desktop_backgroud.jpg");
+        }
+        @media (max-width:900px) {
+            body {
+                background-image: url("/static/images/mobile_view.jpg");
+            }
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -31,24 +41,34 @@
         </div>
     </nav>
 
-    <div class="container">
-        <div class="content">
-            <div class="pic">
-                <div><img src="{% static "images/logo.png"%}" class="img1"></div>
-                <div><img src="{% static 'images/car.png'%}" class="img2"></div>
-            </div>
-        </div>
-        <div class="transparent-box">
-            <img src="{% static 'images/check.svg'%}" class="check-symbol">
-            <div>
-                <p class="box-text">BOOKED</p>
-                <p class="box-text2">YOUR BOOKING DETAILS ARE<br>SENT TO YOU ON MAIL &amp;<br>PHONE NUMBER</p>
-            </div>
-        </div>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>S.NO</th>
+                    <th>NAME</th>
+                    <th>DATE</th>
+                    <th>TIME</th>
+                    <th>PHN NO.</th>
+                    <th>DROP OFF</th>
+                    <th>PRICE</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for detail in bookingdetails %}
+                    <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ detail.name }}</td>
+                    <td>{{ detail.pickupdate }}</td>
+                    <td>{{ detail.pickuptime }}</td>
+                    <td>{{ detail.phone }}</td>
+                    <td>{{ detail.dropoff }}</td>
+                    <td>{{ 1000 }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
-
     <script src="{% static 'js/script.js' %}"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
 </body>
 </html>
