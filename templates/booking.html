@@ -1,9 +1,18 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Booking</title>
+    <link rel="stylesheet" href="{% static 'styles/booking.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 </head>
 <style>
   body{
@@ -52,7 +61,7 @@
   .form{
   margin-left:10%;
   margin-bottom: 0%;
-   margin-top: 20%;
+   margin-top: 18%;
     width: 70%;
     height: 100%;
 }
@@ -61,8 +70,9 @@
     display: flex;
     flex-direction: column;
     background-color:rgba(39, 33, 2, 0.9);
+    padding-top: 5%;
     border: 4px solid #F6C208;
-    height: 80%;
+    height: 90%;
     width: 100%;
     align-self:flex-start;
 }
@@ -93,7 +103,7 @@
     border: 1px solid #FDD406; ;
     width: 80%;
     padding: 1%;
-    height: 70%;
+    height: 80%;
     margin: auto;
     align-self: flex-end;
 }
@@ -158,8 +168,32 @@ font-size: 1.8rem;
     display: none;
   }
 }
+  @media (max-width: 945px) {
+      .form{
+  margin-left:14%;
+  margin-bottom: 0%;
+   margin-top: 18%;
+    width: 70%;
+    height: 100%;
+}
+  }
 </style>
 <body>
+ <nav class="navbar">
+        <div class="max-width">
+            <ul class="menu">
+                <li><a href="#home" class="menu-btn">Home</a></li>
+                <li><a href="#about" class="menu-btn">About</a></li>
+                <li><a href="#booking" class="menu-btn">Booking</a></li>
+                <li><a href="#contact" class="menu-btn">Contact</a></li>
+                <li><a href="#join Us" class="menu-btn">Join Us</a></li>
+            </ul>
+
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
 <div class="main">
   <div class="booking">
     <div class="form">
@@ -208,5 +242,6 @@ font-size: 1.8rem;
   <img class="s1" src="\static\images\ss1.png">
 </div>
 </div>
+<script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>
