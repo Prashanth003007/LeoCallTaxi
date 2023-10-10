@@ -11,7 +11,7 @@ from django.views.decorators.csrf import csrf_protect, csrf_exempt, requires_csr
 
 
 # send mail
-def send_mail(reciver_email):
+def send_otp(reciver_email):
     txt = str(randint(100000, 999999))
     port = 465
     password = 'ffdy tmgh xput wujz'
@@ -29,6 +29,26 @@ def send_mail(reciver_email):
         smtp.login('eyeharshraj@gmail.com', password)
         smtp.sendmail('eyeharshraj@gmail.com', reciver_email, em.as_string())
     return txt
+
+
+def send_joinreq(joiner:models.JoinDetail):
+    reciver_email = 'k.s.pranav.2004@gmail.com'
+    port = 465
+    password = 'ffdy tmgh xput wujz'
+    subject = "Leo-Call-Taxi OTP"
+    body = f"\t*New Join Request* \n\tFrom {joiner.name}\n\tContact :\n\t\tEmail : {joiner.email}\n\t\tPhone:{joiner.phone}"
+    em = EmailMessage()
+    em['From'] = 'eyeharshraj@gmail.com'
+    em['To'] = reciver_email
+    em['Subject'] = subject
+    em.set_content(body)
+
+    context = ssl.create_default_context()
+
+    with smtplib.SMTP_SSL('smtp.gmail.com', port, context=context) as smtp:
+        smtp.login('eyeharshraj@gmail.com', password)
+        smtp.sendmail('eyeharshraj@gmail.com', reciver_email, em.as_string())
+
 
 
 # Create your views here.
@@ -61,11 +81,11 @@ def booked(request):
         print("Drop Off:", booking.dropoff)
         print("Choose Ride:", booking.chooseride)
         print("twoways :", booking.twoway)
-        booking.otp = send_mail(booking.email)
+        booking.otp = send_otp(booking.email)
         booking.save()
         print(booking.id)
         request.session["id"] = booking.id
-        request.session["email"] =  booking.email
+        request.session["email"] = booking.email
         return render(request, "otpview.html")
     else:
         return redirect("/")
@@ -79,10 +99,15 @@ def joinus(request):
     return render(request, "joinus.html")
 
 
-
 def join(request):
-    name = request.POST.get("name")
-    return render(request, "user_home.html" , {"notvalid":False})
+    joinobj = models.JoinDetail()
+    joinobj.name = request.POST.get("name")
+    joinobj.email = request.POST.get("email")
+    joinobj.phone = request.POST.get("phone")
+    joinobj.save()
+    send_joinreq(joinobj)
+    request.session["status"] = False
+    return redirect("/#joinreq")
 
 
 def verify(request):
@@ -92,9 +117,9 @@ def verify(request):
         if request.POST.get("OTP") == obj.otp:
             obj.verified = True
             obj.save()
-            return render(request,"booked.html")
+            return render(request, "booked.html")
         else:
             messages.info(request, message='invalid otp')
-            return render(request,"otpview.html",{"notvalid":True})
+            return render(request, "otpview.html", {"notvalid": True})
     else:
         redirect("book")

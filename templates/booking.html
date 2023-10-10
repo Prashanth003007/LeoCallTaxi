@@ -164,7 +164,7 @@ font-size: 1.8rem;
   <div class="booking">
     <div class="form">
       <form method="post" action="booked" class="formclass">
-
+          {% csrf_token %}
       <div class="inp-contain">
           <input class="inp-txt" type="text" name="name" placeholder="enter your name" value="">
       </div>

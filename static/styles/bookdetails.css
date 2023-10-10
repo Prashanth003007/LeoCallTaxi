@@ -112,7 +112,6 @@ table {
     width: 80%;
     color: white;
     table-layout: fixed; /* Fix the table layout */
-
 }
 
 thead {
@@ -122,7 +121,7 @@ thead {
 }
 
 tbody {
-    display: block;
+    display: table;
     table-layout: fixed;
     width: 100%;
     max-height: calc(7 * (40px + 2px)); /* Adjust the values as needed */

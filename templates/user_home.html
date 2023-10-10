@@ -289,6 +289,10 @@ font-size: 1.8rem;
     background-color: rgba(255, 174, 0, 0.388); /* Black background with 90% transparency */
 }
 
+.status{
+    font-size: small;
+}
+
 .formclass label {
 
     color: #fff;
@@ -478,12 +482,15 @@ body {
   </div>
   <div class="body2">
     <div class="container">
-        <div class="fcontain">
+        <div class="fcontain" id="joinreq">
             <form method="post" class="formclass" action="join">
-
+            {% csrf_token %}
                 <input type="text" id="name" name="name" placeholder="NAME"><br><br>
                 <input type="text" id="phone" name="phone" placeholder="PHONE"><br><br>
                 <input type="text" id="email" name="email" placeholder="EMAIL"><br><br>
+                {% if request.session.status %}
+                    <label >Request sent Successfully</label>
+                {% endif %}
                 <center><input type="submit" value="JOIN NOW"></center>
             </form>
             </div>

@@ -56,14 +56,14 @@
             </thead>
             <tbody>
                 {% for detail in bookingdetails %}
-                    <tr>
-                    <td>{{ forloop.counter }}</td>
-                    <td>{{ detail.name }}</td>
-                    <td>{{ detail.pickupdate }}</td>
-                    <td>{{ detail.pickuptime }}</td>
-                    <td>{{ detail.phone }}</td>
-                    <td>{{ detail.dropoff }}</td>
-                    <td>{{ 1000 }}</td>
+                    <tr >
+                    <td >{{ forloop.counter }}</td>
+                    <td >{{ detail.name }}</td>
+                    <td >{{ detail.pickupdate }}</td>
+                    <td >{{ detail.pickuptime }}</td>
+                    <td >{{ detail.phone }}</td>
+                    <td >{{ detail.dropoff }}</td>
+                    <td >{{ 1000 }}</td>
                     </tr>
                 {% endfor %}
             </tbody>
