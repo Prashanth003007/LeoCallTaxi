@@ -8,7 +8,8 @@ from . import models
 from django.template import RequestContext
 from django.views.decorators.cache import cache_control
 from django.views.decorators.csrf import csrf_protect, csrf_exempt, requires_csrf_token
-
+from geopy.geocoders import Nominatim
+from geopy.distance import geodesic
 
 # send mail
 def send_otp(reciver_email):
@@ -89,6 +90,40 @@ def booked(request):
         return render(request, "otpview.html")
     else:
         return redirect("/")
+
+
+
+# codes to calculate distance between two pincodes
+#.....................................................................gi
+def get_coordinates(postal_code):
+    geolocator = Nominatim(user_agent="postal_code_geocoder")
+    location = geolocator.geocode(postal_code)
+
+    if location is not None:
+        return (location.latitude, location.longitude)
+    else:
+        return None
+
+
+def calculate_distance_between_pincodes(postal_code1, postal_code2):
+    coordinates1 = get_coordinates(postal_code1)
+    coordinates2 = get_coordinates(postal_code2)
+
+    if coordinates1 is None:
+        return f"Postal code {postal_code1} not found"
+    elif coordinates2 is None:
+        return f"Postal code {postal_code2} not found"
+
+    distance = geodesic(coordinates1, coordinates2).kilometers
+    return distance
+
+#.......................................................................
+
+
+
+
+
+
 
 
 def about(request):
