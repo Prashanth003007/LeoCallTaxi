@@ -1,15 +1,16 @@
 from django.contrib import messages
+from django.http import JsonResponse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 import smtplib, ssl
 from email.message import EmailMessage
 from random import randint
 from . import models
+import requests
 from django.template import RequestContext
 from django.views.decorators.cache import cache_control
 from django.views.decorators.csrf import csrf_protect, csrf_exempt, requires_csrf_token
-from geopy.geocoders import Nominatim
-from geopy.distance import geodesic
+git
 
 # send mail
 def send_otp(reciver_email):
@@ -93,8 +94,45 @@ def booked(request):
 
 
 
-# codes to calculate distance between two pincodes
-#.....................................................................gi
+# codes to autocomplete place names and generate pincode for given place name and to calculate distance between two pincodes
+#.....................................................................
+def autocomplete(request):
+    query = request.GET.get('query')
+    suggestions = []
+
+    if query:
+        base_url = "https://nominatim.openstreetmap.org/search"
+        params = {
+            "q": query,
+            "format": "json",
+        }
+        response = requests.get(base_url, params=params)
+
+        if response.status_code == 200:
+            data = response.json()
+            suggestions = [result['display_name'] for result in data if 'India' in result['display_name']]
+
+    return JsonResponse(suggestions, safe=False)# this json should be displayed in the dropdown menu in frontend
+
+
+def place_to_postal_code(place):
+    # Initialize the geolocator using Nominatim
+    geolocator = Nominatim(user_agent="place_to_postal_code")
+
+    try:
+        location = geolocator.geocode(place)
+        if location:
+            postal_code = location.raw.get('address', {}).get('postcode')
+            if postal_code:
+                return postal_code
+            else:
+                return "Postal code not found for this location."
+        else:
+            return "Location not found."
+    except Exception as e:
+        return f"An error occurred: {str(e)}"
+
+
 def get_coordinates(postal_code):
     geolocator = Nominatim(user_agent="postal_code_geocoder")
     location = geolocator.geocode(postal_code)
@@ -105,14 +143,15 @@ def get_coordinates(postal_code):
         return None
 
 
-def calculate_distance_between_pincodes(postal_code1, postal_code2):
-    coordinates1 = get_coordinates(postal_code1)
-    coordinates2 = get_coordinates(postal_code2)
+def calculate_distance_between_pincodes(place1, place2):
+    coordinates1 = get_coordinates(place_to_postal_code(place1))
+    coordinates2 = get_coordinates(place_to_postal_code(place2))
+
 
     if coordinates1 is None:
-        return f"Postal code {postal_code1} not found"
+        return f"Postal code for {place1} not found"
     elif coordinates2 is None:
-        return f"Postal code {postal_code2} not found"
+        return f"Postal code for {place2} not found"
 
     distance = geodesic(coordinates1, coordinates2).kilometers
     return distance
@@ -158,3 +197,5 @@ def verify(request):
             return render(request, "otpview.html", {"notvalid": True})
     else:
         redirect("book")
+
+
