@@ -62,7 +62,7 @@ def userHome(request):
 
 
 def book(request):
-    return render(request, "booking.html")
+    return render(request, "booking.html",{"cars":models.Cars.objects.all()})
 
 
 def booked(request):
@@ -137,7 +137,6 @@ def join(request):
 def verify(request):
     if request.method == "POST":
         obj = models.BookingDetails.objects.filter(id=request.session["id"]).first()
-        print(obj.id)
         if request.POST.get("OTP") == obj.otp:
             obj.verified = True
             obj.save()
@@ -154,12 +153,10 @@ def calculate_price(request):
     if request.method == "POST":
         data = json.loads(request.body)
         car = models.Cars.objects.filter(code=data.get("type")).first()
-
         if not car:
             return JsonResponse({"error": "Car not found"})
 
         distance = float(data.get("distance")[:-3])
-        print(distance)
         cost = 0
 
         if distance < 20:

@@ -449,21 +449,9 @@ font-size: 1.8rem;
       </div>
       <div class="inp-contain">
           <select class="inp-txt" id= "vtype" type="text" name="chooseride" value="">
-              <option value="INDICA_NAC">INDICA (NON AC)</option>
-              <option value="INDICA_AC">INDICA (AC)</option>
-              <option value="SWIFT-ETIOS-EXCENT_NAC">SWIFT-ETIOS-EXCENT (NON AC)</option>
-              <option value="SWIFT-ETIOS-EXCENT_AC">SWIFT-ETIOS-EXCENT (AC)</option>
-              <option value="TAVERA-SUMO_NAC">TAVERA-SUMO (NON AC)</option>
-              <option value="TAVERA-SUMO_AC">TAVERA-SUMO (AC)</option>
-              <option value="ERTICA-LOGY_NAC">ERTICA-LOGY (NON AC)</option>
-              <option value="ERTICA-LOGY_AC">ERTICA-LOGY (AC)</option>
-              <option value="INNOVA_AC">INNOVA (AC)</option>
-              <option value="INDICA-BOLT-LIVA_NAC">INDICA-BOLT-LIVA (NON AC)</option>
-              <option value="INDICA-BOLT-LIVA_AC">INDICA-BOLT-LIVA (AC)</option>
-              <option value="INDIGO-SWIFT-ETIOS-FORD_NAC">INDIGO-SWIFT-ETIOS-FORD (NON AC)</option>
-              <option value="INDIGO-SWIFT-ETIOS-FORD_AC">INDIGO-SWIFT-ETIOS-FORD (AC)</option>
-              <option value="TAVERA-SUMO_NAC">TAVERA-SUMO (NON AC)</option>
-              <option value="TAVERA-SUMO_AC">TAVERA-SUMO (AC)</option>
+              {% for car in cars  %}
+                  <option value="{{ car.code }}">{{ car.name }}</option>
+              {% endfor %}
           </select>
       </div>
       <div class="inp-contain">
