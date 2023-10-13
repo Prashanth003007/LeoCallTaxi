@@ -67,12 +67,13 @@
   }
   .form{
     margin-left:10%;
-    margin-bottom: -1%;
+    margin-bottom: -10%;
     margin-top: 10%;
     width: 70%;
     height: 110%;
   }
 .formclass{
+    padding-top: 5%;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
@@ -267,8 +268,8 @@ font-size: 1.8rem;
   .sub{
   margin-top: 4%;
 margin-bottom: 3%;
-margin-left: 10%;
-margin-right: 30%;
+margin-left: 0%;
+margin-right: 25%;
 background-color: #df9a0e; /* Change the submit button background color */
 color: black;
 font-family: 'Agency FB';
@@ -280,12 +281,12 @@ border: none;
 width: 10%;
 border-radius: 20px;
 cursor: pointer;
-font-size: 1.8rem;
+font-size: 15%;
 }
 .sub1{
 margin-top: 4%;
 margin-bottom: 5%;
-margin-left: -14%;
+margin-left: -10%;
 margin-right: 30%;
 background-color: #df9a0e; /* Change the submit button background color */
 color: black;
@@ -448,7 +449,23 @@ font-size: 1.8rem;
           <input class="inp-txt" type="text" name="dropoff" id= 'destination' placeholder="Drop Off" value="">
       </div>
       <div class="inp-contain">
-          <input class="inp-txt" id= "vtype" type="text" name="chooseride" placeholder="Choose Ride" value="">
+          <select class="inp-txt" id= "vtype" type="text" name="chooseride" value="">
+              <option value="INDICA_NAC">INDICA (NON AC)</option>
+              <option value="INDICA_AC">INDICA (AC)</option>
+              <option value="SWIFT-ETIOS-EXCENT_NAC">SWIFT-ETIOS-EXCENT (NON AC)</option>
+              <option value="SWIFT-ETIOS-EXCENT_AC">SWIFT-ETIOS-EXCENT (AC)</option>
+              <option value="TAVERA-SUMO_NAC">TAVERA-SUMO (NON AC)</option>
+              <option value="TAVERA-SUMO_AC">TAVERA-SUMO (AC)</option>
+              <option value="ERTICA-LOGY_NAC">ERTICA-LOGY (NON AC)</option>
+              <option value="ERTICA-LOGY_AC">ERTICA-LOGY (AC)</option>
+              <option value="INNOVA_AC">INNOVA (AC)</option>
+              <option value="INDICA-BOLT-LIVA_NAC">INDICA-BOLT-LIVA (NON AC)</option>
+              <option value="INDICA-BOLT-LIVA_AC">INDICA-BOLT-LIVA (AC)</option>
+              <option value="INDIGO-SWIFT-ETIOS-FORD_NAC">INDIGO-SWIFT-ETIOS-FORD (NON AC)</option>
+              <option value="INDIGO-SWIFT-ETIOS-FORD_AC">INDIGO-SWIFT-ETIOS-FORD (AC)</option>
+              <option value="TAVERA-SUMO_NAC">TAVERA-SUMO (NON AC)</option>
+              <option value="TAVERA-SUMO_AC">TAVERA-SUMO (AC)</option>
+          </select>
       </div>
       <div class="inp-contain">
           <label class="inp-txt">ESTIMATE PRICE </label>
@@ -466,8 +483,8 @@ font-size: 1.8rem;
       </div>
       <div class="btn">
           <button  class="sub" onclick = "calculateDistance()" id = "checkfare" type="button">Check Fare</button>
-      <input type="submit" class="sub1" value="BOOK">
-    </div>
+          <input type="submit" class="sub1" value="BOOK">
+      </div>
     </form>
   </div>
 </div>
