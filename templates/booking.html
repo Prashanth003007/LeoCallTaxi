@@ -458,7 +458,7 @@ font-size: 1.8rem;
           <label class="inp-txt" id = "estimatep">ESTIMATE PRICE </label>
       </div>
       <div class="inp-contain">
-          <label class="inp-txt">TRAVEL TIME </label>
+          <label class="inp-txt" id="estimatet">TRAVEL TIME </label>
       </div>
       <div class="inp-contain1">
           <label class="formtext">TWO WAYS : </label>
@@ -541,7 +541,8 @@ font-size: 1.8rem;
                     }).then(response => response.json())
                     .then(data => {
                         // Update the result element with the calculated distance
-                        document.getElementById("estimatep").textContent = "ESTIMATE PRICE : " + data.cost
+                        document.getElementById("estimatep").textContent = "ESTIMATED PRICE : " + data.cost
+                        document.getElementById("estimatet").textContent = "ESTIMATED TIME : " + data.time
                     }).catch(error => {
                       console.error('Error calculating distance:', error);
                     });
