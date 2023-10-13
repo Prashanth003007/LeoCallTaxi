@@ -6,11 +6,13 @@ import smtplib, ssl
 from email.message import EmailMessage
 from random import randint
 from . import models
+import googlemaps
+
 import requests
 from django.template import RequestContext
 from django.views.decorators.cache import cache_control
 from django.views.decorators.csrf import csrf_protect, csrf_exempt, requires_csrf_token
-git
+
 
 # send mail
 def send_otp(reciver_email):
@@ -96,65 +98,43 @@ def booked(request):
 
 # codes to autocomplete place names and generate pincode for given place name and to calculate distance between two pincodes
 #.....................................................................
-def autocomplete(request):
-    query = request.GET.get('query')
-    suggestions = []
 
-    if query:
-        base_url = "https://nominatim.openstreetmap.org/search"
-        params = {
-            "q": query,
-            "format": "json",
-        }
-        response = requests.get(base_url, params=params)
+# Replace 'YOUR_API_KEY' with your actual Google API key
+gmaps = googlemaps.Client(key='AIzaSyCX2XkLAJIAs46WYurIDpwWcgMgeDqY11c')
 
-        if response.status_code == 200:
-            data = response.json()
-            suggestions = [result['display_name'] for result in data if 'India' in result['display_name']]
-
-    return JsonResponse(suggestions, safe=False)# this json should be displayed in the dropdown menu in frontend
-
-
-def place_to_postal_code(place):
-    # Initialize the geolocator using Nominatim
-    geolocator = Nominatim(user_agent="place_to_postal_code")
-
+def autocomplete_address(query):
     try:
-        location = geolocator.geocode(place)
-        if location:
-            postal_code = location.raw.get('address', {}).get('postcode')
-            if postal_code:
-                return postal_code
-            else:
-                return "Postal code not found for this location."
-        else:
-            return "Location not found."
+        places = gmaps.places_autocomplete(query)
+        return [place['description'] for place in places]
     except Exception as e:
-        return f"An error occurred: {str(e)}"
+        print(f"Error: {str(e)}")
+        return []
 
+def calculate_distance(origin, destination):
+    try:
+        directions = gmaps.directions(origin, destination)
+        if directions:
+            route = directions[0]['legs'][0]
+            return route['distance']['text']
+        else:
+            return "Directions not found."
+    except Exception as e:
+        print(f"Error: {str(e)}")
+        return "Error calculating distance."
 
-def get_coordinates(postal_code):
-    geolocator = Nominatim(user_agent="postal_code_geocoder")
-    location = geolocator.geocode(postal_code)
+def distance_calculator(request):
+    form = DistanceCalculatorForm()
 
-    if location is not None:
-        return (location.latitude, location.longitude)
-    else:
-        return None
+    if request.method == 'POST':
+        form = DistanceCalculatorForm(request.POST)
+        if form.is_valid():
+            origin = form.cleaned_data['origin']
+            destination = form.cleaned_data['destination']
+            distance = calculate_distance(origin, destination)
+            return render(request, 'booking.html', {'form': form, 'distance': distance})
 
+    return render(request, 'booked.html', {'form': form})
 
-def calculate_distance_between_pincodes(place1, place2):
-    coordinates1 = get_coordinates(place_to_postal_code(place1))
-    coordinates2 = get_coordinates(place_to_postal_code(place2))
-
-
-    if coordinates1 is None:
-        return f"Postal code for {place1} not found"
-    elif coordinates2 is None:
-        return f"Postal code for {place2} not found"
-
-    distance = geodesic(coordinates1, coordinates2).kilometers
-    return distance
 
 #.......................................................................
 

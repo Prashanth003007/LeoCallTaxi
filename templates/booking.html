@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCX2XkLAJIAs46WYurIDpwWcgMgeDqY11c&libraries=places"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking</title>
@@ -69,7 +70,7 @@
     margin-bottom: -1%;
     margin-top: 10%;
     width: 70%;
-    height: 100%;
+    height: 110%;
   }
 .formclass{
     border-radius: 15px;
@@ -441,10 +442,10 @@ font-size: 1.8rem;
           <input class="inp-txt" type="time" name="time" placeholder="" value="">
       </div>
       <div class="inp-contain">
-          <input class="inp-txt" type="text" name="pickup" placeholder="Pickup" value="">
+          <input class="inp-txt" type="text" name="pickup" id= 'origin' placeholder="Pickup" value="">
       </div>
       <div class="inp-contain">
-          <input class="inp-txt" type="text" name="dropoff" placeholder="Drop Off" value="">
+          <input class="inp-txt" type="text" name="dropoff" id= 'destination' placeholder="Drop Off" value="">
       </div>
       <div class="inp-contain">
           <input class="inp-txt" type="text" name="chooseride" placeholder="Choose Ride" value="">
@@ -458,13 +459,13 @@ font-size: 1.8rem;
       <div class="inp-contain1">
           <label class="formtext">TWO WAYS : </label>
           <input type="checkbox" name = "twoways" style ="width: 10%">
-          <label class="inp-txt1" style="margin-right: 10%">DISTANCE</label>
+          <label class="inp-txt1"  id= 'result' style="margin-right: 10%">DISTANCE</label>
       </div>
       <div class="inp-contain">
           <input class="inp-txt" type="text" name="email" placeholder="Email" value="">
       </div>
       <div class="btn">
-      <input type="submit" class="sub" value="Check Fare">
+      <input type="submit" class="sub" onclick="calculateDistance()" value="Check Fare">
       <input type="submit" class="sub1" value="BOOK">
     </div>
     </form>
@@ -498,6 +499,34 @@ font-size: 1.8rem;
 </div>
 <script src="{% static 'js/script.js' %}"></script>
 <script src="{% static 'js/scriptbook.js' %}"></script>
+<script>
+        function calculateDistance() {
+            var origin = document.getElementById('origin').value;
+            var destination = document.getElementById('destination').value;
+
+            var service = new google.maps.DistanceMatrixService();
+
+            service.getDistanceMatrix({
+                origins: [origin],
+                destinations: [destination],
+                travelMode: 'DRIVING',
+                unitSystem: google.maps.UnitSystem.METRIC
+            }, function(response, status) {
+                if (status === 'OK') {
+                    var distance = response.rows[0].elements[0].distance.text;
+                    document.getElementById('result').textContent = "Distance: " + distance;
+                } else {
+                    document.getElementById('result').textContent = "Error calculating distance.";
+                }
+            });
+        }
+
+        // Autocomplete for origin and destination input fields
+        var originInput = document.getElementById('origin');
+        var destinationInput = document.getElementById('destination');
+        var originAutocomplete = new google.maps.places.Autocomplete(originInput);
+        var destinationAutocomplete = new google.maps.places.Autocomplete(destinationInput);
+    </script>
 
 </body>
 </html>
