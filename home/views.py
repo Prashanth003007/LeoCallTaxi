@@ -157,6 +157,7 @@ def calculate_price(request):
             return JsonResponse({"error": "Car not found"})
 
         distance = float(data.get("distance")[:-3])
+        time = int(distance//30)
         cost = 0
 
         if distance < 20:
@@ -170,6 +171,6 @@ def calculate_price(request):
             if distance > 0:
                 cost += car.add_charge_o * distance
 
-        return JsonResponse({"cost": cost})
+        return JsonResponse({"cost": cost,"time": time})
 
     return JsonResponse({"error": "Invalid request method"})

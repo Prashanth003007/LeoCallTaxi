@@ -23,6 +23,9 @@
 
         <label for="phone">Password: </label>
         <input type="text" id="phone" name="password"><br><br>
+        {% for message in messages %}
+            <label> {{ message }}</label>
+        {% endfor %}
         <input type="submit" value="LOGIN">
     </form>
     </div>
