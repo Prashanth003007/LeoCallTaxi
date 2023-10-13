@@ -110,31 +110,6 @@ def autocomplete_address(query):
         print(f"Error: {str(e)}")
         return []
 
-def calculate_distance(origin, destination):
-    try:
-        directions = gmaps.directions(origin, destination)
-        if directions:
-            route = directions[0]['legs'][0]
-            return route['distance']['text']
-        else:
-            return "Directions not found."
-    except Exception as e:
-        print(f"Error: {str(e)}")
-        return "Error calculating distance."
-
-def distance_calculator(request):
-    form = DistanceCalculatorForm()
-
-    if request.method == 'POST':
-        form = DistanceCalculatorForm(request.POST)
-        if form.is_valid():
-            origin = form.cleaned_data['origin']
-            destination = form.cleaned_data['destination']
-            distance = calculate_distance(origin, destination)
-            return render(request, 'booking.html', {'form': form, 'distance': distance})
-
-    return render(request, 'booked.html', {'form': form})
-
 
 #.......................................................................
 
@@ -179,3 +154,5 @@ def verify(request):
         redirect("book")
 
 
+def calculate_price(request):
+    return None

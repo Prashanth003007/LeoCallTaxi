@@ -9,5 +9,6 @@ urlpatterns = [
     path("joinus",views.joinus,name="joinus"),
     path("home",views.userHome,name="user-home"),
     path("join",views.join,name="join"),
-    path("verify",views.verify,name="verify")
+    path("verify",views.verify,name="verify"),
+    path("calculate_price",views.calculate_price,name="calculate_price")
 ]

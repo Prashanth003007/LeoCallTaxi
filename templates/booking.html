@@ -427,7 +427,7 @@ font-size: 1.8rem;
 <div class="main">
   <div class="booking">
     <div class="form">
-      <form method="post" action="booked" class="formclass">
+      <form method="post" action="booked" class="formclass" id="booking-form">
           {% csrf_token %}
       <div class="inp-contain">
           <input class="inp-txt" type="text" name="name" placeholder="enter your name" value="">
@@ -448,7 +448,7 @@ font-size: 1.8rem;
           <input class="inp-txt" type="text" name="dropoff" id= 'destination' placeholder="Drop Off" value="">
       </div>
       <div class="inp-contain">
-          <input class="inp-txt" type="text" name="chooseride" placeholder="Choose Ride" value="">
+          <input class="inp-txt" id= "vtype" type="text" name="chooseride" placeholder="Choose Ride" value="">
       </div>
       <div class="inp-contain">
           <label class="inp-txt">ESTIMATE PRICE </label>
@@ -465,7 +465,7 @@ font-size: 1.8rem;
           <input class="inp-txt" type="text" name="email" placeholder="Email" value="">
       </div>
       <div class="btn">
-      <input type="submit" class="sub" onclick="calculateDistance()" value="Check Fare">
+          <button  class="sub" onclick = "calculateDistance()" id = "checkfare" type="button">Check Fare</button>
       <input type="submit" class="sub1" value="BOOK">
     </div>
     </form>
@@ -500,12 +500,24 @@ font-size: 1.8rem;
 <script src="{% static 'js/script.js' %}"></script>
 <script src="{% static 'js/scriptbook.js' %}"></script>
 <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          const form = document.getElementById("booking-form");
+
+          // Listen for keypress events on the form
+          form.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+              event.preventDefault(); // Prevent the default form submission
+              // Optionally, you can focus on the submit button or perform other actions here.
+            }
+          });
+        }
+        );
         function calculateDistance() {
             var origin = document.getElementById('origin').value;
             var destination = document.getElementById('destination').value;
-
+            var type = document.getElementById("vtype").value;
+            console.log(origin,destination)
             var service = new google.maps.DistanceMatrixService();
-
             service.getDistanceMatrix({
                 origins: [origin],
                 destinations: [destination],
@@ -515,10 +527,27 @@ font-size: 1.8rem;
                 if (status === 'OK') {
                     var distance = response.rows[0].elements[0].distance.text;
                     document.getElementById('result').textContent = "Distance: " + distance;
+                    fetch('/calculate_price/', {
+                          method: 'POST',
+                          body: JSON.stringify({type}),
+                          headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRFToken': getCookie('csrftoken') // Ensure you have a function to get the CSRF token
+                          },
+                    }).then(response => response.json())
+                    .then(data => {
+                        // Update the result element with the calculated distance
+                        resultElement.textContent = 'Distance: ' + data.distance;
+                    }).catch(error => {
+                      console.error('Error calculating distance:', error);
+                      resultElement.textContent = 'Error calculating distance.';
+                    });
+
                 } else {
                     document.getElementById('result').textContent = "Error calculating distance.";
                 }
             });
+
         }
 
         // Autocomplete for origin and destination input fields
@@ -526,6 +555,12 @@ font-size: 1.8rem;
         var destinationInput = document.getElementById('destination');
         var originAutocomplete = new google.maps.places.Autocomplete(originInput);
         var destinationAutocomplete = new google.maps.places.Autocomplete(destinationInput);
+        // Function to get CSRF token from cookies
+          function getCookie(name) {
+            var value = "; " + document.cookie;
+            var parts = value.split("; " + name + "=");
+            if (parts.length === 2) return parts.pop().split(";").shift();
+        }
     </script>
 
 </body>
