@@ -1,3 +1,5 @@
+import json
+
 from django.contrib import messages
 from django.http import JsonResponse
 from django.http import HttpResponseRedirect
@@ -35,7 +37,7 @@ def send_otp(reciver_email):
     return txt
 
 
-def send_joinreq(joiner:models.JoinDetail):
+def send_joinreq(joiner: models.JoinDetail):
     reciver_email = 'k.s.pranav.2004@gmail.com'
     port = 465
     password = 'ffdy tmgh xput wujz'
@@ -52,7 +54,6 @@ def send_joinreq(joiner:models.JoinDetail):
     with smtplib.SMTP_SSL('smtp.gmail.com', port, context=context) as smtp:
         smtp.login('eyeharshraj@gmail.com', password)
         smtp.sendmail('eyeharshraj@gmail.com', reciver_email, em.as_string())
-
 
 
 # Create your views here.
@@ -95,12 +96,12 @@ def booked(request):
         return redirect("/")
 
 
-
 # codes to autocomplete place names and generate pincode for given place name and to calculate distance between two pincodes
-#.....................................................................
+# .....................................................................
 
 # Replace 'YOUR_API_KEY' with your actual Google API key
 gmaps = googlemaps.Client(key='AIzaSyCX2XkLAJIAs46WYurIDpwWcgMgeDqY11c')
+
 
 def autocomplete_address(query):
     try:
@@ -111,13 +112,7 @@ def autocomplete_address(query):
         return []
 
 
-#.......................................................................
-
-
-
-
-
-
+# .......................................................................
 
 
 def about(request):
@@ -154,5 +149,30 @@ def verify(request):
         redirect("book")
 
 
+@csrf_exempt
 def calculate_price(request):
-    return None
+    if request.method == "POST":
+        data = json.loads(request.body)
+        car = models.Cars.objects.filter(code=data.get("type")).first()
+
+        if not car:
+            return JsonResponse({"error": "Car not found"})
+
+        distance = float(data.get("distance")[:-3])
+        print(distance)
+        cost = 0
+
+        if distance < 20:
+            distance -= car.base_d_i
+            cost += car.basefare_i
+            if distance > 0:
+                cost += car.add_charge_i * distance
+        else:
+            distance -= car.base_d_o
+            cost += car.basefare_o
+            if distance > 0:
+                cost += car.add_charge_o * distance
+
+        return JsonResponse({"cost": cost})
+
+    return JsonResponse({"error": "Invalid request method"})

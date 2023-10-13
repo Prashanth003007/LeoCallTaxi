@@ -451,7 +451,7 @@ font-size: 1.8rem;
           <input class="inp-txt" id= "vtype" type="text" name="chooseride" placeholder="Choose Ride" value="">
       </div>
       <div class="inp-contain">
-          <label class="inp-txt">ESTIMATE PRICE </label>
+          <label class="inp-txt" id = "estimatep">ESTIMATE PRICE </label>
       </div>
       <div class="inp-contain">
           <label class="inp-txt">TRAVEL TIME </label>
@@ -527,9 +527,9 @@ font-size: 1.8rem;
                 if (status === 'OK') {
                     var distance = response.rows[0].elements[0].distance.text;
                     document.getElementById('result').textContent = "Distance: " + distance;
-                    fetch('/calculate_price/', {
+                    fetch('calculate_price', {
                           method: 'POST',
-                          body: JSON.stringify({type}),
+                          body: JSON.stringify({type,distance}),
                           headers: {
                             'Content-Type': 'application/json',
                             'X-CSRFToken': getCookie('csrftoken') // Ensure you have a function to get the CSRF token
@@ -537,10 +537,9 @@ font-size: 1.8rem;
                     }).then(response => response.json())
                     .then(data => {
                         // Update the result element with the calculated distance
-                        resultElement.textContent = 'Distance: ' + data.distance;
+                        document.getElementById("estimatep").textContent = "ESTIMATE PRICE : " + data.cost
                     }).catch(error => {
                       console.error('Error calculating distance:', error);
-                      resultElement.textContent = 'Error calculating distance.';
                     });
 
                 } else {
