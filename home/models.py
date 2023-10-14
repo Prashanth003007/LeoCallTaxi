@@ -40,5 +40,6 @@ class BookingDetails(models.Model):
     twoway = models.BooleanField(default=False)
     bookingdate = models.DateField(auto_now_add=True)
     email = models.EmailField()
+    efare = models.IntegerField()
     verified = models.BooleanField(default=False)
     otp = models.CharField(max_length=6)

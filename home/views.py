@@ -56,6 +56,7 @@ def send_joinreq(joiner: models.JoinDetail):
         smtp.sendmail('eyeharshraj@gmail.com', reciver_email, em.as_string())
 
 
+
 # Create your views here.
 def userHome(request):
     return render(request, "user_home.html")
@@ -64,9 +65,39 @@ def userHome(request):
 def book(request):
     return render(request, "booking.html",{"cars":models.Cars.objects.all()})
 
+def calculate_distance(origin, destination):
+    try:
+        directions = gmaps.directions(origin, destination)
+        if directions:
+            route = directions[0]['legs'][0]
+            return route['distance']['text']
+        else:
+            return "1000000000"
+    except Exception as e:
+        print(f"Error: {str(e)}")
+        return "1000000000"
+
+def calculate_fare(distance,type,twoway):
+    cost = 0
+    car = models.Cars.objects.filter(code=type).first()
+    if distance < 20:
+        distance -= car.base_d_i
+        cost += car.basefare_i
+        if distance > 0:
+            cost += car.add_charge_i * distance
+    else:
+        distance -= car.base_d_o
+        cost += car.basefare_o
+        if distance > 0:
+            cost += car.add_charge_o * distance
+    if twoway:
+        return cost * 2
+    else:
+        return cost
 
 def booked(request):
     if request.method == "POST":
+
         booking = models.BookingDetails()
         # Print the values of all the form fields
         booking.name = request.POST.get("name")
@@ -75,17 +106,12 @@ def booked(request):
         booking.pickuptime = request.POST.get("time")
         booking.pickup = request.POST.get("pickup")
         booking.dropoff = request.POST.get("dropoff")
-        booking.chooseride = request.POST.get("chooseride")
+        booking.ride = request.POST.get("chooseride")
         booking.email = request.POST.get("email")
         booking.twoway = request.POST.get("twoways") == "on"
-        print("Name:", booking.name)
-        print("Phone Number:", booking.phone)
-        print("Date:", booking.pickupdate)
-        print("Time:", booking.pickupdate)
-        print("Pickup:", booking.pickup)
-        print("Drop Off:", booking.dropoff)
-        print("Choose Ride:", booking.chooseride)
-        print("twoways :", booking.twoway)
+        booking.efare = calculate_fare(int(float("".join((calculate_distance(booking.pickup,booking.dropoff)[:-3]).split(",")))),
+                                       booking.ride,booking.twoway)
+
         booking.otp = send_otp(booking.email)
         booking.save()
         print(booking.id)
@@ -153,10 +179,12 @@ def calculate_price(request):
     if request.method == "POST":
         data = json.loads(request.body)
         car = models.Cars.objects.filter(code=data.get("type")).first()
+        twoway = data.get("twoway")
+        distance = float("".join((data.get("distance")[:-3]).split(",")))
+        del data
         if not car:
             return JsonResponse({"error": "Car not found"})
 
-        distance = float(data.get("distance")[:-3])
         time = int(distance//30)
         cost = 0
 
@@ -171,6 +199,9 @@ def calculate_price(request):
             if distance > 0:
                 cost += car.add_charge_o * distance
 
-        return JsonResponse({"cost": cost,"time": time})
+        if twoway:
+            return JsonResponse({"cost": cost * 2, "time": time * 2, "distance": distance * 2})
+        else:
+            return JsonResponse({"cost": cost , "time": time, "distance": distance })
 
     return JsonResponse({"error": "Invalid request method"})
