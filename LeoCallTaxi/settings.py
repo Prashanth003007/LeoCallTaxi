@@ -22,9 +22,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-+%4g%is)ul3=g3wrii7%anoeul#gca6u(@v1i!!@wuj^i*mm)h'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["leocalltaxi.com","193.203.162.224"]
+ALLOWED_HOSTS = []
 
 # Application definition
 

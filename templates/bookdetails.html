@@ -28,17 +28,16 @@
     <nav class="navbar">
         <div class="max-width">
             <ul class="menu">
-                <li><a href="#home" class="menu-btn">Home</a></li>
-                <li><a href="#about" class="menu-btn">About</a></li>
-                <li><a href="#booking" class="menu-btn">Booking</a></li>
-                <li><a href="#contact" class="menu-btn">Contact</a></li>
-                <li><a href="#join Us" class="menu-btn">Join Us</a></li>
+                <li><a href="login" class="menu-btn">Home</a></li>
+                <li><a href="contactdev" class="menu-btn">Contact developers</a></li>
             </ul>
+             <a class="person_icon" href="logoutpage"><i class='far fa-user' style='font-size:20px;color:white'></i></a>
 
             <div class="menu-btn">
                 <i class="fas fa-bars"></i>
             </div>
         </div>
+
     </nav>
 
     <div class="table-container">
@@ -50,6 +49,7 @@
                     <th>DATE</th>
                     <th>TIME</th>
                     <th>PHN NO.</th>
+                    <th>PICKUP</th>
                     <th>DROP OFF</th>
                     <th>PRICE</th>
                 </tr>
@@ -62,8 +62,9 @@
                     <td >{{ detail.pickupdate }}</td>
                     <td >{{ detail.pickuptime }}</td>
                     <td >{{ detail.phone }}</td>
+                    <td >{{ detail.pickup }}</td>
                     <td >{{ detail.dropoff }}</td>
-                    <td >{{ 1000 }}</td>
+                    <td >{{ detail.efare }}</td>
                     </tr>
                 {% endfor %}
             </tbody>

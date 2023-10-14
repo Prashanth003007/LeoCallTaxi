@@ -16,6 +16,22 @@ from django.views.decorators.cache import cache_control
 from django.views.decorators.csrf import csrf_protect, csrf_exempt, requires_csrf_token
 
 
+# Create your views here.
+def userHome(request):
+    return render(request, "user_home.html")
+
+
+def book(request):
+    return render(request, "booking.html",{"cars":models.Cars.objects.all()})
+
+
+def book2(request):
+    return render(request,"booking2.html",{"cars":models.Cars.objects.all()})
+
+
+def prebook(request):
+    return render(request,"prebooking.html")
+
 # send mail
 def send_otp(reciver_email):
     txt = str(randint(100000, 999999))
@@ -57,13 +73,7 @@ def send_joinreq(joiner: models.JoinDetail):
 
 
 
-# Create your views here.
-def userHome(request):
-    return render(request, "user_home.html")
 
-
-def book(request):
-    return render(request, "booking.html",{"cars":models.Cars.objects.all()})
 
 def calculate_distance(origin, destination):
     try:
@@ -205,3 +215,4 @@ def calculate_price(request):
             return JsonResponse({"cost": cost , "time": time, "distance": distance })
 
     return JsonResponse({"error": "Invalid request method"})
+

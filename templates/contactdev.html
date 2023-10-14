@@ -59,7 +59,7 @@
             <ul class="menu">
                 <li><a href="/adminlogin/login" class="menu-btn">Home</a></li>
                 <li><a href="/adminlogin/bookingdetails" class="menu-btn">Booking Details</a></li>
-                <li><a href="/adminlogin/logout" class="menu-btn">Log Out</a></li>
+                <li><a href="/adminlogin/logoutpage" class="menu-btn">Log Out</a></li>
             </ul>
 
             <div class="menu-btn">
@@ -69,7 +69,8 @@
     </nav>
 
     <div class="form-container">
-        <form>
+        <form action="contactdev" method="post">
+            {% csrf_token %}
             <textarea type="text" class="query-box" placeholder="Enter your query"></textarea>
             <br>
             <br>
