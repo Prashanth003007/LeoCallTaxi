@@ -94,7 +94,7 @@
     width: 60%;
 }
 .inp-txt1{
-    padding-top: 1%;
+    padding-top: -10%;
     padding-bottom: 1%;
   margin-left: 5%;
   margin-right: -12%;
@@ -106,7 +106,7 @@
     border: 1px solid #FDD406; ;
     width: 50%;
     font-size: 130%;
-    height: 100%;
+    height: 80%;
     align-self: flex-end;
     color:white;
 }
@@ -135,7 +135,7 @@
     font-size: medium;
     width: 80%;
     height: 100%;
-    margin-top: 2%;
+    margin-top: 1.5%;
     margin-left: 8%;
     margin-right: 2%;
     color: white;
@@ -467,35 +467,35 @@ font-size: 1.8rem;
       <form method="post" action="booked" class="formclass" id="booking-form">
           {% csrf_token %}
       <div class="inp-contain">
-          <input class="inp-txt" type="text" style="font-size: 100%"  name="name" placeholder="enter your name" value="">
+          <input class="inp-txt" type="text" style="font-size: 80%"  name="name" placeholder="enter your name" value="">
       </div>
       <div class="inp-contain">
-          <input type="text" class="form-control" name="phoneno" style="font-size: 100%" placeholder="enter your phone number" required>
+          <input type="text" class="form-control" name="phoneno" style="font-size: 80%" placeholder="enter your phone number" required>
       </div>
       <div class="inp-contain">
-          <input class="inp-txt" style="font-size: 100%" type="date" name="date" placeholder="" value="">
+          <input class="inp-txt" style="font-size: 80%" type="date" name="date" placeholder="" value="">
       </div>
       <div class="inp-contain">
-          <input class="inp-txt"  style="font-size: 100%" type="time" name="time" placeholder="" value="">
+          <input class="inp-txt"  style="font-size: 80%" type="time" name="time" placeholder="" value="">
       </div>
       <div class="inp-contain">
-          <input class="inp-txt" type="text" style="font-size: 100%" name="pickup" id= 'origin' placeholder="Pickup" value="">
+          <input class="inp-txt" type="text" style="font-size: 80%" name="pickup" id= 'origin' placeholder="Pickup" value="">
       </div>
       <div class="inp-contain">
-          <input class="inp-txt" type="text" style="font-size: 100%" name="dropoff" id= 'destination' placeholder="Drop Off" value="">
+          <input class="inp-txt" type="text" style="font-size: 80%" name="dropoff" id= 'destination' placeholder="Drop Off" value="">
       </div>
       <div class="inp-contain">
-          <select class="inp-txt" style="font-size: 100%" id= "vtype" type="text" name="chooseride" value="">
+          <select class="inp-txt" style="font-size: 80%" id= "vtype" type="text" name="chooseride" value="">
               {% for car in cars  %}
                   <option value="{{ car.code }}">{{ car.name }}</option>
               {% endfor %}
           </select>
       </div>
       <div class="inp-contain">
-          <label class="inp-txt" style="font-size: 100% ;align-content: center" id = "estimatep">ESTIMATE PRICE </label>
+          <label class="inp-txt" style="font-size: 80% ;align-content: center" id = "estimatep">ESTIMATE PRICE </label>
       </div>
       <div class="inp-contain">
-          <label class="inp-txt" style="font-size: 100%" id="estimatet">TRAVEL TIME </label>
+          <label class="inp-txt" style="font-size: 80%" id="estimatet">TRAVEL TIME </label>
       </div>
       <div class="inp-contain1">
           <label class="formtext">TWO WAYS </label>
