@@ -1,0 +1,74 @@
+
+.inp-contain{
+    margin: 1.5%;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    align-content: center;
+    height: 40%;
+    width: 100%;
+}
+.inp-txt{
+    text-align: center;
+    border-radius: 25px;
+    background: #A9A5A5;
+    border: 1px solid #FDD406; ;
+    width: 60%;
+    height: 80%;
+    padding: auto;
+    margin: auto;
+    align-self: flex-end;
+}
+.formtext{
+color: #FFF;
+font-family: Agency FB;
+font-size: 100%;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+margin: auto;
+}
+.inp-txt1{
+    text-align: center;
+    border-radius: 25px;
+    background: #A9A5A5;
+    border: 1px solid #FDD406; ;
+    width: 30%;
+    height: 80%;
+    padding: auto;
+    margin: auto auto auto 5%;
+    align-self: flex-end;
+}
+.formtext1{
+    color: #FFF;
+font-family: Agency FB;
+font-size: 100%;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+    margin: auto auto auto 10%;
+}
+.admin-navbar {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    max-width: 80%;
+    color: #ffffff;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    margin-top: 1.2rem;
+    margin-left: 1.8rem;
+    font-family: Agency FB;
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+.text-wrapper-nav{
+    text-decoration: none;
+    color: white;
+
+  }
+.text-wrapper-nav:hover{
+    color:#F7FC13;
+}
