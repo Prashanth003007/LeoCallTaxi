@@ -75,18 +75,18 @@
   margin-left: 15%;
 }
 .insta{
-  height: 20%;
-  margin-left: -5%;
-  margin-top: 3%;
+  height: 25%;
+  margin-left: -220%;
+  margin-top: 150%;
 }
 .fb{
   height: 20%;
-  margin-top:3%;
-  margin-left: 1%;
+  margin-top: 170%;
+  margin-left: -110%;
 }
 .tweet{
-  height: 20%;
-  margin-top: 3%;
+  height: 25%;
+  margin-top: 150%;
   margin-left: 1%;
 }
 .abt_us{
@@ -486,6 +486,8 @@ body {
                 <input type="text" id="name" name="name" placeholder="NAME"><br><br>
                 <input type="text" id="phone" name="phone" placeholder="PHONE"><br><br>
                 <input type="text" id="email" name="email" placeholder="EMAIL"><br><br>
+                <input type="text" id="email" name="carModel" placeholder="MODEL NAME"><br><br>
+                <input type="text" id="email" name="carReGno" placeholder="REGISTRARION NUMBER"><br><br>
                 {% if request.session.status %}
                     <label >Request sent Successfully</label>
                 {% endif %}
@@ -525,13 +527,13 @@ body {
         </p></div>
     <div class="talk_to_us">
             <p style="font-weight: bold;">Talk to us</p>
-            <p>LeoCallTaxi@gmail.com<br>
-            111222333444<br></div>
+            <p>leocalltaxi@gmail.com<br>
+             0416-222-3322<br></div>
     <div class="follow_us"></div>
             <p style="font-weight: bold;">Follow Us</p>
-            <img class="insta" src="/static/images/instagram.png"/>
-            <img class="fb" src="/static/images/Facebook.png">
-            <img class="tweet" src="/static/images/twitter.png">
+                <a href="https://www.instagram.com/leo_taxi/"><img class="insta" src="/static/images/instagram.png"/></a>
+                <a href="https://www.facebook.com/LEOCALLTAXI/"><img class="fb" src="/static/images/Facebook.png"></a>
+                <a href="https://twitter.com/LeoCallTaxi?s=09"><img class="tweet" src="/static/images/twitter.png"></a>
     </div>
     <div class="promo">
         <p class="pr1" style="font-weight: bold;">Created by CodeCrafters          | </p>

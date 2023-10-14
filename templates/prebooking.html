@@ -1,33 +1,117 @@
-{% load static %}
 <!DOCTYPE html>
-<html>
-    <head> <meta name="viewport" content="width=device-width, initial-scale=1.0">
-         <link rel="stylesheet" type="text/css" href="{% static 'styles/admin_home.css'%}">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    </head>
-  <body>
-    <div class="main-frame">
-       <div class="admin-navbar">
-         <div class="div">Home</div>
-           <div > <a class="text-wrapper-2" href="">Booking details</a></div>
-           <div><a class="text-wrapper-3" href="">New Join list</a></div>
-           <div><a class="text-wrapper-4" href="contactdev">Contact developers</a></div>
-           <a class="person_icon" href="logoutpage"><i class='far fa-user' style='font-size:20px;color:white'></i></a>
-       </div>
-        <div class="frame1">
-        <div class="text">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+    body{
+  background-image: url("/static/images/desktop_backgroud.jpg");
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-attachment: fixed;
+}
+.MainFrame{
+  display: flex;
+  width: 10%;
+  padding: 5%;
+  border-radius: 2%;
+  margin-top: 10%;
+  margin-left: 45%;
+  margin-right: 35%;
+  color:white;
+  background-color: rgba(255, 174, 0, 0.388);
+}
 
-            <img class="CARGIF" src="{% static '/images/Admin_cars.png' %} " />
-        </div>
-        <div class = "logo">
-            <img class="img" src="{% static '/images/logo.png' %}" />
-        </div>
-        </div>
-        <div class="frame2">
-            <button class="text-wrapper"><a href="bookingdetails" class="booknow" >Booking Details</a></button>
+.instat{
+    margin-top: -50%;
+    width: 100%;
+    padding:20%;
+    background-color: #df9a0e;
+    border-radius: 4%;
+    font-size: 100%;
+    font-weight: bolder;
+
+}
+.outstat{
+    margin-top: 100%;
+    width: 100%;
+    padding: 20%;
+    background-color: #df9a0e;
+    border-radius: 4%;
+    font-size: 100%;
+    font-weight: bolder;
+}
+
+@media (max-width: 940px) {
+  body{
+    width: 100%;
+    background-image: url("/static/images/desktop_backgroud.jpg");
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-attachment: fixed;
+  }
+  .MainFrame{
+    display: flex;
+    position: relative;
+    align-self: center;
+    align-content: center;
+    width: 30%;
+    padding: 6%;
+    border-radius: 2%;
+    margin-top: 50%;
+    margin-left: 30%;
+    margin-right: 100%;
+    color:white;
+    background-color: rgba(255, 174, 0, 0.388);
+  }
+
+
+}
+
+@media (max-width: 700px) {
+  body{
+    background-image: url("/static/images/mobile_view.jpg");
+    width:100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-attachment: fixed;
+  }
+  .MainFrame{
+    display: flex;
+    position: relative;
+    align-self: center;
+    align-content: center;
+    width: 50%;
+    padding: 15%;
+    border-radius: 2%;
+    margin-top: 50%;
+    margin-left: 10%;
+    margin-right: 100%;
+    color:white;
+    background-color: rgba(255, 174, 0, 0.388);
+  }
+
+}
+</style>
+<body>
+    <center>
+        <div class = "MainFrame">
+            <div class ="Frame1">
+                <form class="Otp_form" method="post" action="verify">
+                    <div class ='otp_input'>
+                       <button name="in-station" class ="instat">In-Station</button>
+                       <button name="out-station" class="outstat">Out-Station</button>
+                    </div>
+                </form>
             </div>
-         </div>
 
+        </div>
+    </center>
+</body>
 
-  </body>
 </html>
