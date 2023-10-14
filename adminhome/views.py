@@ -21,9 +21,7 @@ def contactdev(request):
 
 
 def login(request):
-    if auth.get_user(request).is_authenticated:
-        return render(request, "admin_home.html")
-    else:
+
         if request.method == "POST":
             username = request.POST["username"]
             password = request.POST["password"]

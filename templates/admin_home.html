@@ -4,17 +4,33 @@
 <html>
     <head> <meta name="viewport" content="width=device-width, initial-scale=1.0">
          <link rel="stylesheet" type="text/css" href="{% static 'styles/admin_home.css'%}">
+           <link rel="stylesheet" href="{% static 'styles/bookdetails.css' %}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     </head>
   <body>
+  <nav class="navbar">
+        <div class="max-width">
+            <ul class="menu">
+                <li><a href="#home" class="menu-btn">Booking details</a></li>
+                <li><a href="#about" class="menu-btn">New Join list</a></li>
+                <li><a href="#booking" class="menu-btn">Contact developers</a></li>
+            </ul>
+             <a class="person_icon" href="logoutpage"><i class='far fa-user' style='font-size:20px;color:white'></i></a>
+
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+
+    </nav>
     <div class="main-frame">
-       <div class="admin-navbar">
-         <div class="div">Home</div>
-           <div > <a class="text-wrapper-2" href="">Booking details</a></div>
-           <div><a class="text-wrapper-3" href="">New Join list</a></div>
-           <div><a class="text-wrapper-4" href="contactdev">Contact developers</a></div>
-           <a class="person_icon" href="logoutpage"><i class='far fa-user' style='font-size:20px;color:white'></i></a>
-       </div>
         <div class="frame1">
         <div class="text">
 
@@ -28,7 +44,7 @@
             <button class="text-wrapper"><a href="bookingdetails" class="booknow" >Booking Details</a></button>
             </div>
          </div>
-
+ <script src="{% static 'js/script.js' %}"></script>
 
   </body>
 </html>
