@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking</title>
     <link rel="stylesheet" href="{% static 'styles/booking.css' %}">
+    <link rel="stylesheet" href="{% static 'stles/a2_c_quiz.css' %}">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -108,8 +110,23 @@
     align-self: flex-end;
     color:white;
 }
-
-.inp-txt{
+.form-control{
+     text-align: center;
+    border-radius: 5px;
+    background: #575656;
+    color: white;
+    border: 1px solid #FDD406; ;
+    font-size: medium;
+    width: 80%;
+    height: 100%;
+    margin-top: 2%;
+    margin-left: 8%;
+    margin-right: 2%;
+    color: white;
+    align-self: flex-end;
+    color: white;
+}
+  .inp-txt{
     text-align: center;
     border-radius: 5px;
     background: #575656;
@@ -450,10 +467,10 @@ font-size: 1.8rem;
       <form method="post" action="booked" class="formclass" id="booking-form">
           {% csrf_token %}
       <div class="inp-contain">
-          <input class="inp-txt" type="text"style="font-size: 100%"  name="name" placeholder="enter your name" value="">
+          <input class="inp-txt" type="text" style="font-size: 100%"  name="name" placeholder="enter your name" value="">
       </div>
       <div class="inp-contain">
-          <input class="inp-txt" type="text" style="font-size: 100%" name="phoneno" placeholder="enter your phone number" value="">
+          <input type="text" class="form-control" name="phoneno" style="font-size: 100%" placeholder="enter your phone number" required>
       </div>
       <div class="inp-contain">
           <input class="inp-txt" style="font-size: 100%" type="date" name="date" placeholder="" value="">
@@ -486,7 +503,7 @@ font-size: 1.8rem;
           <label class="inp-txt1"  id= 'result' style="margin-right: 10%">DISTANCE</label>
       </div>
       <div class="inp-contain">
-          <input class="inp-txt" type="text" style="font-size: 100%" name="email" placeholder="Email" value="">
+          <input type="email" class="form-control" name="email" style="font-size: 100%" placeholder="Email" required>
       </div>
       <div class="btn">
           <button  class="sub" onclick = "calculateDistance()" id = "checkfare" type="button">CHECK FARE</button>
@@ -586,6 +603,7 @@ font-size: 1.8rem;
             if (parts.length === 2) return parts.pop().split(";").shift();
         }
     </script>
+<script src="{% static 'js/a3_js_quiz.js' %}"></script>
 
 </body>
 </html>
