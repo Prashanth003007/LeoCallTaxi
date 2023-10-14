@@ -27,6 +27,8 @@ class JoinDetail(models.Model):
     name = models.CharField(max_length=70)
     phone = models.CharField(max_length=10)
     email = models.EmailField()
+    regno = models.CharField(max_length=12)
+    modeltype = models.CharField(max_length=30)
     reqdate = models.DateField(auto_now_add=True)
 
 class BookingDetails(models.Model):

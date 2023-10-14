@@ -58,7 +58,8 @@ def send_joinreq(joiner: models.JoinDetail):
     port = 465
     password = 'ffdy tmgh xput wujz'
     subject = "Leo-Call-Taxi OTP"
-    body = f"\t*New Join Request* \n\tFrom {joiner.name}\n\tContact :\n\t\tEmail : {joiner.email}\n\t\tPhone:{joiner.phone}"
+    body = f"\t*New Join Request* \n\tFrom {joiner.name}\n\tContact :\n\t\tEmail : {joiner.email}\n\t\tPhone:{joiner.phone}"+\
+           f"\n\t\tRegistration no : {joiner.regno}\n\t\tModel : {joiner.modeltype}"
     em = EmailMessage()
     em['From'] = 'eyeharshraj@gmail.com'
     em['To'] = reciver_email
@@ -164,6 +165,8 @@ def join(request):
     joinobj.name = request.POST.get("name")
     joinobj.email = request.POST.get("email")
     joinobj.phone = request.POST.get("phone")
+    joinobj.regno = request.POST.get("carregno")
+    joinobj.modeltype = request.POST.get("carmodel")
     joinobj.save()
     send_joinreq(joinobj)
     request.session["status"] = False
