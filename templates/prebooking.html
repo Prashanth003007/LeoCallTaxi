@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <link rel="stylesheet" type="text/css" href="{% static 'styles/admin_home.css'%}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    </head>
+  <body>
+    <div class="main-frame">
+       <div class="admin-navbar">
+         <div class="div">Home</div>
+           <div > <a class="text-wrapper-2" href="">Booking details</a></div>
+           <div><a class="text-wrapper-3" href="">New Join list</a></div>
+           <div><a class="text-wrapper-4" href="contactdev">Contact developers</a></div>
+           <a class="person_icon" href="logoutpage"><i class='far fa-user' style='font-size:20px;color:white'></i></a>
+       </div>
+        <div class="frame1">
+        <div class="text">
+
+            <img class="CARGIF" src="{% static '/images/Admin_cars.png' %} " />
+        </div>
+        <div class = "logo">
+            <img class="img" src="{% static '/images/logo.png' %}" />
+        </div>
+        </div>
+        <div class="frame2">
+            <button class="text-wrapper"><a href="bookingdetails" class="booknow" >Booking Details</a></button>
+            </div>
+         </div>
+
+
+  </body>
+</html>
