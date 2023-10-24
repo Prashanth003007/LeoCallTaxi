@@ -103,7 +103,10 @@ body {
   <div class="img1">
   <img class="img" src="{% static '/images/logo.png' %}" alt="Image"/>
    </div>
-    <button  class="log-out-button"><a href="logout" class="log"> LOG OUT</a></button>
+    <form action="logout">
+        {% csrf_token %}
+    <button  class="log-out-button" value="lot"><a  class="log"> LOG OUT</a></button>
+    </form>
 </div>
 </div>
 </body>

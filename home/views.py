@@ -190,6 +190,7 @@ def verify(request):
 @csrf_exempt
 def calculate_price(request):
     if request.method == "POST":
+        print("In")
         data = json.loads(request.body)
         car = models.Cars.objects.filter(code=data.get("type")).first()
         twoway = data.get("twoway")

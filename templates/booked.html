@@ -317,12 +317,22 @@ body {
 
 }
 
+  #gif {
+    animation: playOnce 2s steps(1) forwards;
+  }
+
+  @keyframes playOnce {
+    to {
+      background-position: -100%;
+    }
+  }
+
 </style>
 <body>
 
     <div class="container">
         <div class="transparent-box">
-            <img src="\static\images\check.gif" class="check-symbol" loop="false">
+            <img src="\static\images\check.gif" class="check-symbol" id = "gif" loop="false">
             <div>
                 <p class="box-text">BOOKED</p>
                 <p class="box-text2">YOUR BOOKING DETAILS ARE<br>SENT TO YOU ON MAIL <br></p>
@@ -332,6 +342,12 @@ body {
 
     <script src="{% static 'js/script.js' %}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      var gif = document.getElementById('gif');
+      gif.addEventListener('load', function() {
+        gif.style.animation = 'playOnce 2s steps(1) forwards';
+      });
+    </script>
 
 </body>
 </html>

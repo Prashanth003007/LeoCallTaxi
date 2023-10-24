@@ -499,7 +499,7 @@ font-size: 1.8rem;
       </div>
       <div class="inp-contain1">
           <label class="formtext">TWO WAYS </label>
-          <input type="checkbox" name = "twoways" style ="width: 10%">
+          <input type="checkbox" name = "twoways" id = "twoways" style ="width: 10%">
           <label class="inp-txt1"  id= 'result' style="margin-right: 10%">DISTANCE</label>
       </div>
       <div class="inp-contain">
@@ -557,7 +557,8 @@ font-size: 1.8rem;
             var origin = document.getElementById('origin').value;
             var destination = document.getElementById('destination').value;
             var type = document.getElementById("vtype").value;
-            console.log(origin,destination)
+            var twoway = document.getElementById("twoways").checked;
+
             var service = new google.maps.DistanceMatrixService();
             service.getDistanceMatrix({
                 origins: [origin],
@@ -567,28 +568,29 @@ font-size: 1.8rem;
             }, function(response, status) {
                 if (status === 'OK') {
                     var distance = response.rows[0].elements[0].distance.text;
-                    document.getElementById('result').textContent = "Distance: " + distance;
-                    fetch('calculate_price', {
-                          method: 'POST',
-                          body: JSON.stringify({type,distance}),
-                          headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRFToken': getCookie('csrftoken') // Ensure you have a function to get the CSRF token
-                          },
-                    }).then(response => response.json())
-                    .then(data => {
-                        // Update the result element with the calculated distance
-                        document.getElementById("estimatep").textContent = "ESTIMATED PRICE : " + data.cost
-                        document.getElementById("estimatet").textContent = "ESTIMATED TIME : " + data.time
-                    }).catch(error => {
-                      console.error('Error calculating distance:', error);
-                    });
 
+                    fetch('calculate_price', {
+                        method: 'POST',
+                        body: JSON.stringify({ type, distance, twoway }),
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRFToken': getCookie('csrftoken')
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        // Update the result elements with the calculated values
+                        document.getElementById("estimatep").textContent = "ESTIMATED PRICE: " + data.cost;
+                        document.getElementById("estimatet").textContent = "ESTIMATED TIME: " + data.time;
+                        document.getElementById('result').textContent = "Distance: " + data.distance + "Km";
+                    })
+                    .catch(error => {
+                        console.error('Error calculating distance:', error);
+                    });
                 } else {
                     document.getElementById('result').textContent = "Error calculating distance.";
                 }
             });
-
         }
 
         // Autocomplete for origin and destination input fields
