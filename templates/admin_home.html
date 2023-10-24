@@ -1,10 +1,9 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html>
     <head> <meta name="viewport" content="width=device-width, initial-scale=1.0">
          <link rel="stylesheet" type="text/css" href="{% static 'styles/admin_home.css'%}">
-           <link rel="stylesheet" href="{% static 'styles/bookdetails.css' %}">
+           <link rel="stylesheet" href='{% static 'styles/bookdetails.css'%}'>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -14,6 +13,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     </head>
+    <style>
+    </style>
   <body>
   <nav class="navbar">
         <div class="max-width">
@@ -33,17 +34,17 @@
         <div class="frame1">
         <div class="text">
 
-            <img class="CARGIF" src="{% static '/images/Admin_cars.png' %} " />
+            <img class="CARGIF" src="{% static 'images/Admin_cars.png'%}" />
         </div>
         <div class = "logo">
-            <img class="img" src="{% static '/images/logo.png' %}" />
+            <img class="img" src="{% static 'images/logo.png' %}"/>
         </div>
         </div>
         <div class="frame2">
             <button class="text-wrapper"><a href="bookingdetails" class="booknow" >Booking Details</a></button>
             </div>
          </div>
- <script src="{% static 'js/script.js' %}"></script>
+  <script src="{% static 'js/script.js' %}"></script>
 
   </body>
 </html>
