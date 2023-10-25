@@ -90,7 +90,7 @@ def calculate_distance(origin, destination):
 
 def calculate_fare(distance,type,twoway):
     cost = 0
-    car = models.Cars.objects.filter(code=type).first()
+    car = models.Cars.objects.filter(code=type.code).first()
     if distance < 20:
         distance -= car.base_d_i
         cost += car.basefare_i
@@ -117,7 +117,7 @@ def booked(request):
         booking.pickuptime = request.POST.get("time")
         booking.pickup = request.POST.get("pickup")
         booking.dropoff = request.POST.get("dropoff")
-        booking.ride = request.POST.get("chooseride")
+        booking.ride = models.Cars.objects.filter(code=request.POST.get("chooseride")).first()
         booking.email = request.POST.get("email")
         booking.twoway = request.POST.get("twoways") == "on"
         booking.efare = calculate_fare(int(float("".join((calculate_distance(booking.pickup,booking.dropoff)[:-3]).split(",")))),
@@ -172,13 +172,35 @@ def join(request):
     request.session["status"] = False
     return redirect("/#joinreq")
 
+def verifiedEmail(bookedObj : models.BookingDetails):
+    port = 465
+    password = 'ffdy tmgh xput wujz'
+    subject = "Leo-Call-Taxi Booking Confirmed"
+    body = f"Thank you {bookedObj.name}! \nfor choosing Leo Call Taxi your Ride is Confirmed\n"+\
+        f"Your Booking Details Are : \n\n\t Pickup Date : {bookedObj.pickupdate}"+\
+        f"\n\tFrom : {bookedObj.pickup}\n\tTo : {bookedObj.dropoff}"+\
+        f"\n\tRide : {models.Cars.objects.filter(code = bookedObj.ride.code).first().name}"+\
+        f"\n\tEstimated Fare : {bookedObj.efare}"
+    em = EmailMessage()
+    em['From'] = 'eyeharshraj@gmail.com'
+    em['To'] = bookedObj.email
+    em['Subject'] = subject
+    em.set_content(body)
+
+    context = ssl.create_default_context()
+
+    with smtplib.SMTP_SSL('smtp.gmail.com', port, context=context) as smtp:
+        smtp.login('eyeharshraj@gmail.com', password)
+        smtp.sendmail('eyeharshraj@gmail.com', bookedObj.email, em.as_string())
 
 def verify(request):
     if request.method == "POST":
         obj = models.BookingDetails.objects.filter(id=request.session["id"]).first()
-        if request.POST.get("OTP") == obj.otp:
+        print(type(obj.otp),type(request.POST.get("OTP")))
+        if request.POST.get("OTP") == str(obj.otp):
             obj.verified = True
             obj.save()
+            verifiedEmail(obj)
             return render(request, "booked.html")
         else:
             messages.info(request, message='invalid otp')
@@ -195,6 +217,7 @@ def calculate_price(request):
         car = models.Cars.objects.filter(code=data.get("type")).first()
         twoway = data.get("twoway")
         distance = float("".join((data.get("distance")[:-3]).split(",")))
+        tempdist = distance
         del data
         if not car:
             return JsonResponse({"error": "Car not found"})
@@ -203,17 +226,17 @@ def calculate_price(request):
         cost = 0
 
         if distance < 20:
-            distance -= car.base_d_i
+            tempdist -= car.base_d_i
             cost += car.basefare_i
-            if distance > 0:
-                cost += car.add_charge_i * distance
+            if tempdist > 0:
+                cost += car.add_charge_i * tempdist
         else:
-            distance -= car.base_d_o
+            tempdist -= car.base_d_o
             cost += car.basefare_o
             if distance > 0:
-                cost += car.add_charge_o * distance
+                cost += car.add_charge_o * tempdist
 
-        if twoway:
+        if twoway or (twoway is None):
             return JsonResponse({"cost": cost * 2, "time": time * 2, "distance": distance * 2})
         else:
             return JsonResponse({"cost": cost , "time": time, "distance": distance })

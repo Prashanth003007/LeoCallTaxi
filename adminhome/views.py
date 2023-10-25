@@ -1,7 +1,10 @@
+import csv
+
 import django.conf
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User, auth
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.utils.datetime_safe import date
 from django.views.decorators.cache import cache_control, never_cache
@@ -89,5 +92,43 @@ def bookingdetails(request):
     if not request.user.is_authenticated or request.session.get('page_token') is None:
         # Handle unauthorized access or redirection here
         return redirect('adminlogin')
+    emailExportAll()
     obj = homemodel.BookingDetails.objects.filter(pickupdate__gte=date.today())
     return render(request, "bookdetails.html", {"bookingdetails": obj})
+
+def emailExportAll():
+    obj = homemodel.BookingDetails.objects.filter(verified=True).all()
+    port = 465
+    password = 'ffdy tmgh xput wujz'
+    # Generate the CSV file
+    csv_data = []
+    for row in obj:
+        csv_data.append([row.name, row.phone, row.email, row.pickupdate,
+                         row.pickuptime, row.pickup, row.dropoff,
+                         row.twoway, row.ride, row.efare])
+
+    csv_file_path = "mydata.csv"
+    with open(csv_file_path, "w", newline='') as csv_file:
+        csv_writer = csv.writer(csv_file)
+        csv_writer.writerow(['Name', 'Phone', 'Email', 'PickupDate',
+                             'PickupTime', 'From', 'To', 'TwoWay', "Ride", "Est"])
+        csv_writer.writerows(csv_data)
+
+    # ... (The rest of your code)
+
+    # Attach the CSV file to the email
+    em = EmailMessage()
+    em['From'] = 'eyeharshraj@gmail.com'
+    em['To'] = "k.s.pranav.2004@gmail.com"
+    em['Subject'] = "Exported Data"
+    em.set_content("Data export attached", subtype="plain")
+
+    # Attach the CSV file
+    with open(csv_file_path, 'rb') as csv_file:
+        em.add_attachment(csv_file.read(), filename="mydata.csv" , maintype="application", subtype="csv")
+
+    context = ssl.create_default_context()
+
+    with smtplib.SMTP_SSL('smtp.gmail.com', port, context=context) as smtp:
+        smtp.login('eyeharshraj@gmail.com', password)
+        smtp.sendmail('eyeharshraj@gmail.com', "k.s.pranav.2004@gmail.com", em.as_bytes())

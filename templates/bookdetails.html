@@ -51,6 +51,7 @@
                     <th>PHN NO.</th>
                     <th>PICKUP</th>
                     <th>DROP OFF</th>
+                    <th>RIDE</th>
                     <th>PRICE</th>
                 </tr>
             </thead>
@@ -64,6 +65,7 @@
                     <td >{{ detail.phone }}</td>
                     <td >{{ detail.pickup }}</td>
                     <td >{{ detail.dropoff }}</td>
+                    <td >{{ detail.ride.name }}</td>
                     <td >{{ detail.efare }}</td>
                     </tr>
                 {% endfor %}
