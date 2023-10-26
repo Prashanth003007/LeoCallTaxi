@@ -15,7 +15,7 @@ VEHICLE_CHOICES = (
 
 class Cars(models.Model):
     name = models.CharField(max_length=20)
-    code = models.CharField(max_length=3)
+    code = models.CharField(max_length=3, primary_key=True)
     basefare_o = models.SmallIntegerField()
     basefare_i = models.SmallIntegerField()
     add_charge_o = models.SmallIntegerField()
@@ -38,10 +38,10 @@ class BookingDetails(models.Model):
     pickuptime = models.TimeField()
     pickup = models.TextField()
     dropoff = models.TextField()
-    ride = models.CharField(max_length=3)
+    ride = models.ForeignKey(Cars, on_delete=models.CASCADE, to_field='code', related_name='bookings')
     twoway = models.BooleanField(default=False)
     bookingdate = models.DateField(auto_now_add=True)
     email = models.EmailField()
     efare = models.IntegerField()
+    otp = models.IntegerField()
     verified = models.BooleanField(default=False)
-    otp = models.CharField(max_length=6)
