@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking</title>
     <link rel="stylesheet" href="{% static 'styles/booking.css' %}">
-    <link rel="stylesheet" href="{% static 'stles/a2_c_quiz.css' %}">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -455,7 +454,8 @@ font-size: 1.7rem;
           <input class="inp-txt" type="text" style="font-size: 80%"  name="name" placeholder="enter your name" value="" required>
       </div>
       <div class="inp-contain">
-          <input type="text" class="form-control" name="phoneno" style="font-size: 80%" placeholder="enter your phone number" required>
+          <input type="tel" class="form-control" id="phone" name="phoneno" style="font-size: 80%" placeholder="enter your phone number" required>
+          <p id="phoneError" class="error" style="color: white"></p>
       </div>
       <div class="inp-contain">
           <input class="inp-txt" style="font-size: 80%" type="date" name="date" placeholder="" value="" required>
@@ -490,11 +490,12 @@ font-size: 1.7rem;
       </div>
       <p><br></p>
       <div class="inp-contain">
-          <input type="email" class="form-control" name="email" style="font-size: 100%" placeholder="Email" required>
+          <input type="email" class="form-control" id="email" name="email" style="font-size: 100%" placeholder="Email" required>
+          <p id="emailError" class="error" style="color: white"></p>
       </div>
       <div class="btn">
-          <button  class="sub" onclick = "calculateDistance()" type="button">CHECK&nbspFARE</button>
-          <button type="submit" class="sub1">BOOK</button>
+          <button  class="sub" onclick = "validateForm();" type="button">CHECK&nbspFARE</button>
+          <button type="submit" class="sub1" onclick="validateForm();">BOOK</button>
       </div>
     </form>
   </div>
@@ -591,8 +592,41 @@ font-size: 1.7rem;
             var parts = value.split("; " + name + "=");
             if (parts.length === 2) return parts.pop().split(";").shift();
         }
-    </script>
-<script src="{% static 'js/a3_js_quiz.js' %}"></script>
+
+     function validateForm() {
+  // Reset error messages
+  document.getElementById("phoneError").textContent = "";
+  document.getElementById("emailError").textContent = "";
+
+  // Get input values
+  const phoneInput = document.getElementById("phone");
+  const emailInput = document.getElementById("email");
+
+  const phoneValue = phoneInput.value;
+  const emailValue = emailInput.value;
+
+  // Regular expression patterns for phone number and email validation
+  const phonePattern = /^\d{10}$/;
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+  // Validate phone number
+  if (!phonePattern.test(phoneValue)) {
+    document.getElementById("phoneError").textContent = "Invalid phone number";
+    return false;
+  }
+
+  // Validate email address
+  if (!emailPattern.test(emailValue)) {
+    document.getElementById("emailError").textContent = "Invalid email address";
+    return false;
+  }
+
+  // Form is valid
+  calculateDistance();
+  return true;
+}
+
+ </script>
 
 </body>
 </html>
