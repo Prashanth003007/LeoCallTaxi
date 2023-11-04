@@ -101,7 +101,7 @@ def calculate_fare(distance,type,twoway):
         cost += car.basefare_o
         if distance > 0:
             cost += car.add_charge_o * distance
-    if twoway:
+    if twoway or (twoway is None):
         return cost * 2
     else:
         return cost
@@ -169,7 +169,7 @@ def join(request):
     joinobj.modeltype = request.POST.get("carmodel")
     joinobj.save()
     send_joinreq(joinobj)
-    request.session["status"] = False
+    request.session["status"] = True
     return redirect("/#joinreq")
 
 def verifiedEmail(bookedObj : models.BookingDetails):

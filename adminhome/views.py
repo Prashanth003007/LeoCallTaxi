@@ -93,9 +93,45 @@ def bookingdetails(request):
         # Handle unauthorized access or redirection here
         return redirect('adminlogin')
     emailExportAll()
-    obj = homemodel.BookingDetails.objects.filter(pickupdate__gte=date.today())
+    obj = homemodel.BookingDetails.objects.filter(pickupdate__gte=date.today(),verified=True)
     return render(request, "bookdetails.html", {"bookingdetails": obj})
 
+def emailExportWeek():
+    obj = homemodel.BookingDetails.objects.filter(verified=True,pickupdate__gte=date.today(),pickupdate__lt=date.today()).all()
+    port = 465
+    password = 'ffdy tmgh xput wujz'
+    # Generate the CSV file
+    csv_data = []
+    for row in obj:
+        csv_data.append([row.name, row.phone, row.email, row.pickupdate,
+                         row.pickuptime, row.pickup, row.dropoff,
+                         row.twoway, row.ride, row.efare])
+
+    csv_file_path = "mydata.csv"
+    with open(csv_file_path, "w", newline='') as csv_file:
+        csv_writer = csv.writer(csv_file)
+        csv_writer.writerow(['Name', 'Phone', 'Email', 'PickupDate',
+                             'PickupTime', 'From', 'To', 'TwoWay', "Ride", "Est"])
+        csv_writer.writerows(csv_data)
+
+    # ... (The rest of your code)
+
+    # Attach the CSV file to the email
+    em = EmailMessage()
+    em['From'] = 'eyeharshraj@gmail.com'
+    em['To'] = "k.s.pranav.2004@gmail.com"
+    em['Subject'] = "Exported Data"
+    em.set_content("Data export attached", subtype="plain")
+
+    # Attach the CSV file
+    with open(csv_file_path, 'rb') as csv_file:
+        em.add_attachment(csv_file.read(), filename="mydata.csv" , maintype="application", subtype="csv")
+
+    context = ssl.create_default_context()
+
+    with smtplib.SMTP_SSL('smtp.gmail.com', port, context=context) as smtp:
+        smtp.login('eyeharshraj@gmail.com', password)
+        smtp.sendmail('eyeharshraj@gmail.com', "k.s.pranav.2004@gmail.com", em.as_bytes())
 def emailExportAll():
     obj = homemodel.BookingDetails.objects.filter(verified=True).all()
     port = 465

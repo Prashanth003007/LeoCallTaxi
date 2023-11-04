@@ -534,11 +534,11 @@ body {
         <div class="fcontain" id="joinreq">
             <form method="post" class="formclass" action="join">
             {% csrf_token %}
-                <input type="text" id="name" name="name" placeholder="NAME"><br><br>
-                <input type="text" id="phone" name="phone" placeholder="PHONE"><br><br>
-                <input type="text" id="email" name="email" placeholder="EMAIL"><br><br>
-                <input type="text" id="email" name="carmodel" placeholder="MODEL NAME"><br><br>
-                <input type="text" id="email" name="carregno" placeholder="REGISTRATION NUMBER"><br><br>
+                <input type="text" id="name" name="name" placeholder="NAME" required><br><br>
+                <input type="text" id="phone" name="phone" placeholder="PHONE" required><br><br>
+                <input type="text" id="email" name="email" placeholder="EMAIL" required><br><br>
+                <input type="text" id="email" name="carmodel" placeholder="MODEL NAME" required><br><br>
+                <input type="text" id="email" name="carregno" placeholder="REGISTRATION NUMBER" required><br><br>
                 {% if request.session.status %}
                     <label >Request sent Successfully</label>
                 {% endif %}
