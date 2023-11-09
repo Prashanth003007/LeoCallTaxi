@@ -99,7 +99,6 @@
   text-align: center;
     border-radius: 5px;
     background: white;
-    font-size: 30%;
     border: 1px solid #FDD406;
     width: 50%;
     font-size: 130%;
@@ -113,7 +112,7 @@
     background: white;
     color: black;
     border: 1px solid #FDD406; ;
-    font-size: medium;
+    font-size: 130%;
     width: 80%;
     height: 100%;
     margin-top: 2%;
@@ -127,12 +126,13 @@
     background: white;
     color: black;
     border: 1px solid #FDD406; ;
-    font-size: medium;
+   font-size: 130%;
     width: 80%;
     height: 100%;
     margin-top: 1.5%;
     margin-left: 8%;
     margin-right: 2%;
+
     align-self: flex-end;
 }
 .formtext{
@@ -148,8 +148,9 @@
 }
 ::placeholder {
   color: black;
-    font-size: 140%;
+    font-size: 130%;
   opacity: 1; /* Firefox */
+
 }
 .inp-contain{
     margin: 1.5%;
@@ -296,6 +297,21 @@ font-size: 1.8rem;
   body{
     position: absolute;
   }
+
+  .inp-txt1{
+    padding-top: 3%;
+    padding-bottom: 1%;
+  margin-left: 9%;
+  text-align: center;
+    border-radius: 5px;
+    background: white;
+    border: 1px solid #FDD406;
+    width: 80%;
+    font-size: 130%;
+    height: 110%;
+    align-self: flex-end;
+    color: black;
+}
 
 .sub{
 
@@ -458,7 +474,7 @@ font-size: 1.7rem;
           <p id="phoneError" class="error" style="color: white"></p>
       </div>
       <div class="inp-contain">
-          <input class="inp-txt" style="font-size: 80%" type="date" name="date" placeholder="" value="" required>
+          <input class="inp-txt" style="font-size: 100%;" type="date" name="date" placeholder="" value="" required>
       </div>
       <div class="inp-contain">
           <input class="inp-txt"  style="font-size: 80%" type="time" name="time" placeholder="" value="" required>
@@ -470,27 +486,27 @@ font-size: 1.7rem;
           <input class="inp-txt" type="text" style="font-size: 80%" name="dropoff" id= 'destination' placeholder="Drop Off" value="" required>
       </div>
       <div class="inp-contain">
-          <select class="inp-txt" style="font-size: 80%" id= "vtype" type="text" name="chooseride" value="" required>
+          <select class="inp-txt" style="font-size: 100%" id= "vtype" type="text" name="chooseride" value="" required>
               {% for car in cars  %}
                   <option value="{{ car.code }}">{{ car.name }}</option>
               {% endfor %}
           </select>
       </div>
       <div class="inp-contain">
-          <label class="inp-txt" style="font-size: 80% ;align-content: center" id = "estimatep">ESTIMATE PRICE </label>
+          <label class="inp-txt" style="font-size: 100%;padding-top: 2%" id = "estimatep">Estimate Price </label>
       </div>
       <div class="inp-contain">
-          <label class="inp-txt" style="font-size: 80%" id="estimatet">TRAVEL TIME </label>
+          <label class="inp-txt" style="font-size: 100%;padding-top: 2%" id="estimatet">Travel Time </label>
       </div>
       <p><br></p>
       <div class="inp-contain1">
           <label class="formtext">TWO WAYS </label>
           <input type="checkbox" name = "twoways" id = "twoways" style ="width: 10%">
-          <label class="inp-txt1"  id= 'result' style="margin-right: 10%">DISTANCE</label>
+          <label class="inp-txt1"  id= 'result'>Distance</label>
       </div>
       <p><br></p>
       <div class="inp-contain">
-          <input type="email" class="form-control" id="email" name="email" style="font-size: 100%" placeholder="Email" required>
+          <input type="email" class="form-control" id="email" name="email" style="font-size: 90%" placeholder="Email" required>
           <p id="emailError" class="error" style="color: white"></p>
       </div>
       <div class="btn">
@@ -529,7 +545,7 @@ font-size: 1.7rem;
 <script src="{% static 'js/script.js' %}"></script>
 <script src="{% static 'js/scriptbook.js' %}"></script>
 <script>
-        document.addEventListener("DOMContentLoaded", function() {
+     document.addEventListener("DOMContentLoaded", function() {
           const form = document.getElementById("booking-form");
 
           // Listen for keypress events on the form
