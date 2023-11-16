@@ -92,7 +92,7 @@ def bookingdetails(request):
     if not request.user.is_authenticated or request.session.get('page_token') is None:
         # Handle unauthorized access or redirection here
         return redirect('adminlogin')
-    emailExportAll()
+    # emailExportAll()
     obj = homemodel.BookingDetails.objects.filter(pickupdate__gte=date.today(),verified=True)
     return render(request, "bookdetails.html", {"bookingdetails": obj})
 
