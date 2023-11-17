@@ -93,9 +93,8 @@ def bookingdetails(request):
     if not request.user.is_authenticated or request.session.get('page_token') is None:
         # Handle unauthorized access or redirection here
         return redirect('adminlogin')
-    #emailExportAll()
-    obj = homemodel.BookingDetails.objects.filter(verified=True,pickupdate__gte=timezone.now(),
-                                                  pickupdate__lt=(timezone.now() + timezone.timedelta(days=7))).all()
+    obj = homemodel.BookingDetails.objects.filter(verified=True,pickupdate__gte=timezone.now()).all()
+                                                  #pickupdate__lt=(timezone.now() + timezone.timedelta(days=7))).all()
     return render(request, "bookdetails.html", {"bookingdetails": obj})
 
 def emailExportWeek(request):

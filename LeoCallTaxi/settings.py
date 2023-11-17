@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3' #'leocalltaxi_database'
         # 'USER': 'root',
-        # 'PASSWORD': '2004',
+        # 'PASSWORD': '2004' , 'gNoUEeozswlgGGgp',
         # 'HOST': 'localhost',
         # 'PORT': '3306'
     }
