@@ -36,11 +36,11 @@ def prebook(request):
 def send_otp(reciver_email):
     txt = str(randint(100000, 999999))
     port = 465
-    password = 'ffdy tmgh xput wujz'
+    password = 'tyyi yxng hkxp yuwu'
     subject = "Leo-Call-Taxi OTP"
     body = f"Thank you for choosing Leo Call Taxi your otp for leo call taxi booking is{txt}"
     em = EmailMessage()
-    em['From'] = 'eyeharshraj@gmail.com'
+    em['From'] = 'leocalltaxi@gmail.com'
     em['To'] = reciver_email
     em['Subject'] = subject
     em.set_content(body)
@@ -48,15 +48,15 @@ def send_otp(reciver_email):
     context = ssl.create_default_context()
 
     with smtplib.SMTP_SSL('smtp.gmail.com', port, context=context) as smtp:
-        smtp.login('eyeharshraj@gmail.com', password)
-        smtp.sendmail('eyeharshraj@gmail.com', reciver_email, em.as_string())
+        smtp.login('leocalltaxi@gmail.com', password)
+        smtp.sendmail('leocalltaxi@gmail.com', reciver_email, em.as_string())
     return txt
 
 
 def send_joinreq(joiner: models.JoinDetail):
-    reciver_email = 'k.s.pranav.2004@gmail.com'
+    reciver_email = 'leocalltaxi@gmail.com'
     port = 465
-    password = 'ffdy tmgh xput wujz'
+    password = 'tyyi yxng hkxp yuwu'
     subject = "Leo-Call-Taxi OTP"
     body = f"\t*New Join Request* \n\tFrom {joiner.name}\n\tContact :\n\t\tEmail : {joiner.email}\n\t\tPhone:{joiner.phone}"+\
            f"\n\t\tRegistration no : {joiner.regno}\n\t\tModel : {joiner.modeltype}"
@@ -69,8 +69,8 @@ def send_joinreq(joiner: models.JoinDetail):
     context = ssl.create_default_context()
 
     with smtplib.SMTP_SSL('smtp.gmail.com', port, context=context) as smtp:
-        smtp.login('eyeharshraj@gmail.com', password)
-        smtp.sendmail('eyeharshraj@gmail.com', reciver_email, em.as_string())
+        smtp.login('eleocalltaxi@gmail.com', password)
+        smtp.sendmail('leocalltaxi@gmail.com', reciver_email, em.as_string())
 
 
 
@@ -137,7 +137,7 @@ def booked(request):
 # .....................................................................
 
 # Replace 'YOUR_API_KEY' with your actual Google API key
-gmaps = googlemaps.Client(key='AIzaSyCX2XkLAJIAs46WYurIDpwWcgMgeDqY11c')
+gmaps = googlemaps.Client(key='AIzaSyDYjEymq8PmRMQ6OoBhZkmbUL1c0OagkSc')
 
 
 def autocomplete_address(query):
