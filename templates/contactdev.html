@@ -71,7 +71,7 @@
     <div class="form-container">
         <form action="contactdev" method="post">
             {% csrf_token %}
-            <textarea type="text" class="query-box" placeholder="Enter your query"></textarea>
+            <textarea type="text" class="query-box" name = "body" placeholder="Enter your query"></textarea>
             <br>
             <br>
             <button type="submit" class="send-button">Send</button>

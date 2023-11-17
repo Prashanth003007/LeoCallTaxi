@@ -6,7 +6,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User, auth
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from django.utils.datetime_safe import date
+from django.utils.datetime_safe import date , datetime
+from django.utils import timezone
 from django.views.decorators.cache import cache_control, never_cache
 from django.views.decorators.csrf import csrf_protect, csrf_exempt, requires_csrf_token
 from home import models as homemodel
@@ -92,12 +93,16 @@ def bookingdetails(request):
     if not request.user.is_authenticated or request.session.get('page_token') is None:
         # Handle unauthorized access or redirection here
         return redirect('adminlogin')
-    # emailExportAll()
-    obj = homemodel.BookingDetails.objects.filter(pickupdate__gte=date.today(),verified=True)
+    #emailExportAll()
+    obj = homemodel.BookingDetails.objects.filter(verified=True,pickupdate__gte=timezone.now(),
+                                                  pickupdate__lt=(timezone.now() + timezone.timedelta(days=7))).all()
     return render(request, "bookdetails.html", {"bookingdetails": obj})
 
-def emailExportWeek():
-    obj = homemodel.BookingDetails.objects.filter(verified=True,pickupdate__gte=date.today(),pickupdate__lt=date.today()).all()
+def emailExportWeek(request):
+    obj = (homemodel.BookingDetails.objects.filter(verified=True,
+                                                  pickupdate__gte=timezone.now(),
+                                                  pickupdate__lt=(timezone.now() + timezone.timedelta(days=7)))
+           .order_by("pickupdate").all())
     port = 465
     password = 'ffdy tmgh xput wujz'
     # Generate the CSV file
@@ -105,7 +110,7 @@ def emailExportWeek():
     for row in obj:
         csv_data.append([row.name, row.phone, row.email, row.pickupdate,
                          row.pickuptime, row.pickup, row.dropoff,
-                         row.twoway, row.ride, row.efare])
+                         row.twoway, row.ride.name, row.efare])
 
     csv_file_path = "mydata.csv"
     with open(csv_file_path, "w", newline='') as csv_file:
@@ -132,8 +137,11 @@ def emailExportWeek():
     with smtplib.SMTP_SSL('smtp.gmail.com', port, context=context) as smtp:
         smtp.login('eyeharshraj@gmail.com', password)
         smtp.sendmail('eyeharshraj@gmail.com', "k.s.pranav.2004@gmail.com", em.as_bytes())
-def emailExportAll():
-    obj = homemodel.BookingDetails.objects.filter(verified=True).all()
+
+    return HttpResponse("")
+
+def emailExportAll(request):
+    obj = homemodel.BookingDetails.objects.filter(verified=True).order_by("pickupdate").all()
     port = 465
     password = 'ffdy tmgh xput wujz'
     # Generate the CSV file
@@ -141,7 +149,7 @@ def emailExportAll():
     for row in obj:
         csv_data.append([row.name, row.phone, row.email, row.pickupdate,
                          row.pickuptime, row.pickup, row.dropoff,
-                         row.twoway, row.ride, row.efare])
+                         row.twoway, row.ride.name, row.efare])
 
     csv_file_path = "mydata.csv"
     with open(csv_file_path, "w", newline='') as csv_file:
@@ -168,3 +176,5 @@ def emailExportAll():
     with smtplib.SMTP_SSL('smtp.gmail.com', port, context=context) as smtp:
         smtp.login('eyeharshraj@gmail.com', password)
         smtp.sendmail('eyeharshraj@gmail.com', "k.s.pranav.2004@gmail.com", em.as_bytes())
+
+    return HttpResponse("")

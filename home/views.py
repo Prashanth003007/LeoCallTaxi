@@ -196,7 +196,6 @@ def verifiedEmail(bookedObj : models.BookingDetails):
 def verify(request):
     if request.method == "POST":
         obj = models.BookingDetails.objects.filter(id=request.session["id"]).first()
-        print(type(obj.otp),type(request.POST.get("OTP")))
         if request.POST.get("OTP") == str(obj.otp):
             obj.verified = True
             obj.save()

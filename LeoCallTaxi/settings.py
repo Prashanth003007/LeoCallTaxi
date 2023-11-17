@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-+%4g%is)ul3=g3wrii7%anoeul#gca6u(@v1i!!@wuj^i*mm)h
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-#ALLOWED_HOSTS = ["leocalltaxi.com","193.203.162.224"]
+# ALLOWED_HOSTS = ["leocalltaxi.com","193.203.162.224"]
 
 # Application definition
 
@@ -77,7 +77,11 @@ WSGI_APPLICATION = 'LeoCallTaxi.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3' #'leocalltaxi_database'
+        # 'USER': 'root',
+        # 'PASSWORD': '2004',
+        # 'HOST': 'localhost',
+        # 'PORT': '3306'
     }
 }
 
@@ -114,10 +118,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS =[
-    os.path.join(BASE_DIR,"static")
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static")
 ]
-STATIC_ROOT = os.path.join(BASE_DIR,"assets")
+STATIC_ROOT = os.path.join(BASE_DIR, "assets")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

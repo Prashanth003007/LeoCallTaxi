@@ -23,7 +23,7 @@
             }
         }
         .wee_exp{
-            margin-left: 560%;
+            margin-left:360%;
             height: 50%;
     padding:5%;
     background-color: #df9a0e;
@@ -63,8 +63,8 @@
 
     <div class="table-container">
     <div class ='export'>
-                        <button class="wee_exp">Weekly Export</button>
-                        <button class="who_exp">Whole Export</button>
+                        <button class="wee_exp" onclick="wkexp();">Weekly Export</button>
+                        <button class="who_exp" onclick="whexp();">Whole Export</button>
     </div>
         <table>
             <thead>
@@ -98,5 +98,29 @@
         </table>
     </div>
     <script src="{% static 'js/script.js' %}"></script>
+<script>
+    function wkexp() {
+        fetch('week_export', {
+                          method: 'POST',
+                          body: JSON.stringify({}),
+                          headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRFToken': getCookie('csrftoken') // Ensure you have a function to get the CSRF token
+                          },
+                    }
+        )
+    }
+    function whexp() {
+        fetch('whole_export', {
+                          method: 'POST',
+                          body: JSON.stringify({}),
+                          headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRFToken': getCookie('csrftoken') // Ensure you have a function to get the CSRF token
+                          },
+                    }
+        )
+    }
+</script>
 </body>
 </html>
