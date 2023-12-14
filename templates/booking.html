@@ -468,6 +468,7 @@ font-size: 1.7rem;
           <label class="formtext">TWO WAYS&nbsp&nbsp&nbsp</label>
           <input type="checkbox" name = "twoways" id = "twoways" style ="width: 10%">
           <label class="inp-txt1"  id= 'result'>Distance</label>
+          <p id="distanceError" class="error" style="color: white"></p>
       </div>
       <p><br></p>
       <div class="inp-contain">
@@ -523,6 +524,7 @@ font-size: 1.7rem;
             var type = document.getElementById("vtype").value;
             var twoway = document.getElementById("twoways").checked;
 
+
             var service = new google.maps.DistanceMatrixService();
             service.getDistanceMatrix({
                 origins: [origin],
@@ -547,6 +549,12 @@ font-size: 1.7rem;
                         document.getElementById("estimatep").textContent = "ESTIMATED PRICE: " + data.cost;
                         document.getElementById("estimatet").textContent = "ESTIMATED TIME: " + data.time;
                         document.getElementById('result').textContent = "Distance: " + data.distance + "Km";
+
+                        if(data.distance >= 20)
+                        {
+                             alert('Page will be reloaded since "Distance for in-station must be less than 20km"');
+                             window.location.reload();
+                        }
                     })
                     .catch(error => {
                         console.error('Error calculating distance:', error);
@@ -554,6 +562,7 @@ font-size: 1.7rem;
                 } else {
                     document.getElementById('result').textContent = "Error calculating distance.";
                 }
+
             });
         }
 
