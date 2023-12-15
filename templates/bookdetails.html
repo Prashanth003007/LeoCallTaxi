@@ -84,7 +84,7 @@
             <tbody>
                 {% for detail in bookingdetails %}
                     <tr >
-                    <td >{{ forloop.counter }}</td>
+                    <td >{{ forloop.counter }}</td> // "<td>" + res.getString("colna") + "</td> "
                     <td >{{ detail.name }}</td>
                     <td >{{ detail.pickupdate }}</td>
                     <td >{{ detail.pickuptime }}</td>

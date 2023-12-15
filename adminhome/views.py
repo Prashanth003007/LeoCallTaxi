@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User, auth
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from django.utils.datetime_safe import date , datetime
+from django.utils.datetime_safe import date, datetime
 from django.utils import timezone
 from django.views.decorators.cache import cache_control, never_cache
 from django.views.decorators.csrf import csrf_protect, csrf_exempt, requires_csrf_token
@@ -73,7 +73,8 @@ def logoutpage(request):
     if not request.user.is_authenticated or request.session.get('page_token') is None:
         redirect("adminlogin")
     if auth.get_user(request).is_authenticated:
-        return render(request, "logout.html")
+        auth.logout(request)
+        return render(request, "adminlogin.html")
     else:
         return redirect("adminlogin")
 
@@ -93,14 +94,15 @@ def bookingdetails(request):
     if not request.user.is_authenticated or request.session.get('page_token') is None:
         # Handle unauthorized access or redirection here
         return redirect('adminlogin')
-    obj = homemodel.BookingDetails.objects.filter(verified=True,pickupdate__gte=timezone.now()).all()
-                                                  #pickupdate__lt=(timezone.now() + timezone.timedelta(days=7))).all()
+    obj = homemodel.BookingDetails.objects.filter(verified=True, pickupdate__gte=timezone.now(),
+                                                  pickupdate__lt=(timezone.now() + timezone.timedelta(days=7)))
     return render(request, "bookdetails.html", {"bookingdetails": obj})
+
 
 def emailExportWeek(request):
     obj = (homemodel.BookingDetails.objects.filter(verified=True,
-                                                  pickupdate__gte=timezone.now(),
-                                                  pickupdate__lt=(timezone.now() + timezone.timedelta(days=7)))
+                                                   pickupdate__gte=timezone.now(),
+                                                   pickupdate__lt=(timezone.now() + timezone.timedelta(days=7)))
            .order_by("pickupdate").all())
     port = 465
     password = 'ffdy tmgh xput wujz'
@@ -118,8 +120,6 @@ def emailExportWeek(request):
                              'PickupTime', 'From', 'To', 'TwoWay', "Ride", "Est"])
         csv_writer.writerows(csv_data)
 
-    # ... (The rest of your code)
-
     # Attach the CSV file to the email
     em = EmailMessage()
     em['From'] = 'eyeharshraj@gmail.com'
@@ -129,7 +129,7 @@ def emailExportWeek(request):
 
     # Attach the CSV file
     with open(csv_file_path, 'rb') as csv_file:
-        em.add_attachment(csv_file.read(), filename="mydata.csv" , maintype="application", subtype="csv")
+        em.add_attachment(csv_file.read(), filename="mydata.csv", maintype="application", subtype="csv")
 
     context = ssl.create_default_context()
 
@@ -138,6 +138,7 @@ def emailExportWeek(request):
         smtp.sendmail('eyeharshraj@gmail.com', "k.s.pranav.2004@gmail.com", em.as_bytes())
 
     return HttpResponse("")
+
 
 def emailExportAll(request):
     obj = homemodel.BookingDetails.objects.filter(verified=True).order_by("pickupdate").all()
@@ -168,7 +169,7 @@ def emailExportAll(request):
 
     # Attach the CSV file
     with open(csv_file_path, 'rb') as csv_file:
-        em.add_attachment(csv_file.read(), filename="mydata.csv" , maintype="application", subtype="csv")
+        em.add_attachment(csv_file.read(), filename="mydata.csv", maintype="application", subtype="csv")
 
     context = ssl.create_default_context()
 

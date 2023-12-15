@@ -22,7 +22,7 @@ def userHome(request):
 
 
 def book(request):
-    return render(request, "booking.html",{"cars":models.Cars.objects.all()})
+    return render(request, "booking.html",{"cars":models.Cars.objects.filter(code__regex="^[^M]+").all()})
 
 
 def book2(request):
@@ -69,7 +69,7 @@ def send_joinreq(joiner: models.JoinDetail):
     context = ssl.create_default_context()
 
     with smtplib.SMTP_SSL('smtp.gmail.com', port, context=context) as smtp:
-        smtp.login('eleocalltaxi@gmail.com', password)
+        smtp.login('leocalltaxi@gmail.com', password)
         smtp.sendmail('leocalltaxi@gmail.com', reciver_email, em.as_string())
 
 
@@ -91,20 +91,23 @@ def calculate_distance(origin, destination):
 def calculate_fare(distance,type,twoway):
     cost = 0
     car = models.Cars.objects.filter(code=type.code).first()
+    tempdist = distance
     if distance < 20:
-        distance -= car.base_d_i
+        if twoway :
+            tempdist *=2
+            distance *=2
+        tempdist -= car.base_d_i
         cost += car.basefare_i
-        if distance > 0:
-            cost += car.add_charge_i * distance
+        if tempdist > 0:
+            cost += car.add_charge_i * tempdist
     else:
-        distance -= car.base_d_o
+        tempdist *= 2
+        tempdist -= car.base_d_o
         cost += car.basefare_o
-        if distance > 0:
-            cost += car.add_charge_o * distance
-    if twoway or (twoway is None):
-        return cost * 2
-    else:
-        return cost
+        if tempdist > 0:
+            cost += car.add_charge_o * tempdist
+
+    return round(cost,2)
 
 def booked(request):
     if request.method == "POST":
@@ -132,6 +135,31 @@ def booked(request):
     else:
         return redirect("/")
 
+def booked2(request):
+    if request.method == "POST":
+
+        booking = models.BookingDetails()
+        # Print the values of all the form fields
+        booking.name = request.POST.get("name")
+        booking.phone = request.POST.get("phoneno")
+        booking.pickupdate = request.POST.get("date")
+        booking.pickuptime = request.POST.get("time")
+        booking.pickup = request.POST.get("pickup")
+        booking.dropoff = request.POST.get("dropoff")
+        booking.ride = models.Cars.objects.filter(code=request.POST.get("chooseride")).first()
+        booking.email = request.POST.get("email")
+        booking.twoway = True
+        booking.efare = calculate_fare(int(float("".join((calculate_distance(booking.pickup,booking.dropoff)[:-3]).split(",")))),
+                                       booking.ride,booking.twoway)
+
+        booking.otp = send_otp(booking.email)
+        booking.save()
+        print(booking.id)
+        request.session["id"] = booking.id
+        request.session["email"] = booking.email
+        return render(request, "otpview.html")
+    else:
+        return redirect("/")
 
 # codes to autocomplete place names and generate pincode for given place name and to calculate distance between two pincodes
 # .....................................................................
@@ -221,24 +249,29 @@ def calculate_price(request):
         if not car:
             return JsonResponse({"error": "Car not found"})
 
-        time = int(distance//30)
+        if (distance >= 30):
+            time = int(distance // 30)
+        else:
+            time = int(distance // 10) or 1
         cost = 0
 
         if distance < 20:
+            if twoway or ((twoway is None) and (distance < 20)):
+                tempdist *= 2
+                time *= 2
+                distance *= 2
             tempdist -= car.base_d_i
             cost += car.basefare_i
             if tempdist > 0:
                 cost += car.add_charge_i * tempdist
         else:
+            tempdist *= 2
+            time *= 2
             tempdist -= car.base_d_o
             cost += car.basefare_o
-            if distance > 0:
+            if tempdist > 0:
                 cost += car.add_charge_o * tempdist
 
-        if twoway or (twoway is None):
-            return JsonResponse({"cost": cost * 2, "time": time * 2, "distance": distance * 2})
-        else:
-            return JsonResponse({"cost": cost , "time": time, "distance": distance })
+        return JsonResponse({"cost": round(cost, 2), "time": time, "distance": distance})
 
     return JsonResponse({"error": "Invalid request method"})
-
