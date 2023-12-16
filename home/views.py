@@ -61,7 +61,7 @@ def send_joinreq(joiner: models.JoinDetail):
     body = f"\t*New Join Request* \n\tFrom {joiner.name}\n\tContact :\n\t\tEmail : {joiner.email}\n\t\tPhone:{joiner.phone}"+\
            f"\n\t\tRegistration no : {joiner.regno}\n\t\tModel : {joiner.modeltype}"
     em = EmailMessage()
-    em['From'] = 'eyeharshraj@gmail.com'
+    em['From'] = 'leocalltaxi@gmail.com'
     em['To'] = reciver_email
     em['Subject'] = subject
     em.set_content(body)
@@ -202,7 +202,7 @@ def join(request):
 
 def verifiedEmail(bookedObj : models.BookingDetails):
     port = 465
-    password = 'ffdy tmgh xput wujz'
+    password = 'tyyi yxng hkxp yuwu'
     subject = "Leo-Call-Taxi Booking Confirmed"
     body = f"Thank you {bookedObj.name}! \nfor choosing Leo Call Taxi your Ride is Confirmed\n"+\
         f"Your Booking Details Are : \n\n\t Pickup Date : {bookedObj.pickupdate}"+\
@@ -210,7 +210,7 @@ def verifiedEmail(bookedObj : models.BookingDetails):
         f"\n\tRide : {models.Cars.objects.filter(code = bookedObj.ride.code).first().name}"+\
         f"\n\tEstimated Fare : {bookedObj.efare}"
     em = EmailMessage()
-    em['From'] = 'eyeharshraj@gmail.com'
+    em['From'] = 'leocalltaxi@gmail.com'
     em['To'] = bookedObj.email
     em['Subject'] = subject
     em.set_content(body)
@@ -218,8 +218,8 @@ def verifiedEmail(bookedObj : models.BookingDetails):
     context = ssl.create_default_context()
 
     with smtplib.SMTP_SSL('smtp.gmail.com', port, context=context) as smtp:
-        smtp.login('eyeharshraj@gmail.com', password)
-        smtp.sendmail('eyeharshraj@gmail.com', bookedObj.email, em.as_string())
+        smtp.login('leocalltaxi@gmail.com', password)
+        smtp.sendmail('leocalltaxi@gmail.com', bookedObj.email, em.as_string())
 
 def verify(request):
     if request.method == "POST":

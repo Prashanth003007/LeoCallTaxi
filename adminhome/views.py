@@ -28,11 +28,11 @@ def contactdev(request):
     if request.method == "POST":
         reciver_email = 'codecraftersog@gmail.com'
         port = 465
-        password = 'ffdy tmgh xput wujz'
+        password = 'tyyi yxng hkxp yuwu'
         subject = "Leo-Call-Taxi OTP"
         body = f"Dev Support Request from : LeoCallTaxi \n\n {request.POST.get('body')}"
         em = EmailMessage()
-        em['From'] = 'eyeharshraj@gmail.com'
+        em['From'] = 'leocalltaxi@gmail.com'
         em['To'] = reciver_email
         em['Subject'] = subject
         em.set_content(body)
@@ -40,8 +40,8 @@ def contactdev(request):
         context = ssl.create_default_context()
 
         with smtplib.SMTP_SSL('smtp.gmail.com', port, context=context) as smtp:
-            smtp.login('eyeharshraj@gmail.com', password)
-            smtp.sendmail('eyeharshraj@gmail.com', reciver_email, em.as_string())
+            smtp.login('leocalltaxi@gmail.com', password)
+            smtp.sendmail('leocalltaxi@gmail.com', reciver_email, em.as_string())
 
         return render(request, "admin_home.html")
     else:
@@ -105,7 +105,7 @@ def emailExportWeek(request):
                                                    pickupdate__lt=(timezone.now() + timezone.timedelta(days=7)))
            .order_by("pickupdate").all())
     port = 465
-    password = 'ffdy tmgh xput wujz'
+    password = 'tyyi yxng hkxp yuwu'
     # Generate the CSV file
     csv_data = []
     for row in obj:
@@ -122,8 +122,8 @@ def emailExportWeek(request):
 
     # Attach the CSV file to the email
     em = EmailMessage()
-    em['From'] = 'eyeharshraj@gmail.com'
-    em['To'] = "k.s.pranav.2004@gmail.com"
+    em['From'] = 'leocalltaxi@gmail.com'
+    em['To'] = "leocalltaxi@gmail.com"
     em['Subject'] = "Exported Data"
     em.set_content("Data export attached", subtype="plain")
 
@@ -134,8 +134,8 @@ def emailExportWeek(request):
     context = ssl.create_default_context()
 
     with smtplib.SMTP_SSL('smtp.gmail.com', port, context=context) as smtp:
-        smtp.login('eyeharshraj@gmail.com', password)
-        smtp.sendmail('eyeharshraj@gmail.com', "k.s.pranav.2004@gmail.com", em.as_bytes())
+        smtp.login('leocalltaxi@gmail.com', password)
+        smtp.sendmail('leocalltaxi@gmail.com', "leocalltaxi@gmail.com", em.as_bytes())
 
     return HttpResponse("")
 
@@ -162,8 +162,8 @@ def emailExportAll(request):
 
     # Attach the CSV file to the email
     em = EmailMessage()
-    em['From'] = 'eyeharshraj@gmail.com'
-    em['To'] = "k.s.pranav.2004@gmail.com"
+    em['From'] = 'leocalltaxi@gmail.com'
+    em['To'] = "leocalltaxi@gmail.com"
     em['Subject'] = "Exported Data"
     em.set_content("Data export attached", subtype="plain")
 
@@ -174,7 +174,7 @@ def emailExportAll(request):
     context = ssl.create_default_context()
 
     with smtplib.SMTP_SSL('smtp.gmail.com', port, context=context) as smtp:
-        smtp.login('eyeharshraj@gmail.com', password)
-        smtp.sendmail('eyeharshraj@gmail.com', "k.s.pranav.2004@gmail.com", em.as_bytes())
+        smtp.login('leocalltaxi@gmail.com', password)
+        smtp.sendmail('leocalltaxi@gmail.com', "leocalltaxi@gmail.com", em.as_bytes())
 
     return HttpResponse("")
